@@ -52,21 +52,38 @@ export default function RequestInfoPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Request Information
           </h1>
-          <p className="text-lg text-gray-600">
-            Get detailed information about this property
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Get detailed information about 7152 Royal Melbourne Drive, Silverstone Ranch. 
+            We&apos;ll send you property details, neighborhood information, and market insights.
           </p>
         </div>
 
+        {/* Property Quick Info */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+            <div className="text-2xl font-bold text-blue-600 mb-2">7152</div>
+            <div className="text-sm text-gray-600">Royal Melbourne Drive</div>
+          </div>
+          <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+            <div className="text-2xl font-bold text-blue-600 mb-2">Las Vegas</div>
+            <div className="text-sm text-gray-600">NV 89131</div>
+          </div>
+          <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+            <div className="text-2xl font-bold text-blue-600 mb-2">Silverstone</div>
+            <div className="text-sm text-gray-600">Ranch Community</div>
+          </div>
+        </div>
+
         {isSuccess ? (
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-4">
+          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 text-center">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100 mb-6">
               <svg
-                className="h-8 w-8 text-green-600"
+                className="h-10 w-10 text-green-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -79,19 +96,43 @@ export default function RequestInfoPage() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
-            <p className="text-gray-600 mb-6">
-              We&apos;ve received your request and will get back to you soon.
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Thank You!</h2>
+            <p className="text-lg text-gray-600 mb-2">
+              We&apos;ve received your information request.
             </p>
-            <button
-              onClick={() => setIsSuccess(false)}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Submit Another Request
-            </button>
+            <p className="text-gray-600 mb-8">
+              Dr. Jan Duffy will send you detailed property information, including photos, 
+              features, neighborhood details, and market insights within 24 hours.
+            </p>
+            <div className="space-y-3">
+              <button
+                onClick={() => setIsSuccess(false)}
+                className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+              >
+                Submit Another Request
+              </button>
+              <div>
+                <a
+                  href="/"
+                  className="inline-block text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  Return to Home
+                </a>
+              </div>
+            </div>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                Get Property Information
+              </h2>
+              <p className="text-gray-600">
+                Fill out the form below and we&apos;ll send you comprehensive information 
+                about this Silverstone Ranch property, including detailed features, 
+                neighborhood insights, and current market data.
+              </p>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label
@@ -155,7 +196,8 @@ export default function RequestInfoPage() {
                   {...register('message')}
                   id="message"
                   rows={6}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="What information would you like to know about this property? (e.g., pricing, features, neighborhood, schools, etc.)"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
@@ -165,11 +207,87 @@ export default function RequestInfoPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg hover:shadow-xl"
+                className="w-full px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
-                {isSubmitting ? 'Submitting...' : 'Send Request'}
+                {isSubmitting ? 'Submitting...' : 'Send Information Request'}
               </button>
             </form>
+
+            {/* What You'll Receive */}
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h3 className="font-semibold text-gray-900 mb-4">
+                What Information You&apos;ll Receive:
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    <span>Complete property details and specifications</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    <span>High-resolution property photos</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    <span>Neighborhood and community information</span>
+                  </li>
+                </ul>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    <span>Local school district information</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    <span>Market trends and comparable sales</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">✓</span>
+                    <span>Financing options and pre-approval assistance</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Agent Contact */}
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <div className="bg-blue-50 rounded-lg p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gray-200 rounded-full overflow-hidden">
+                      <img
+                        src="/images/agent/dr-jan-duffy.jpg"
+                        alt="Dr. Jan Duffy"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Questions? Contact Dr. Jan Duffy
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Top 1% Las Vegas REALTOR® specializing in Silverstone Ranch
+                    </p>
+                    <div className="flex flex-wrap gap-4 text-sm">
+                      <a
+                        href="tel:7025001530"
+                        className="text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        (702) 500-1530
+                      </a>
+                      <a
+                        href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                        className="text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        DrDuffySells@SilverStoneRanchHomes.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
