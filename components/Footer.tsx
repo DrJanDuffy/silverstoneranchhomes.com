@@ -66,7 +66,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#agent" className="hover:text-white transition-colors">
+                <a href="/agent" className="hover:text-white transition-colors">
                   Agent
                 </a>
               </li>
@@ -78,27 +78,27 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Property</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/#photos" className="hover:text-white transition-colors">
+                <a href="/photos" className="hover:text-white transition-colors">
                   Photos
                 </a>
               </li>
               <li>
-                <a href="/#description" className="hover:text-white transition-colors">
+                <a href="/description" className="hover:text-white transition-colors">
                   Description
                 </a>
               </li>
               <li>
-                <a href="/#price-features" className="hover:text-white transition-colors">
+                <a href="/price-features" className="hover:text-white transition-colors">
                   Price & Features
                 </a>
               </li>
               <li>
-                <a href="/#amenities" className="hover:text-white transition-colors">
+                <a href="/amenities" className="hover:text-white transition-colors">
                   Amenities
                 </a>
               </li>
               <li>
-                <a href="/#map" className="hover:text-white transition-colors">
+                <a href="/map" className="hover:text-white transition-colors">
                   Map
                 </a>
               </li>

@@ -10,15 +10,15 @@ const navItems = [
   { label: 'Home Valuation', href: '/home-valuation' },
   { label: 'Request Info', href: '/request-info' },
   { label: 'Homes For Sale', href: '/homes-for-sale' },
-  { label: 'Photos', href: '/#photos' },
-  { label: 'Description', href: '/#description' },
-  { label: 'Price & Features', href: '/#price-features' },
-  { label: 'Amenities', href: '/#amenities' },
-  { label: 'Map', href: '/#map' },
-  { label: 'Video', href: '/#video' },
-  { label: 'Area Info', href: '/#area-info' },
-  { label: 'Area Insight', href: '/#area-insight' },
-  { label: 'Agent', href: '/#agent' },
+  { label: 'Photos', href: '/photos' },
+  { label: 'Description', href: '/description' },
+  { label: 'Price & Features', href: '/price-features' },
+  { label: 'Amenities', href: '/amenities' },
+  { label: 'Map', href: '/map' },
+  { label: 'Video', href: '/video' },
+  { label: 'Area Info', href: '/area-info' },
+  { label: 'Area Insight', href: '/area-insight' },
+  { label: 'Agent', href: '/agent' },
   { label: 'Book Your Tour Now', href: '/book-tour' },
 ]
 
@@ -26,13 +26,6 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const handleNavClick = (href: string) => {
-    if (href.startsWith('/#')) {
-      const id = href.substring(2)
-      const element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }
     setMobileMenuOpen(false)
   }
 
@@ -53,12 +46,6 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={(e) => {
-                  if (item.href.startsWith('/#')) {
-                    e.preventDefault()
-                    handleNavClick(item.href)
-                  }
-                }}
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all"
               >
                 {item.label}
@@ -101,14 +88,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={(e) => {
-                  if (item.href.startsWith('/#')) {
-                    e.preventDefault()
-                    handleNavClick(item.href)
-                  } else {
-                    setMobileMenuOpen(false)
-                  }
-                }}
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
               >
                 {item.label}
