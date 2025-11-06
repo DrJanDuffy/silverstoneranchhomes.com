@@ -1,0 +1,122 @@
+import Link from 'next/link'
+
+export default function VideoPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            Virtual Tour & Video
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Experience 7152 Royal Melbourne Drive through our comprehensive virtual tour. 
+            Get a detailed view of every room and space from the comfort of your home.
+          </p>
+        </div>
+
+        {/* Video Section */}
+        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Property Virtual Tour</h2>
+          <div className="bg-gray-100 rounded-lg overflow-hidden aspect-video mb-8 flex items-center justify-center">
+            <div className="text-center p-8">
+              <svg
+                className="mx-auto h-16 w-16 text-gray-400 mb-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <p className="text-gray-600 mb-4">
+                Virtual tour video will be embedded here
+              </p>
+              <p className="text-sm text-gray-500">
+                Contact us to schedule a live virtual tour
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-700 mb-6 text-lg">
+              Experience this beautiful property through our virtual tour. Get a comprehensive 
+              view of every room and space from the comfort of your home. Our virtual tour 
+              allows you to explore the property at your own pace, viewing all the details 
+              that make this Silverstone Ranch home special.
+            </p>
+            <Link
+              href="/book-tour"
+              className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold"
+            >
+              Schedule a Live Virtual Tour
+            </Link>
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
+            Why Take a Virtual Tour?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="text-4xl mb-4">🏠</div>
+              <h3 className="font-semibold text-gray-900 mb-2">Explore at Your Pace</h3>
+              <p className="text-sm text-gray-600">
+                Take your time viewing each room and detail without feeling rushed
+              </p>
+            </div>
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="text-4xl mb-4">🌍</div>
+              <h3 className="font-semibold text-gray-900 mb-2">View from Anywhere</h3>
+              <p className="text-sm text-gray-600">
+                Experience the property from the comfort of your home, no matter where you are
+              </p>
+            </div>
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="text-4xl mb-4">⏰</div>
+              <h3 className="font-semibold text-gray-900 mb-2">Available 24/7</h3>
+              <p className="text-sm text-gray-600">
+                Access the virtual tour anytime, day or night, at your convenience
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
+          <h2 className="text-3xl font-bold mb-4">Ready for an In-Person Tour?</h2>
+          <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
+            After viewing the virtual tour, schedule a private in-person showing to experience 
+            this stunning Silverstone Ranch home firsthand.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/book-tour"
+              className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold"
+            >
+              Book an In-Person Tour
+            </Link>
+            <Link
+              href="/request-info"
+              className="px-8 py-3 bg-blue-500 text-white border-2 border-white rounded-lg hover:bg-blue-400 transition-all font-semibold"
+            >
+              Request More Information
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
