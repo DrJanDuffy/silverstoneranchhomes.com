@@ -1,133 +1,222 @@
-import { Phone, Mail, ExternalLink } from 'lucide-react'
+import Link from 'next/link'
+import { Phone, Mail, ExternalLink, Home, Calculator, Building2, Image, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info } from 'lucide-react'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <a
-                  href="tel:7025001530"
-                  className="hover:text-white transition-colors"
-                >
-                  (702) 500-1530
-                </a>
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-gray-300">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {/* Brand & Contact */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2 mb-6 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Home className="h-6 w-6 text-white" />
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <a
-                  href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
-                  className="hover:text-white transition-colors"
-                >
-                  DrDuffySells@SilverStoneRanchHomes.com
-                </a>
+              <div>
+                <div className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  Silverstone Ranch
+                </div>
+                <div className="text-xs text-gray-400">Homes</div>
               </div>
-              <div className="flex items-center gap-2">
-                <ExternalLink className="h-4 w-4" />
-                <a
-                  href="https://letmehelpyourealtor.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  LetMeHelpYouRealtor.com
-                </a>
-              </div>
+            </Link>
+            <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+              Premier real estate services in Las Vegas, NV. Specializing in Silverstone Ranch luxury homes.
+            </p>
+            <div className="space-y-3">
+              <a
+                href="tel:7025001530"
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">Phone</div>
+                  <div className="font-semibold">(702) 500-1530</div>
+                </div>
+              </a>
+              <a
+                href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">Email</div>
+                  <div className="font-semibold text-sm break-all">DrDuffySells@SilverStoneRanchHomes.com</div>
+                </div>
+              </a>
+              <a
+                href="https://letmehelpyourealtor.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  <ExternalLink className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">Website</div>
+                  <div className="font-semibold text-sm">LetMeHelpYouRealtor.com</div>
+                </div>
+              </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-blue-400" />
+              Services
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <a href="/" className="hover:text-white transition-colors">
-                  Home
-                </a>
+                <Link href="/home-valuation" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Calculator className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Home Valuation</span>
+                </Link>
               </li>
               <li>
-                <a href="/home-valuation" className="hover:text-white transition-colors">
-                  Home Valuation
-                </a>
+                <Link href="/request-info" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Info className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Request Info</span>
+                </Link>
               </li>
               <li>
-                <a href="/request-info" className="hover:text-white transition-colors">
-                  Request Info
-                </a>
+                <Link href="/book-tour" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Calendar className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Book Tour</span>
+                </Link>
               </li>
               <li>
-                <a href="/book-tour" className="hover:text-white transition-colors">
-                  Book Tour
-                </a>
+                <Link href="/homes-for-sale" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Building2 className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Homes For Sale</span>
+                </Link>
               </li>
               <li>
-                <a href="/agent" className="hover:text-white transition-colors">
-                  Agent
-                </a>
+                <Link href="/agent" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <User className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Meet the Agent</span>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Property Info */}
+          {/* Property */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Property</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <Image className="h-5 w-5 text-blue-400" />
+              Property
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <a href="/photos" className="hover:text-white transition-colors">
-                  Photos
-                </a>
+                <Link href="/photos" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Image className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Photos</span>
+                </Link>
               </li>
               <li>
-                <a href="/description" className="hover:text-white transition-colors">
-                  Description
-                </a>
+                <Link href="/description" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <FileText className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Description</span>
+                </Link>
               </li>
               <li>
-                <a href="/price-features" className="hover:text-white transition-colors">
-                  Price & Features
-                </a>
+                <Link href="/price-features" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <DollarSign className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Price & Features</span>
+                </Link>
               </li>
               <li>
-                <a href="/amenities" className="hover:text-white transition-colors">
-                  Amenities
-                </a>
+                <Link href="/amenities" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Sparkles className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Amenities</span>
+                </Link>
               </li>
               <li>
-                <a href="/map" className="hover:text-white transition-colors">
-                  Map
-                </a>
+                <Link href="/map" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <MapPin className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Map</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/video" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Video className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Video</span>
+                </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Area & Legal */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-blue-400" />
+              Area & Info
+            </h3>
+            <ul className="space-y-3 mb-8">
+              <li>
+                <Link href="/area-info" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Info className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Area Info</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/area-insight" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <FileText className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Area Insight</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <Mail className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Contact</span>
+                </Link>
+              </li>
+            </ul>
+            <div className="pt-6 border-t border-gray-800">
+              <h4 className="text-white font-semibold text-sm mb-4">Legal</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/sitemap.xml" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    Sitemap
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
-              <p className="mb-2">
-                © {new Date().getFullYear()} Silverstone Ranch Homes. All rights reserved.
+              <p className="text-sm text-gray-400 mb-1">
+                © {currentYear} Silverstone Ranch Homes. All rights reserved.
               </p>
-              <p className="text-gray-500">
+              <p className="text-xs text-gray-500">
                 Dr. Jan Duffy REALTOR® | License: S.0197614.LLC
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 text-gray-400">
-              <a href="/privacy" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <span>•</span>
-              <a href="/terms" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <span>•</span>
-              <a href="/sitemap.xml" className="hover:text-white transition-colors">
-                Sitemap
-              </a>
+            <div className="flex items-center gap-6 text-sm">
+              <div className="flex items-center gap-2 text-gray-400">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span>Available 24/7</span>
+              </div>
             </div>
           </div>
         </div>
