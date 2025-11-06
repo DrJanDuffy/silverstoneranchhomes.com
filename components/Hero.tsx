@@ -50,12 +50,12 @@ export default function Hero() {
             </div>
 
             <div className="space-y-4">
-              <button
-                onClick={() => setShowContactModal(true)}
-                className="w-full lg:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              <a
+                href="/home-valuation"
+                className="inline-block w-full lg:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
               >
                 Discover Your Home&apos;s Value in 60 Seconds & Sell for 15% Above Market Average
-              </button>
+              </a>
               
               <button
                 onClick={() => setShowContactModal(true)}
