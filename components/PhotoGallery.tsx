@@ -125,22 +125,24 @@ export default function PhotoGallery() {
         )}
 
         {/* Photo Grid Preview */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
-          {propertyPhotos.slice(0, 8).map((photo, index) => (
-            <div
-              key={index}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-              onClick={() => setShowGallery(true)}
-            >
-              <img
-                src={photo.original}
-                alt={photo.description || `Property photo ${index + 1}`}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
+        {!showGallery && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
+            {propertyPhotos.slice(0, 8).map((photo, index) => (
+              <div
+                key={index}
+                className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity bg-gray-200"
+                onClick={() => setShowGallery(true)}
+              >
+                <img
+                  src={photo.original}
+                  alt={photo.description || `Property photo ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

@@ -108,7 +108,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   )

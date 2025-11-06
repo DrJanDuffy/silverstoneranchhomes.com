@@ -182,6 +182,11 @@
   }
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Stack mobile deploy buttons vertically on very small screens */
 @media (max-width: 360px) {
   .mobile-deploy-buttons {

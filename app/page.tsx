@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero'
+import HomesForSale from '@/components/HomesForSale'
 import PhotoGallery from '@/components/PhotoGallery'
 import PropertyDescription from '@/components/PropertyDescription'
 import PriceFeatures from '@/components/PriceFeatures'
@@ -8,11 +9,13 @@ import VideoSection from '@/components/VideoSection'
 import AreaInfo from '@/components/AreaInfo'
 import MarketInsights from '@/components/MarketInsights'
 import AgentProfile from '@/components/AgentProfile'
+import Footer from '@/components/Footer'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <HomesForSale />
       <PhotoGallery />
       <PropertyDescription />
       <PriceFeatures />
@@ -22,6 +25,7 @@ export default function HomePage() {
       <AreaInfo />
       <MarketInsights />
       <AgentProfile />
+      <Footer />
     </>
   )
 }
