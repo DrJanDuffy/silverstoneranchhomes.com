@@ -266,7 +266,5 @@ function MobileMenu({
             </a>
           </nav>
         </div>
-      )}
-    </header>
   )
 }
