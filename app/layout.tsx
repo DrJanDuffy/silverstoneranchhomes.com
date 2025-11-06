@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: '7152 Royal Melbourne Drive | Silverstone Ranch Homes | Las Vegas, NV',
   description:
     'Get Top Dollar for Your Silverstone Ranch North Las Vegas Home – Fast. Discover Your Home\'s Value in 60 Seconds & Sell for 15% Above Market Average. Contact Dr. Jan Duffy REALTOR® at (702) 500-1530',
-  authors: [{ name: 'Dr. Jan Duffy', email: 'DrDuffySells@SilverStoneRanchHomes.com' }],
+  authors: [{ name: 'Dr. Jan Duffy' }],
   keywords: [
     'Silverstone Ranch',
     'Las Vegas real estate',
