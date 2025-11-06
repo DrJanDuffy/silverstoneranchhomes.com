@@ -11,6 +11,7 @@ import MarketInsights from '@/components/MarketInsights'
 import AgentProfile from '@/components/AgentProfile'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
+import { VirtualOpenHouseButton } from '@/components/VirtualOpenHouseButton'
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
       <AreaInfo />
       <MarketInsights />
       <AgentProfile />
+      <VirtualOpenHouseButton />
       <Footer />
       <ScrollToTop />
     </>
