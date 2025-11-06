@@ -106,13 +106,30 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-sm">
-          <p className="mb-2">
-            © {new Date().getFullYear()} Silverstone Ranch Homes. All rights reserved.
-          </p>
-          <p className="text-gray-500">
-            Dr. Jan Duffy REALTOR® | License: S.0197614.LLC
-          </p>
+        <div className="border-t border-gray-800 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <div className="text-center md:text-left">
+              <p className="mb-2">
+                © {new Date().getFullYear()} Silverstone Ranch Homes. All rights reserved.
+              </p>
+              <p className="text-gray-500">
+                Dr. Jan Duffy REALTOR® | License: S.0197614.LLC
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-gray-400">
+              <a href="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <span>•</span>
+              <a href="/terms" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <span>•</span>
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">
+                Sitemap
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
