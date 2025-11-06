@@ -3,10 +3,26 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar, LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const navItems = [
+type NavItem = 
+  | {
+      label: string
+      href: string
+      icon: LucideIcon
+    }
+  | {
+      label: string
+      icon: LucideIcon
+      submenu: Array<{
+        label: string
+        href: string
+        icon: LucideIcon
+      }>
+    }
+
+const navItems: NavItem[] = [
   { label: 'Home', href: '/', icon: Home },
   { label: 'Home Valuation', href: '/home-valuation', icon: Calculator },
   { label: 'Request Info', href: '/request-info', icon: Info },
@@ -174,7 +190,7 @@ function MobileMenu({
   pathname 
 }: { 
   isOpen: boolean
-  navItems: typeof navItems
+  navItems: NavItem[]
   onClose: () => void
   pathname: string
 }) {
