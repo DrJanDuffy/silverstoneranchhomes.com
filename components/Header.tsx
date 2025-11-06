@@ -8,15 +8,8 @@ import { cn } from '@/lib/utils'
 
 const navItems = [
   { label: 'Home', href: '/', icon: Home },
-  { 
-    label: 'Services', 
-    icon: Calculator,
-    submenu: [
-      { label: 'Home Valuation', href: '/home-valuation', icon: Calculator },
-      { label: 'Request Info', href: '/request-info', icon: Info },
-      { label: 'Book Tour', href: '/book-tour', icon: Calendar },
-    ]
-  },
+  { label: 'Home Valuation', href: '/home-valuation', icon: Calculator },
+  { label: 'Request Info', href: '/request-info', icon: Info },
   { label: 'Homes For Sale', href: '/homes-for-sale', icon: Building2 },
   { 
     label: 'Property', 
@@ -39,6 +32,7 @@ const navItems = [
     ]
   },
   { label: 'Agent', href: '/agent', icon: User },
+  { label: 'Book Your Tour Now', href: '/book-tour', icon: Calendar },
 ]
 
 export default function Header() {
