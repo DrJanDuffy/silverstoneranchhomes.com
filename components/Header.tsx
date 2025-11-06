@@ -128,19 +128,22 @@ export default function Header() {
                 )
               }
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all",
-                    isActive(item.href) && "text-blue-600 bg-blue-50 font-semibold"
-                  )}
-                >
-                  <Icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              )
+              if ('href' in item) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all",
+                      isActive(item.href) && "text-blue-600 bg-blue-50 font-semibold"
+                    )}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                )
+              }
+              return null
             })}
           </nav>
 
@@ -258,20 +261,23 @@ function MobileMenu({
                 )
               }
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={onClose}
-                  className={cn(
-                    "flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg",
-                    isActive(item.href) && "bg-blue-50 text-blue-600 font-semibold"
-                  )}
-                >
-                  <Icon className="h-5 w-5" />
-                  {item.label}
-                </Link>
-              )
+              if ('href' in item) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={onClose}
+                    className={cn(
+                      "flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg",
+                      isActive(item.href) && "bg-blue-50 text-blue-600 font-semibold"
+                    )}
+                  >
+                    <Icon className="h-5 w-5" />
+                    {item.label}
+                  </Link>
+                )
+              }
+              return null
             })}
             <a
               href="tel:7025001530"
