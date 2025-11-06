@@ -163,28 +163,67 @@ export default function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white animate-slide-down">
-          <nav className="px-4 py-4 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto">
-            {navItems.map((item) => {
-              const Icon = item.icon
-              const hasSubmenu = 'submenu' in item
-              const [expanded, setExpanded] = useState(false)
+      <MobileMenu 
+        isOpen={mobileMenuOpen} 
+        navItems={navItems} 
+        onClose={() => setMobileMenuOpen(false)}
+        pathname={pathname}
+      />
+    </header>
+  )
+}
+
+function MobileMenu({ 
+  isOpen, 
+  navItems, 
+  onClose,
+  pathname 
+}: { 
+  isOpen: boolean
+  navItems: typeof navItems
+  onClose: () => void
+  pathname: string
+}) {
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
+
+  const toggleExpanded = (label: string) => {
+    setExpandedItems(prev => {
+      const next = new Set(prev)
+      if (next.has(label)) {
+        next.delete(label)
+      } else {
+        next.add(label)
+      }
+      return next
+    })
+  }
+
+  const isActive = (href: string) => pathname === href
+
+  if (!isOpen) return null
+
+  return (
+    <div className="lg:hidden border-t border-gray-200 bg-white animate-slide-down">
+      <nav className="px-4 py-4 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        {navItems.map((item) => {
+          const Icon = item.icon
+          const hasSubmenu = 'submenu' in item
+          const isExpanded = expandedItems.has(item.label)
 
               if (hasSubmenu) {
                 return (
                   <div key={item.label}>
                     <button
-                      onClick={() => setExpanded(!expanded)}
+                      onClick={() => toggleExpanded(item.label)}
                       className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
                     >
                       <div className="flex items-center gap-3">
                         <Icon className="h-5 w-5" />
                         {item.label}
                       </div>
-                      <ChevronDown className={cn("h-5 w-5 transition-transform", expanded && "rotate-180")} />
+                      <ChevronDown className={cn("h-5 w-5 transition-transform", isExpanded && "rotate-180")} />
                     </button>
-                    {expanded && (
+                    {isExpanded && (
                       <div className="ml-4 mt-1 space-y-1">
                         {item.submenu.map((subItem) => {
                           const SubIcon = subItem.icon
@@ -192,7 +231,7 @@ export default function Header() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              onClick={() => setMobileMenuOpen(false)}
+                              onClick={onClose}
                               className={cn(
                                 "flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg",
                                 isActive(subItem.href) && "bg-blue-50 text-blue-600 font-semibold"
@@ -213,7 +252,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={onClose}
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg",
                     isActive(item.href) && "bg-blue-50 text-blue-600 font-semibold"
