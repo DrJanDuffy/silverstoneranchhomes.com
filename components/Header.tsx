@@ -72,10 +72,10 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex lg:items-center lg:gap-1">
             {navItems.map((item) => {
-              const hasSubmenu = 'submenu' in item
+              const hasSubmenu = 'submenu' in item && item.submenu !== undefined
               const Icon = item.icon
 
-              if (hasSubmenu) {
+              if (hasSubmenu && 'submenu' in item) {
                 return (
                   <div
                     key={item.label}
@@ -88,7 +88,7 @@ export default function Header() {
                       {item.label}
                       <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
                     </button>
-                    {activeDropdown === item.label && (
+                    {activeDropdown === item.label && item.submenu && (
                       <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in">
                         {item.submenu.map((subItem) => {
                           const SubIcon = subItem.icon
@@ -201,10 +201,10 @@ function MobileMenu({
       <nav className="px-4 py-4 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto">
         {navItems.map((item) => {
           const Icon = item.icon
-          const hasSubmenu = 'submenu' in item
+          const hasSubmenu = 'submenu' in item && item.submenu !== undefined
           const isExpanded = expandedItems.has(item.label)
 
-              if (hasSubmenu) {
+              if (hasSubmenu && 'submenu' in item && item.submenu) {
                 return (
                   <div key={item.label}>
                     <button
