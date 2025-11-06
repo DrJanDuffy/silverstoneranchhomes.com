@@ -51,11 +51,16 @@ export default function RequestInfoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
-          Request Information
-        </h1>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Request Information
+          </h1>
+          <p className="text-lg text-gray-600">
+            Get detailed information about this property
+          </p>
+        </div>
 
         {isSuccess ? (
           <div className="bg-white rounded-lg shadow-md p-8 text-center">
@@ -160,7 +165,7 @@ export default function RequestInfoPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-all shadow-lg hover:shadow-xl"
               >
                 {isSubmitting ? 'Submitting...' : 'Send Request'}
               </button>
