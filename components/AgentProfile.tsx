@@ -12,15 +12,12 @@ export default function AgentProfile() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Agent Photo */}
           <div className="relative">
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-xl">
+            <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-xl bg-gray-200">
               <Image
                 src="/images/agent/dr-jan-duffy.jpg"
                 alt="Dr. Jan Duffy REALTOR"
                 fill
                 className="object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                }}
               />
             </div>
           </div>

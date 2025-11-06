@@ -27,17 +27,13 @@ export default function Hero() {
             </p>
 
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg bg-gray-200">
                 <Image
                   src="/images/agent/dr-jan-duffy.jpg"
                   alt="Dr. Jan Duffy REALTOR"
                   width={80}
                   height={80}
                   className="object-cover"
-                  onError={(e) => {
-                    // Fallback if image doesn't exist
-                    e.currentTarget.style.display = 'none'
-                  }}
                 />
               </div>
               <div>
@@ -71,17 +67,13 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Image or Additional Content */}
-          <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+          <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl bg-gray-200">
             <Image
               src="/images/property/exterior-1.jpg"
               alt="7152 Royal Melbourne Drive, Silverstone Ranch"
               fill
               className="object-cover"
               priority
-              onError={(e) => {
-                // Fallback placeholder
-                e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600"%3E%3Crect fill="%23e5e7eb" width="800" height="600"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%239ca3af" font-size="24"%3EProperty Image%3C/text%3E%3C/svg%3E'
-              }}
             />
           </div>
         </div>
