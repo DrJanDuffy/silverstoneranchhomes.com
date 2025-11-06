@@ -84,10 +84,10 @@ export default function HomeValuationPage() {
         </div>
 
         {isSuccess ? (
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-4">
+          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 text-center">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100 mb-6">
               <svg
-                className="h-8 w-8 text-green-600"
+                className="h-10 w-10 text-green-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -100,17 +100,30 @@ export default function HomeValuationPage() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
-            <p className="text-gray-600 mb-6">
-              We&apos;ve received your request. Our team will contact you shortly with your 
-              home valuation.
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Thank You!</h2>
+            <p className="text-lg text-gray-600 mb-2">
+              We&apos;ve received your home valuation request.
             </p>
-            <button
-              onClick={() => setIsSuccess(false)}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Submit Another Request
-            </button>
+            <p className="text-gray-600 mb-8">
+              Dr. Jan Duffy will contact you within 24 hours with your comprehensive 
+              market analysis and property valuation.
+            </p>
+            <div className="space-y-3">
+              <button
+                onClick={() => setIsSuccess(false)}
+                className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+              >
+                Submit Another Request
+              </button>
+              <div>
+                <a
+                  href="/"
+                  className="inline-block text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  Return to Home
+                </a>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
@@ -189,7 +202,8 @@ export default function HomeValuationPage() {
                   {...register('address')}
                   type="text"
                   id="address"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="e.g., 7152 Royal Melbourne Drive, Las Vegas, NV 89131"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
                 />
               </div>
 
@@ -204,7 +218,8 @@ export default function HomeValuationPage() {
                   {...register('propertyDetails')}
                   id="propertyDetails"
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="e.g., 3 bedrooms, 2.5 bathrooms, 2,500 sq ft, built in 2005"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
                 />
               </div>
 
@@ -218,7 +233,7 @@ export default function HomeValuationPage() {
             </form>
 
             {/* Additional Info */}
-            <div className="mt-8 pt-8 border-t border-gray-200">
+            <div className="mt-8 pt-8 border-t border-gray-200 space-y-6">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
@@ -260,6 +275,51 @@ export default function HomeValuationPage() {
                     </li>
                   </ul>
                 </div>
+              </div>
+
+              {/* Agent Contact Card */}
+              <div className="bg-blue-50 rounded-lg p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gray-200 rounded-full overflow-hidden">
+                      <img
+                        src="/images/agent/dr-jan-duffy.jpg"
+                        alt="Dr. Jan Duffy"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Dr. Jan Duffy, Top 1% REALTOR®
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Specialized expertise in Silverstone Ranch luxury homes
+                    </p>
+                    <div className="flex flex-wrap gap-4 text-sm">
+                      <a
+                        href="tel:7025001530"
+                        className="flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        <Phone className="h-4 w-4" />
+                        (702) 500-1530
+                      </a>
+                      <a
+                        href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                        className="flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        <Mail className="h-4 w-4" />
+                        Email Me
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Privacy Note */}
+              <div className="text-xs text-gray-500 text-center">
+                Your information is secure and will only be used to provide your home valuation. 
+                We respect your privacy and will never share your information.
               </div>
             </div>
           </div>
