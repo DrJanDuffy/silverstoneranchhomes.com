@@ -1,6 +1,6 @@
 export default function VideoSection() {
   return (
-    <section id="video" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="video" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Virtual Tour</h2>
         

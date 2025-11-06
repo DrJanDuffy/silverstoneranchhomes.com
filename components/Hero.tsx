@@ -52,14 +52,14 @@ export default function Hero() {
             <div className="space-y-4">
               <button
                 onClick={() => setShowContactModal(true)}
-                className="w-full lg:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                className="w-full lg:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Discover Your Home&apos;s Value in 60 Seconds & Sell for 15% Above Market Average
               </button>
               
               <button
                 onClick={() => setShowContactModal(true)}
-                className="w-full lg:w-auto px-8 py-4 bg-white text-blue-600 text-lg font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors"
+                className="w-full lg:w-auto px-8 py-4 bg-white text-blue-600 text-lg font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 hover:border-blue-700 transition-all"
               >
                 Claim Your Free Seller Strategy Session
               </button>

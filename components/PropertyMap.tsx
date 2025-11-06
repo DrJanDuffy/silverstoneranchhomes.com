@@ -4,7 +4,7 @@ export default function PropertyMap() {
   const mapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
   return (
-    <section id="map" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="map" className="py-20 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">Property Location</h2>
         

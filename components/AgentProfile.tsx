@@ -3,7 +3,7 @@ import { Phone, Mail, ExternalLink } from 'lucide-react'
 
 export default function AgentProfile() {
   return (
-    <section id="agent" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="agent" className="py-20 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Dr. Jan Duffy, a Top 1% Las Vegas REALTOR®

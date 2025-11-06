@@ -1,6 +1,6 @@
 export default function PropertyDescription() {
   return (
-    <section id="description" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="description" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">Property Description</h2>
         

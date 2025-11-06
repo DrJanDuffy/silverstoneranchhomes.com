@@ -37,12 +37,12 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-white shadow-md backdrop-blur-sm bg-white/95">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-900">
+            <Link href="/" className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
               Silverstone Ranch Homes
             </Link>
           </div>
@@ -59,7 +59,7 @@ export default function Header() {
                     handleNavClick(item.href)
                   }
                 }}
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all"
               >
                 {item.label}
               </Link>

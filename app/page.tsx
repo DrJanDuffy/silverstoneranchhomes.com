@@ -10,6 +10,7 @@ import AreaInfo from '@/components/AreaInfo'
 import MarketInsights from '@/components/MarketInsights'
 import AgentProfile from '@/components/AgentProfile'
 import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
       <MarketInsights />
       <AgentProfile />
       <Footer />
+      <ScrollToTop />
     </>
   )
 }

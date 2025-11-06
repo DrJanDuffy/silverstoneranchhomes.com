@@ -95,7 +95,7 @@ export default function PhotoGallery() {
   }))
 
   return (
-    <section id="photos" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="photos" className="py-20 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Silverstone Ranch Home for Sale | Photo Gallery
@@ -105,13 +105,22 @@ export default function PhotoGallery() {
           <div className="text-center">
             <button
               onClick={() => setShowGallery(true)}
-              className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+              className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Launch Slideshow Viewer
             </button>
           </div>
         ) : (
           <div className="mb-8">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-semibold text-gray-900">Photo Gallery</h3>
+              <button
+                onClick={() => setShowGallery(false)}
+                className="px-4 py-2 text-sm bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                Close Gallery
+              </button>
+            </div>
             <ImageGallery
               items={galleryItems}
               showPlayButton={false}
