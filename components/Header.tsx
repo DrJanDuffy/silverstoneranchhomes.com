@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar, Shield, AlertTriangle, UserCheck, TrendingUp, LucideIcon } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, User, Calendar, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck, LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import GolfCourseAlert from './GolfCourseAlert'
 
@@ -29,8 +29,9 @@ const navItems: NavItem[] = [
     icon: Building2,
     submenu: [
       { label: 'Homes For Sale', href: '/homes-for-sale', icon: Building2 },
+      { label: 'Market Insights 2025', href: '/market-insights', icon: TrendingUp },
+      { label: 'Buyer Checklist', href: '/buyers-checklist', icon: ClipboardCheck },
       { label: 'Area Guide', href: '/area-info', icon: MapPin },
-      { label: 'Market Insight', href: '/area-insight', icon: FileText },
       { label: 'Why Work with a Buyer Agent', href: '/buy-with-agent', icon: UserCheck },
     ],
   },
@@ -53,6 +54,8 @@ const navItems: NavItem[] = [
       { label: 'Detailed Description', href: '/description', icon: FileText },
       { label: 'Amenities', href: '/amenities', icon: Sparkles },
       { label: 'Interactive Map', href: '/map', icon: MapPin },
+      { label: 'Area Insight', href: '/area-insight', icon: FileText },
+      { label: 'Environmental Risk', href: '/environmental-risk', icon: AlertTriangle },
       { label: 'Golf Course Status', href: '/golf-course-status', icon: AlertTriangle },
       { label: 'HOA Guide', href: '/resources/las-vegas-hoa/silverstone-ranch', icon: Shield },
     ],
