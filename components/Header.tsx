@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar, Shield, AlertTriangle, LucideIcon } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar, Shield, AlertTriangle, UserCheck, TrendingUp, LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import GolfCourseAlert from './GolfCourseAlert'
 
@@ -31,6 +31,7 @@ const navItems: NavItem[] = [
       { label: 'Homes For Sale', href: '/homes-for-sale', icon: Building2 },
       { label: 'Area Guide', href: '/area-info', icon: MapPin },
       { label: 'Market Insight', href: '/area-insight', icon: FileText },
+      { label: 'Why Work with a Buyer Agent', href: '/buy-with-agent', icon: UserCheck },
     ],
   },
   {
@@ -39,6 +40,7 @@ const navItems: NavItem[] = [
     submenu: [
       { label: 'Home Valuation', href: '/home-valuation', icon: Calculator },
       { label: 'Strategy Session', href: '/request-info', icon: Phone },
+      { label: 'Why List with Dr. Duffy', href: '/sell-with-agent', icon: TrendingUp },
     ],
   },
   {

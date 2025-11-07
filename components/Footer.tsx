@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, Mail, ExternalLink, Home, Calculator, Building2, Image, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info, Shield, AlertTriangle } from 'lucide-react'
+import { Phone, Mail, ExternalLink, Home, Calculator, Building2, Image, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info, Shield, AlertTriangle, UserCheck, TrendingUp } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -86,6 +86,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/buy-with-agent" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <UserCheck className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Buyer Representation</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/book-tour" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
                   <Calendar className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
                   <span>Book Tour</span>
@@ -95,6 +101,12 @@ export default function Footer() {
                 <Link href="/homes-for-sale" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
                   <Building2 className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
                   <span>Homes For Sale</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/sell-with-agent" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                  <TrendingUp className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <span>Listing Representation</span>
                 </Link>
               </li>
               <li>
