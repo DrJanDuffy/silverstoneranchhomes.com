@@ -35,7 +35,7 @@ export default function MarketInsights() {
         <div className="bg-white rounded-lg p-8 mb-8 shadow-md">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Market Advantage: Historically Low Inventory</h3>
           <p className="text-gray-700 mb-4">
-            Sellers in Silverstone Ranch are uniquely positioned in today&apos;s market:
+            Homeowners and investors in Silverstone Ranch are uniquely positioned in today&apos;s market:
           </p>
           <ul className="space-y-3 text-gray-700 mb-6">
             <li className="flex items-start">
@@ -61,7 +61,7 @@ export default function MarketInsights() {
         <div className="bg-white rounded-lg p-8 mb-8 shadow-md">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Time to Sell: Accelerating Market Trends</h3>
           <p className="text-gray-700 mb-4">
-            Over the past 90 days, sales have gained momentum:
+            Over the past 90 days, Silverstone Ranch sales have gained momentum:
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
@@ -172,9 +172,9 @@ export default function MarketInsights() {
 
         {/* Competitive Edge */}
         <div className="bg-white rounded-lg p-8 shadow-md">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Your Home&apos;s Competitive Edge</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Competitive Edge in Silverstone Ranch</h3>
           <p className="text-gray-700 mb-4">
-            Your home boasts several key advantages in the current market:
+            Silverstone Ranch residences continue to command premium offers thanks to:
           </p>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start">
@@ -183,7 +183,7 @@ export default function MarketInsights() {
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-2">✓</span>
-              <span>Premium golf course location</span>
+              <span>Homes bordering the former golf fairways</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-2">✓</span>
@@ -195,8 +195,8 @@ export default function MarketInsights() {
             </li>
           </ul>
           <p className="text-gray-700 mt-6">
-            Combined with a tailored marketing strategy, these factors position your home to achieve top 
-            dollar in today&apos;s competitive market.
+            Combined with a tailored marketing strategy from Dr. Jan Duffy, these factors help Silverstone Ranch
+            sellers capture top dollar in today&apos;s competitive market.
           </p>
         </div>
       </div>

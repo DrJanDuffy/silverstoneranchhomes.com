@@ -9,42 +9,42 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: '7152 Royal Melbourne Drive | Silverstone Ranch Homes | Las Vegas, NV',
+  title: 'Silverstone Ranch Homes | Luxury Community in Northwest Las Vegas',
   description:
-    'Get Top Dollar for Your Silverstone Ranch North Las Vegas Home – Fast. Discover Your Home\'s Value in 60 Seconds & Sell for 15% Above Market Average. Contact Dr. Jan Duffy REALTOR® at (702) 500-1530',
+    'Explore Silverstone Ranch in Northwest Las Vegas—guard-gated enclaves, former golf course view corridors, resort amenities, and expert guidance from Dr. Jan Duffy for buying, selling, or investing in the community.',
   authors: [{ name: 'Dr. Jan Duffy' }],
   keywords: [
     'Silverstone Ranch',
-    'Las Vegas real estate',
-    'North Las Vegas homes',
-    'Royal Melbourne Drive',
-    'Centennial Hills',
+    'Silverstone Ranch Las Vegas',
+    'Northwest Las Vegas community',
+    'Centennial Hills real estate',
+    'Las Vegas gated neighborhoods',
     'Dr. Jan Duffy',
-    'real estate agent',
-    'home for sale',
+    'Las Vegas REALTOR',
+    'luxury homes Las Vegas',
   ],
   openGraph: {
-    title: '7152 Royal Melbourne Drive | Silverstone Ranch Homes',
+    title: 'Silverstone Ranch Homes | Luxury Community in Northwest Las Vegas',
     description:
-      'Get Top Dollar for Your Silverstone Ranch North Las Vegas Home – Fast. Discover Your Home\'s Value in 60 Seconds.',
+    'Discover Silverstone Ranch—guard-gated living, former golf fairway corridors, and personalized guidance from Dr. Jan Duffy throughout North Las Vegas.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Silverstone Ranch Homes',
-        images: [
-          {
-            url: '/images/property/exterior-front-elevation.jpg',
+    images: [
+      {
+        url: '/images/property/exterior-front-elevation.jpg',
         width: 1200,
         height: 630,
-        alt: '7152 Royal Melbourne Drive, Silverstone Ranch',
+        alt: 'Silverstone Ranch luxury home with desert landscaping in Las Vegas',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '7152 Royal Melbourne Drive | Silverstone Ranch Homes',
+    title: 'Silverstone Ranch Homes | Luxury Community Overview',
     description:
-      'Get Top Dollar for Your Silverstone Ranch North Las Vegas Home – Fast.',
-        images: ['/images/property/exterior-front-elevation.jpg'],
+      'Tour Silverstone Ranch in North Las Vegas—honest updates on the closed golf course, gated enclaves, and expert representation from Dr. Jan Duffy.',
+    images: ['/images/property/exterior-front-elevation.jpg'],
   },
   robots: {
     index: true,
@@ -87,21 +87,23 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'RealEstateListing',
-              name: '7152 Royal Melbourne Drive',
+              '@type': 'Place',
+              name: 'Silverstone Ranch Community',
+              description:
+                'Master-planned luxury community in Northwest Las Vegas featuring guard-gated enclaves, resort-style amenities, and residences along the former Silverstone golf fairways.',
+              url: 'https://silverstoneranchhomes.com',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: '7152 Royal Melbourne Drive',
                 addressLocality: 'Las Vegas',
                 addressRegion: 'NV',
                 postalCode: '89131',
                 addressCountry: 'US',
               },
-              geo: {
-                '@type': 'GeoCoordinates',
-                latitude: '36.2856',
-                longitude: '-115.2772',
+              areaServed: {
+                '@type': 'AdministrativeArea',
+                name: 'Centennial Hills, Las Vegas',
               },
+              image: 'https://silverstoneranchhomes.com/images/property/exterior-front-elevation.jpg',
             }),
           }}
         />

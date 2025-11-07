@@ -15,17 +15,17 @@ export function VirtualOpenHouseButton() {
             <Video className="h-8 w-8 text-white" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Join Our Virtual Open House
+            Tour Silverstone Ranch Live
           </h2>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            Experience 7152 Royal Melbourne Drive from the comfort of your home. 
-            Join our live virtual tour and get all your questions answered in real-time.
+            Explore Silverstone Ranch residences, amenities, and lifestyle highlights from the comfort of your
+            home. Join a live virtual tour hosted by Dr. Jan Duffy and get community questions answered in real time.
           </p>
           <button
             onClick={() => setShowModal(true)}
             className="px-8 py-4 bg-white text-blue-600 text-lg font-semibold rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
-            RSVP for Virtual Open House
+            RSVP for Community Virtual Tour
           </button>
         </div>
       </section>

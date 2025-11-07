@@ -1,19 +1,32 @@
+import Link from 'next/link'
+
 export default function AreaInfo() {
   return (
     <section id="area-info" className="py-20 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-          Discover Las Vegas Luxury Living - Royal Melbourne Drive, Centennial Hills, Nevada
+          Discover Silverstone Ranch in Centennial Hills, Las Vegas
         </h2>
         
         <div className="prose prose-lg max-w-none">
           <p className="text-gray-700 leading-relaxed mb-6">
-            Nestled in the heart of Northwest Las Vegas, Nevada, Centennial Hills&apos; Royal Melbourne 
-            Drive offers a prestigious gated luxury oasis where modern elegance blends seamlessly with 
-            desert charm. Imagine waking up to breathtaking, protected views of the Spring Mountains, 
-            stepping outside your Mediterranean-inspired home, and experiencing a community crafted with 
-            sophistication and convenience in mind.
+            Nestled in the heart of Northwest Las Vegas, Silverstone Ranch offers a prestigious, guard-gated
+            lifestyle where modern elegance blends seamlessly with desert charm. Imagine waking up to protected
+            Spring Mountain views, stepping outside to mature landscaping, and experiencing a community crafted
+            with sophistication and convenience in mind.
           </p>
+
+          <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
+            <strong className="font-semibold">Golf Course Disclosure:</strong> The Silverstone golf course has been
+            closed since 2015. It sold at auction in May 2025, but future use remains undetermined. Homes along the
+            former fairways currently overlook dormant land.
+            <Link
+              href="/golf-course-status"
+              className="ml-2 font-semibold text-amber-900 underline decoration-amber-500 decoration-2 underline-offset-4 hover:text-amber-700"
+            >
+              Review the complete status update →
+            </Link>
+          </div>
 
           <p className="text-gray-700 leading-relaxed mb-6">
             This exclusive, guard-gated enclave isn&apos;t just a place to live; it&apos;s a lifestyle upgrade. 
@@ -58,9 +71,9 @@ export default function AreaInfo() {
           </p>
 
           <p className="text-gray-700 leading-relaxed">
-            Your dream home awaits in this elite gated community where style, luxury, and convenience 
-            converge. Schedule your private tour of Royal Melbourne Drive today and unlock the Nevada 
-            lifestyle you deserve.
+            Silverstone Ranch remains one of Las Vegas&apos; most coveted addresses—where lifestyle, luxury, and
+            community converge. Connect with Dr. Jan Duffy to curate your personal tour and explore which
+            village best matches your goals.
           </p>
         </div>
       </div>

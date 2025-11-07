@@ -2,7 +2,7 @@ export default function VideoSection() {
   return (
     <section id="video" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Virtual Tour</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Silverstone Ranch Virtual Tour</h2>
         
         <div className="bg-gray-100 rounded-lg overflow-hidden aspect-video mb-8">
           <div className="w-full h-full flex items-center justify-center">
@@ -14,12 +14,15 @@ export default function VideoSection() {
 
         <div className="text-center">
           <p className="text-gray-700 mb-4">
-            Experience this beautiful property through our virtual tour. Get a comprehensive 
-            view of every room and space from the comfort of your home.
+            Experience Silverstone Ranch through an immersive virtual tour. Preview signature residences, community
+            parks, and neighborhood amenities without leaving home.
           </p>
-          <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <a
+            href="/book-tour"
+            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
             Schedule a Live Virtual Tour
-          </button>
+          </a>
         </div>
       </div>
     </section>

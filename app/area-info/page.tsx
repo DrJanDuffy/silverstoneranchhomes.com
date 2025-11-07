@@ -6,29 +6,40 @@ export default function AreaInfoPage() {
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Area Information
+            Silverstone Ranch Area Information
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover Las Vegas Luxury Living - Royal Melbourne Drive, Centennial Hills, Nevada
+            Discover life in Silverstone Ranch—one of Centennial Hills&apos; most coveted master-planned communities in
+            Northwest Las Vegas.
           </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              Nestled in the heart of Northwest Las Vegas, Nevada, Centennial Hills&apos; Royal Melbourne 
-              Drive offers a prestigious gated luxury oasis where modern elegance blends seamlessly with 
-              desert charm. Imagine waking up to breathtaking, protected views of the Spring Mountains, 
-              stepping outside your Mediterranean-inspired home, and experiencing a community crafted with 
+              Nestled in the heart of Northwest Las Vegas, Silverstone Ranch offers a prestigious gated oasis where
+              modern elegance blends seamlessly with desert charm. Imagine waking up to protected Spring Mountain
+              views, stepping outside your Mediterranean-inspired home, and experiencing a community crafted with
               sophistication and convenience in mind.
             </p>
 
+          <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
+            <strong className="font-semibold">Golf Course Disclosure:</strong> The Silverstone golf course has been
+            closed since 2015 and was sold at auction in May 2025. The new owner has not announced a redevelopment plan,
+            so properties along the former fairways currently overlook dormant land.
+            <Link
+              href="/golf-course-status"
+              className="ml-2 font-semibold text-amber-900 underline decoration-amber-500 decoration-2 underline-offset-4 hover:text-amber-700"
+            >
+              View the detailed status update →
+            </Link>
+          </div>
+
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              This exclusive, guard-gated enclave isn&apos;t just a place to live; it&apos;s a lifestyle upgrade. 
-              Located just 10 minutes from designer shopping at Centennial Center, top-rated CCSD schools, and 
-              the sprawling 680-acre Floyd Lamb Park, every detail has been designed to enhance your daily life. 
-              The nearby 215 Beltway puts the Strip just 30 minutes away, while world-class healthcare at 
-              Centennial Hills Hospital ensures peace of mind right in your neighborhood.
+              This guard-gated enclave isn&apos;t just a place to live; it&apos;s a lifestyle upgrade. Located minutes from
+              designer shopping at Centennial Center, top-rated CCSD schools, and the sprawling 680-acre Floyd Lamb
+              Park, every detail has been designed to enhance daily living. The nearby 215 Beltway places the Strip
+              within 30 minutes, while Centennial Hills Hospital ensures world-class healthcare in your backyard.
             </p>
 
             <div className="bg-blue-50 rounded-lg p-6 my-8">
@@ -76,9 +87,9 @@ export default function AreaInfoPage() {
             </p>
 
             <p className="text-gray-700 leading-relaxed text-lg">
-              Your dream home awaits in this elite gated community where style, luxury, and convenience 
-              converge. Schedule your private tour of Royal Melbourne Drive today and unlock the Nevada 
-              lifestyle you deserve.
+              Silverstone Ranch remains one of Las Vegas&apos; most desirable communities—where style, luxury, and
+              convenience converge. Request a private tour with Dr. Jan Duffy to explore which neighborhood enclave
+              aligns with your goals.
             </p>
           </div>
         </div>
@@ -126,8 +137,8 @@ export default function AreaInfoPage() {
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Explore This Prime Location</h2>
           <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-            Experience the Centennial Hills lifestyle firsthand. Schedule a tour to see why this 
-            area is one of Las Vegas&apos; most desirable communities.
+            Experience the Centennial Hills lifestyle firsthand. Schedule a tour to see why Silverstone Ranch remains a
+            top Las Vegas destination for luxury living.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

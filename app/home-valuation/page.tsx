@@ -203,7 +203,7 @@ export default function HomeValuationPage() {
                   {...register('address')}
                   type="text"
                   id="address"
-                  placeholder="e.g., 7152 Royal Melbourne Drive, Las Vegas, NV 89131"
+                  placeholder="e.g., Silverstone Ranch address, Las Vegas, NV 89131"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
                 />
               </div>

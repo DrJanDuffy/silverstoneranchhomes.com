@@ -1,6 +1,6 @@
 # Silverstone Ranch Homes - Real Estate Listing Site
 
-A comprehensive real estate listing website for 7152 Royal Melbourne Drive in Silverstone Ranch, Las Vegas, NV. Built with Next.js 15 and deployed on Vercel.
+A comprehensive Silverstone Ranch community website highlighting luxury homes, amenities, and market insights in Northwest Las Vegas. Built with Next.js 15 and deployed on Vercel.
 
 ## Features
 

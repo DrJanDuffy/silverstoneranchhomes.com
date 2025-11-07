@@ -60,7 +60,7 @@ export default function BookTourPage() {
             Book Your Tour
           </h1>
           <p className="text-lg text-gray-600">
-            Schedule a private showing of 7152 Royal Melbourne Drive
+            Schedule a private tour of Silverstone Ranch homes and community amenities
           </p>
         </div>
 

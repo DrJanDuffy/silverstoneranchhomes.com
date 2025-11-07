@@ -58,24 +58,24 @@ export default function RequestInfoPage() {
             Request Information
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Get detailed information about 7152 Royal Melbourne Drive, Silverstone Ranch. 
-            We&apos;ll send you property details, neighborhood information, and market insights.
+            Request detailed insights about Silverstone Ranch homes, HOA details, and current market opportunities.
+            We&apos;ll share tailored property recommendations, neighborhood intel, and pricing strategies.
           </p>
         </div>
 
         {/* Property Quick Info */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-            <div className="text-2xl font-bold text-blue-600 mb-2">7152</div>
-            <div className="text-sm text-gray-600">Royal Melbourne Drive</div>
+            <div className="text-2xl font-bold text-blue-600 mb-2">Centennial Hills</div>
+            <div className="text-sm text-gray-600">Northwest Las Vegas</div>
           </div>
           <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-            <div className="text-2xl font-bold text-blue-600 mb-2">Las Vegas</div>
-            <div className="text-sm text-gray-600">NV 89131</div>
+            <div className="text-2xl font-bold text-blue-600 mb-2">Gated Living</div>
+            <div className="text-sm text-gray-600">Silverstone Ranch Villages</div>
           </div>
           <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-            <div className="text-2xl font-bold text-blue-600 mb-2">Silverstone</div>
-            <div className="text-sm text-gray-600">Ranch Community</div>
+            <div className="text-2xl font-bold text-blue-600 mb-2">Expert Support</div>
+            <div className="text-sm text-gray-600">Dr. Jan Duffy REALTOR®</div>
           </div>
         </div>
 
@@ -101,8 +101,8 @@ export default function RequestInfoPage() {
               We&apos;ve received your information request.
             </p>
             <p className="text-gray-600 mb-8">
-              Dr. Jan Duffy will send you detailed property information, including photos, 
-              features, neighborhood details, and market insights within 24 hours.
+              Dr. Jan Duffy will send you curated Silverstone Ranch information—featured residences, neighborhood
+              details, and market insights—within 24 hours.
             </p>
             <div className="space-y-3">
               <button
@@ -125,12 +125,11 @@ export default function RequestInfoPage() {
           <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-                Get Property Information
+                Get Silverstone Ranch Insights
               </h2>
               <p className="text-gray-600">
-                Fill out the form below and we&apos;ll send you comprehensive information 
-                about this Silverstone Ranch property, including detailed features, 
-                neighborhood insights, and current market data.
+                Fill out the form below and we&apos;ll send you comprehensive Silverstone Ranch information—featured
+                listings, HOA documents, neighborhood insights, and current market data tailored to your goals.
               </p>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -196,7 +195,7 @@ export default function RequestInfoPage() {
                   {...register('message')}
                   id="message"
                   rows={6}
-                  placeholder="What information would you like to know about this property? (e.g., pricing, features, neighborhood, schools, etc.)"
+                  placeholder="What would you like to know about Silverstone Ranch? (e.g., available homes, HOA details, market stats, schools, etc.)"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
                 />
                 {errors.message && (
@@ -222,11 +221,11 @@ export default function RequestInfoPage() {
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">✓</span>
-                    <span>Complete property details and specifications</span>
+                    <span>Featured Silverstone Ranch listings and specifications</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">✓</span>
-                    <span>High-resolution property photos</span>
+                    <span>High-resolution community and residence photos</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">✓</span>

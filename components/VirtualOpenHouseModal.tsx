@@ -121,7 +121,7 @@ export default function VirtualOpenHouseModal({
                   Virtual Open House RSVP
                 </h2>
                 <p className="text-gray-600 text-sm">
-                  Join us for a live virtual tour of 7152 Royal Melbourne Drive
+                  Join us for a live virtual tour showcasing Silverstone Ranch homes and amenities
                 </p>
               </div>
             </div>
@@ -136,6 +136,9 @@ export default function VirtualOpenHouseModal({
                   </p>
                   <p className="text-sm text-gray-700">
                     Time: TBD
+                  </p>
+                  <p className="text-sm text-gray-700 mt-1">
+                    Focus: Silverstone Ranch community overview, featured residences, and live Q&A with Dr. Jan Duffy
                   </p>
                 </div>
               </div>

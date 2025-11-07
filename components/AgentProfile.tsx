@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Phone, Mail, ExternalLink } from 'lucide-react'
 
 export default function AgentProfile() {
@@ -12,13 +11,16 @@ export default function AgentProfile() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Agent Photo */}
           <div className="relative">
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-xl bg-gray-200">
-              <Image
-                src="/images/agent/dr-jan-duffy.jpg"
-                alt="Dr. Jan Duffy REALTOR"
-                fill
-                className="object-cover"
-              />
+            <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-gray-200 shadow-xl">
+              <picture>
+                <source srcSet="/images/agent/dr-jan-duffy.jpg" type="image/jpeg" />
+                <img
+                  src="/images/agent/dr-jan-duffy.jpg"
+                  alt="Portrait of Dr. Jan Duffy, Las Vegas REALTOR"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </div>
 

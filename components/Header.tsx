@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar, LucideIcon } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, Map, User, Calendar, Shield, AlertTriangle, LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import GolfCourseAlert from './GolfCourseAlert'
 
 type NavItem = 
   | {
@@ -47,6 +48,8 @@ const navItems: NavItem[] = [
       { label: 'Area Insight', href: '/area-insight', icon: FileText },
     ]
   },
+  { label: 'Golf Course Status', href: '/golf-course-status', icon: AlertTriangle },
+  { label: 'HOA Guide', href: '/resources/las-vegas-hoa/silverstone-ranch', icon: Shield },
   { label: 'Agent', href: '/agent', icon: User },
   { label: 'Book Your Tour Now', href: '/book-tour', icon: Calendar },
 ]
@@ -174,6 +177,8 @@ export default function Header() {
           </button>
         </div>
       </div>
+
+      <GolfCourseAlert />
 
       {/* Mobile Navigation */}
       <MobileMenu 

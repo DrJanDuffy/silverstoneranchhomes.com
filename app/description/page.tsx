@@ -6,19 +6,21 @@ export default function DescriptionPage() {
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Property Description
+            Silverstone Ranch Community Overview
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover everything about 7152 Royal Melbourne Drive and the Silverstone Ranch community
+            Explore the guard-gated neighborhoods, architectural styles, and lifestyle amenities that define
+            Silverstone Ranch in Northwest Las Vegas.
           </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-8">
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              Welcome to Silverstone Ranch, a premier master-planned community in North Las Vegas, Nevada. 
-              This exceptional property at <strong>7152 Royal Melbourne Drive</strong> represents the pinnacle of luxury living 
-              in one of Las Vegas&apos; most sought-after neighborhoods.
+          <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+            Silverstone Ranch is a premier master-planned community in North Las Vegas, Nevada, renowned for
+            guard-gated privacy, curated landscaping, and homes designed for indoor-outdoor living. Each
+            village blends Mediterranean-inspired architecture with modern floor plans ideal for today&apos;s
+            lifestyles along the corridors of the former Silverstone golf course.
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">About Silverstone Ranch</h2>
@@ -78,9 +80,9 @@ export default function DescriptionPage() {
           </div>
         </div>
 
-        {/* Property Quick Facts */}
+        {/* Community Snapshot */}
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Property Quick Facts</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Community Snapshot</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -89,8 +91,8 @@ export default function DescriptionPage() {
                 </svg>
               </div>
               <div>
-                <div className="font-semibold text-gray-900">Address</div>
-                <div className="text-gray-600">7152 Royal Melbourne Drive</div>
+                <div className="font-semibold text-gray-900">Location</div>
+                <div className="text-gray-600">Silverstone Ranch · Centennial Hills · Las Vegas, NV 89131</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -101,8 +103,8 @@ export default function DescriptionPage() {
                 </svg>
               </div>
               <div>
-                <div className="font-semibold text-gray-900">Location</div>
-                <div className="text-gray-600">Las Vegas, NV 89131</div>
+                <div className="font-semibold text-gray-900">Lifestyle</div>
+                <div className="text-gray-600">Guard-gated villages, parks, trails, former golf fairway corridors</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -112,8 +114,8 @@ export default function DescriptionPage() {
                 </svg>
               </div>
               <div>
-                <div className="font-semibold text-gray-900">Community</div>
-                <div className="text-gray-600">Silverstone Ranch</div>
+                <div className="font-semibold text-gray-900">Home Collection</div>
+                <div className="text-gray-600">Single-family designs · 2,000 – 4,000+ sq. ft. · 3-5 bedrooms · Former golf fairway corridors</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -133,8 +135,8 @@ export default function DescriptionPage() {
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Want to Learn More?</h2>
-          <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-            Contact Dr. Jan Duffy for detailed information about this property and the Silverstone Ranch community.
+            <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
+              Contact Dr. Jan Duffy for tailored guidance on available Silverstone Ranch residences and upcoming inventory.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

@@ -24,11 +24,12 @@ export default function PhotosPage() {
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Property Photo Gallery
+            Silverstone Ranch Lifestyle Gallery
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore 7152 Royal Melbourne Drive through our comprehensive photo collection. 
-            View every room, outdoor space, and detail of this stunning Silverstone Ranch home.
+            Explore featured Silverstone Ranch residences, outdoor living spaces, and community amenities captured in
+            high definition. These visuals showcase the craftsmanship and resort-inspired lifestyle available across the
+            neighborhood.
           </p>
         </div>
 
@@ -104,36 +105,34 @@ export default function PhotosPage() {
           </div>
         )}
 
-        {/* Property Info */}
+        {/* Community Info */}
         <div className="mt-16 bg-white rounded-lg shadow-lg p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                7152 Royal Melbourne Drive
+                Why Buyers Love Silverstone Ranch
               </h2>
-              <p className="text-gray-600 mb-6">
-                Las Vegas, NV 89131 • Silverstone Ranch
-              </p>
               <p className="text-gray-700 leading-relaxed">
-                This stunning property features modern upgrades, spacious layouts, and premium 
-                finishes throughout. Every detail has been carefully considered to create a 
-                home that combines elegance with comfort.
+                From bright sunrooms and chef-ready kitchens to expansive patios framed by mature landscaping, the
+                gallery highlights how Silverstone Ranch homes maximize indoor-outdoor living. Every residence pairs
+                premium finishes with community perks like gated entries, parks, and vistas across the former golf
+                fairways.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Interested in This Property?</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Plan Your Silverstone Tour</h3>
               <div className="space-y-3">
                 <Link
                   href="/request-info"
                   className="block w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl text-center font-semibold"
                 >
-                  Request More Information
+                  Request Community Information
                 </Link>
                 <Link
                   href="/book-tour"
                   className="block w-full px-6 py-3 bg-white text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 transition-all text-center font-semibold"
                 >
-                  Schedule a Tour
+                  Schedule a Private Tour
                 </Link>
                 <a
                   href="tel:7025001530"

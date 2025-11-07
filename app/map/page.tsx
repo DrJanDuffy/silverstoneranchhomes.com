@@ -10,10 +10,11 @@ export default function MapPage() {
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Property Location & Map
+            Silverstone Ranch Location & Map
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover the prime location of 7152 Royal Melbourne Drive in the heart of Silverstone Ranch
+            Discover the prime Centennial Hills location of Silverstone Ranch and the lifestyle conveniences just
+            minutes away.
           </p>
         </div>
 
@@ -29,14 +30,14 @@ export default function MapPage() {
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
               src={mapsApiKey 
-                ? `https://www.google.com/maps/embed/v1/place?key=${mapsApiKey}&q=7152+Royal+Melbourne+Drive,+Las+Vegas,+NV+89131`
-                : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.123456789!2d-115.2772!3d36.2856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzYsMTcsMTY1LjI3NzIiLC0xMTUuMjc3MiwwLjI4NTY!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus'
+                ? `https://www.google.com/maps/embed/v1/place?key=${mapsApiKey}&q=Silverstone+Ranch,+Las+Vegas,+NV+89131`
+                : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.070049335604!2d-115.294!3d36.286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8d3f8b77f1b0d%3A0x3af5d52cb7b4dc65!2sSilverstone%20Ranch!5e0!3m2!1sen!2sus!4v1700000000000'
               }
             />
           </div>
           <div className="text-center">
             <a
-              href="https://www.google.com/maps/search/?api=1&query=7152+Royal+Melbourne+Drive,+Las+Vegas,+NV+89131"
+              href="https://www.google.com/maps/place/Silverstone+Ranch,+Las+Vegas,+NV+89131"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold"
@@ -49,24 +50,22 @@ export default function MapPage() {
         {/* Location Details */}
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Discover Las Vegas Luxury Living - Royal Melbourne Drive, Centennial Hills, Nevada
+            Discover Silverstone Ranch Living in Centennial Hills, Nevada
           </h2>
           
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              Nestled in the heart of Northwest Las Vegas, Nevada, Centennial Hills&apos; Royal Melbourne 
-              Drive offers a prestigious gated luxury oasis where modern elegance blends seamlessly with desert 
-              charm. Imagine waking up to breathtaking, protected views of the Spring Mountains, stepping 
-              outside your Mediterranean-inspired home, and experiencing a community crafted with sophistication 
-              and convenience in mind.
+              Nestled in the heart of Northwest Las Vegas, Silverstone Ranch offers a prestigious gated oasis where
+              modern elegance blends seamlessly with desert charm. Residents enjoy protected Spring Mountain views,
+              Mediterranean-inspired architecture, and a community crafted with sophistication and convenience in mind.
             </p>
 
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              This exclusive, guard-gated enclave isn&apos;t just a place to live; it&apos;s a lifestyle upgrade. 
-              Located just 10 minutes from designer shopping at Centennial Center, top-rated CCSD schools, and 
-              the sprawling 680-acre Floyd Lamb Park, every detail has been designed to enhance your daily life. 
-              The nearby 215 Beltway puts the Strip just 30 minutes away, while world-class healthcare at 
-              Centennial Hills Hospital ensures peace of mind right in your neighborhood.
+              This guard-gated enclave isn&apos;t just a place to live; it&apos;s a lifestyle upgrade. Located minutes from
+              designer shopping at Centennial Center, top-rated CCSD schools, and the sprawling 680-acre Floyd Lamb
+              Park, every detail is designed to elevate daily living. The nearby 215 Beltway places the Strip within
+              a 30-minute drive, while Centennial Hills Hospital delivers world-class healthcare right in the
+              neighborhood.
             </p>
 
             <p className="text-gray-700 leading-relaxed text-lg">
@@ -118,9 +117,10 @@ export default function MapPage() {
 
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Ready to Visit This Location?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Explore Silverstone Ranch?</h2>
           <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-            Schedule a private tour to see this prime location in person and experience the Silverstone Ranch lifestyle.
+            Schedule a private tour to experience the community in person and discover which Silverstone Ranch village
+            aligns with your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

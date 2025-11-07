@@ -25,7 +25,7 @@ export default function HomesForSalePage() {
               <div className="md:w-1/2 relative h-64 md:h-auto bg-gray-200">
                 <Image
                   src="/images/property/exterior-front-elevation.jpg"
-                  alt="7152 Royal Melbourne Drive"
+                  alt="Silverstone Ranch luxury residence"
                   fill
                   className="object-cover"
                   priority
@@ -37,10 +37,10 @@ export default function HomesForSalePage() {
                     Featured Listing
                   </span>
                   <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                    7152 Royal Melbourne Drive
+                    Signature Silverstone Residence
                   </h3>
                   <p className="text-lg text-gray-600 mb-4">
-                    Las Vegas, NV 89131 • Silverstone Ranch
+                    Silverstone Ranch · Centennial Hills · Las Vegas, NV 89131
                   </p>
                 </div>
 
@@ -60,10 +60,16 @@ export default function HomesForSalePage() {
                 </div>
 
                 <p className="text-gray-700 mb-6">
-                  Stunning Silverstone Ranch home featuring modern upgrades, spacious layout, 
-                  and premium finishes. Located in one of Las Vegas&apos; most desirable communities 
-                  with excellent schools, parks, and amenities nearby.
+                  Stunning Silverstone Ranch residence featuring modern upgrades, spacious indoor-outdoor living,
+                  and premium finishes. Enjoy guard-gated privacy, access to community parks, and proximity to top
+                  Centennial Hills conveniences.
                 </p>
+                <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+                  ⚠️ Former golf course frontage: The Silverstone golf course has been closed since 2015. Following the
+                  May 2025 auction, no reopening or redevelopment plan has been filed. Views from this portion of the
+                  community currently overlook dormant land. Budget for landscape improvements and factor this
+                  uncertainty into negotiations.
+                </div>
 
                 <div className="flex flex-wrap gap-3">
                   <Link

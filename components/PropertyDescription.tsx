@@ -2,16 +2,18 @@ export default function PropertyDescription() {
   return (
     <section id="description" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Property Description</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Silverstone Ranch Community Overview</h2>
         
         <div className="prose prose-lg max-w-none">
           <p className="text-gray-700 leading-relaxed mb-6">
-            Welcome to Silverstone Ranch, a premier master-planned community in North Las Vegas, Nevada. 
-            This exceptional property at 7152 Royal Melbourne Drive represents the pinnacle of luxury living 
-            in one of Las Vegas&apos; most sought-after neighborhoods.
+            Silverstone Ranch is a premier master-planned enclave in Northwest Las Vegas, celebrated for guard-gated privacy, former golf course view corridors, and desert-inspired architecture. The community pairs resort-style amenities with thoughtfully designed neighborhoods, making it a top choice for buyers seeking an elevated lifestyle in Centennial Hills.
           </p>
 
-          <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">About Silverstone Ranch</h3>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Within Silverstone Ranch you&apos;ll discover a variety of floor plans, from single-story retreats to expansive two-story residences with generous outdoor living spaces. Homes emphasize open-concept layouts, chef-ready kitchens, and indoor-outdoor connections that take full advantage of Nevada&apos;s climate. Premium finishes—like rich cabinetry, designer lighting, and spa-inspired suites—create a sophisticated showcase for luxury living.
+          </p>
+
+          <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">About the Community</h3>
           <p className="text-gray-700 leading-relaxed mb-6">
             Silverstone Ranch was built between 2003-2008 and features one and two-story homes ranging 
             in size from 1,559 sq. ft. to 3,448 sq. ft. Silverstone Ranch is a community consisting of 

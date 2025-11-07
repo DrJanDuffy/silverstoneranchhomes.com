@@ -6,11 +6,11 @@ export default function VideoPage() {
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Virtual Tour & Video
+            Silverstone Ranch Virtual Tour & Video
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Experience 7152 Royal Melbourne Drive through our comprehensive virtual tour. 
-            Get a detailed view of every room and space from the comfort of your home.
+            Experience Silverstone Ranch through immersive video tours showcasing featured residences, community
+            amenities, and lifestyle moments from the comfort of your home.
           </p>
         </div>
 
@@ -49,10 +49,9 @@ export default function VideoPage() {
 
           <div className="text-center">
             <p className="text-gray-700 mb-6 text-lg">
-              Experience this beautiful property through our virtual tour. Get a comprehensive 
-              view of every room and space from the comfort of your home. Our virtual tour 
-              allows you to explore the property at your own pace, viewing all the details 
-              that make this Silverstone Ranch home special.
+              Preview Silverstone Ranch at your own pace—tour open-concept interiors, outdoor living spaces, and gated
+              amenities through curated video walk-throughs. When you&apos;re ready, schedule a live virtual session with
+              Dr. Jan Duffy for deeper insights.
             </p>
             <Link
               href="/book-tour"
@@ -97,8 +96,8 @@ export default function VideoPage() {
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready for an In-Person Tour?</h2>
           <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-            After viewing the virtual tour, schedule a private in-person showing to experience 
-            this stunning Silverstone Ranch home firsthand.
+            After exploring the virtual content, schedule a private in-person tour to experience Silverstone Ranch
+            neighborhoods, parks, and residences firsthand with Dr. Jan Duffy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

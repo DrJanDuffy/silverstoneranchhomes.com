@@ -194,9 +194,9 @@ export default function AreaInsightPage() {
 
         {/* Competitive Edge */}
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Your Home&apos;s Competitive Edge</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Competitive Edge in Silverstone Ranch</h2>
           <p className="text-gray-700 mb-6 text-lg">
-            Your home boasts several key advantages in the current market:
+            Silverstone Ranch residences continue to command premium offers thanks to:
           </p>
           <ul className="space-y-4 text-gray-700 mb-6">
             <li className="flex items-start">
@@ -205,7 +205,7 @@ export default function AreaInsightPage() {
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-3 text-xl">✓</span>
-              <span className="text-lg">Premium golf course location</span>
+              <span className="text-lg">Homes bordering the former golf fairways</span>
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-3 text-xl">✓</span>
@@ -217,8 +217,8 @@ export default function AreaInsightPage() {
             </li>
           </ul>
           <p className="text-gray-700 text-lg">
-            Combined with a tailored marketing strategy, these factors position your home to achieve top 
-            dollar in today&apos;s competitive market.
+            Combined with a tailored marketing strategy from Dr. Jan Duffy, these factors help Silverstone Ranch
+            sellers capture top dollar in today&apos;s competitive market.
           </p>
         </div>
 
