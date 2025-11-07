@@ -24,34 +24,39 @@ type NavItem =
     }
 
 const navItems: NavItem[] = [
-  { label: 'Home', href: '/', icon: Home },
-  { label: 'Home Valuation', href: '/home-valuation', icon: Calculator },
-  { label: 'Request Info', href: '/request-info', icon: Info },
-  { label: 'Homes For Sale', href: '/homes-for-sale', icon: Building2 },
-  { 
-    label: 'Property', 
+  {
+    label: 'Buy Homes',
+    icon: Building2,
+    submenu: [
+      { label: 'Homes For Sale', href: '/homes-for-sale', icon: Building2 },
+      { label: 'Area Guide', href: '/area-info', icon: MapPin },
+      { label: 'Market Insight', href: '/area-insight', icon: FileText },
+    ],
+  },
+  {
+    label: 'Sell a Home',
+    icon: Calculator,
+    submenu: [
+      { label: 'Home Valuation', href: '/home-valuation', icon: Calculator },
+      { label: 'Strategy Session', href: '/request-info', icon: Phone },
+    ],
+  },
+  {
+    label: 'Experience Silverstone',
     icon: Image,
     submenu: [
-      { label: 'Photos', href: '/photos', icon: Image },
-      { label: 'Description', href: '/description', icon: FileText },
+      { label: 'Photo Gallery', href: '/photos', icon: Image },
+      { label: 'Video Tour', href: '/video', icon: Video },
       { label: 'Price & Features', href: '/price-features', icon: DollarSign },
+      { label: 'Detailed Description', href: '/description', icon: FileText },
       { label: 'Amenities', href: '/amenities', icon: Sparkles },
-      { label: 'Map', href: '/map', icon: MapPin },
-      { label: 'Video', href: '/video', icon: Video },
-    ]
+      { label: 'Interactive Map', href: '/map', icon: MapPin },
+      { label: 'Golf Course Status', href: '/golf-course-status', icon: AlertTriangle },
+      { label: 'HOA Guide', href: '/resources/las-vegas-hoa/silverstone-ranch', icon: Shield },
+    ],
   },
-  { 
-    label: 'Area', 
-    icon: Map,
-    submenu: [
-      { label: 'Area Info', href: '/area-info', icon: Info },
-      { label: 'Area Insight', href: '/area-insight', icon: FileText },
-    ]
-  },
-  { label: 'Golf Course Status', href: '/golf-course-status', icon: AlertTriangle },
-  { label: 'HOA Guide', href: '/resources/las-vegas-hoa/silverstone-ranch', icon: Shield },
-  { label: 'Agent', href: '/agent', icon: User },
-  { label: 'Book Your Tour Now', href: '/book-tour', icon: Calendar },
+  { label: 'Meet the Agent', href: '/agent', icon: User },
+  { label: 'Book a Tour', href: '/book-tour', icon: Calendar },
 ]
 
 export default function Header() {
@@ -150,8 +155,15 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Contact Button */}
+          {/* Contact Buttons */}
           <div className="hidden lg:flex lg:items-center gap-3">
+            <Link
+              href="/request-info"
+              className="flex items-center gap-2 rounded-lg border border-blue-100 bg-white px-5 py-2.5 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50"
+            >
+              <Info className="h-4 w-4" />
+              Request Info
+            </Link>
             <a
               href="tel:7025001530"
               className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
@@ -284,6 +296,14 @@ function MobileMenu({
               }
               return null
             })}
+            <Link
+              href="/request-info"
+              onClick={onClose}
+              className="flex items-center gap-3 rounded-lg border border-blue-100 bg-white px-4 py-3 text-base font-semibold text-blue-700 hover:bg-blue-50"
+            >
+              <Info className="h-5 w-5" />
+              Request Info
+            </Link>
             <a
               href="tel:7025001530"
               className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 text-base font-semibold text-white hover:from-blue-700 hover:to-blue-800 mt-4"
