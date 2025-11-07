@@ -246,23 +246,25 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <div>
-              <p className="text-sm text-gray-300">
+            <div className="max-w-3xl">
+              <p className="text-sm md:text-base font-semibold text-gray-200 tracking-wide">
                 Silverstone Ranch Specialists | Dr. Jan Duffy REALTOR® | Berkshire Hathaway HomeServices | License: S.0197614.LLC
-                {' '}
-                <Link href="/contact" className="font-semibold text-blue-400 hover:text-blue-300">
-                  Let&apos;s talk Silverstone →
-                </Link>
               </p>
               <p className="text-xs text-gray-500 mt-1">
                 © {currentYear} Silverstone Ranch Homes. All rights reserved.
               </p>
             </div>
-            <div className="flex items-center gap-6 text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
+              <div className="flex items-center gap-2 text-gray-400">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <span>Available 24/7</span>
               </div>
+              <Link
+                href="/request-info"
+                className="inline-flex items-center gap-2 rounded-full bg-blue-500 px-5 py-2 text-sm font-semibold text-white shadow hover:bg-blue-600 transition"
+              >
+                Let&apos;s talk Silverstone →
+              </Link>
             </div>
           </div>
         </div>
