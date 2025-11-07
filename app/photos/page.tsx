@@ -5,93 +5,17 @@ import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import Link from 'next/link'
 
-interface Photo {
-  original: string
-  thumbnail: string
-  description?: string
-}
-
-const propertyPhotos: Photo[] = [
-  {
-    original: '/images/property/exterior-1.jpg',
-    thumbnail: '/images/property/exterior-1-thumb.jpg',
-    description:
-      'Pristine yellow home in Silverstone Ranch showcases a white two-car garage with decorative cross accent. This well-maintained property features clean architectural lines and professional landscaping, creating inviting curb appeal.',
-  },
-  {
-    original: '/images/property/backyard-1.jpg',
-    thumbnail: '/images/property/backyard-1-thumb.jpg',
-    description:
-      'Large, beautifully landscaped backyard perfect for outdoor activities, entertaining, and relaxation. Enjoy plenty of space for family gatherings, gardening, or simply unwinding in your private outdoor oasis.',
-  },
-  {
-    original: '/images/property/family-room-1.jpg',
-    thumbnail: '/images/property/family-room-1-thumb.jpg',
-    description:
-      'This welcoming family room serves as the perfect entertainment space. Featuring a wall-mounted TV and broad windows with plantation shutters, the room balances natural light with modern convenience. Crown molding and sage green walls create an elegant foundation, while a copper-toned ceiling fan ensures comfort.',
-  },
-  {
-    original: '/images/property/sunroom-1.jpg',
-    thumbnail: '/images/property/sunroom-1-thumb.jpg',
-    description:
-      'Sunroom that features a cozy fireplace, combining the beauty of natural light with the warmth of a crackling fire. This serene space is perfect for unwinding, reading, or simply enjoying quiet moments any time of year.',
-  },
-  {
-    original: '/images/property/kitchen-1.jpg',
-    thumbnail: '/images/property/kitchen-1-thumb.jpg',
-    description:
-      'This spacious kitchen exemplifies open-concept living at its finest. The sleek granite countertops and custom cherry wood cabinetry provide both beauty and functionality. A convenient breakfast bar with modern pendant lighting creates casual seating, while the open design flows seamlessly into the family living area.',
-  },
-  {
-    original: '/images/property/kitchen-2.jpg',
-    thumbnail: '/images/property/kitchen-2-thumb.jpg',
-    description:
-      'A masterfully designed kitchen showcases rich cherry cabinetry topped with elegant crown molding. The expansive granite countertops feature a striking burgundy-colored breakfast bar. Premium stainless steel appliances, including a wall oven and microwave, complement the modern design.',
-  },
-  {
-    original: '/images/property/master-bedroom-1.jpg',
-    thumbnail: '/images/property/master-bedroom-1-thumb.jpg',
-    description:
-      'This spacious master retreat offers a serene escape with its thoughtful design. A grand wood bed frame anchors the room, complemented by a cozy sitting area with plush seating. Large windows with plantation shutters and sheer curtains provide abundant natural light while maintaining privacy.',
-  },
-  {
-    original: '/images/property/master-bathroom-1.jpg',
-    thumbnail: '/images/property/master-bathroom-1-thumb.jpg',
-    description:
-      'This spa-like master bathroom features an expansive curved vanity with rich cherry cabinetry and light-colored quartz countertops. A spacious glass-enclosed shower with custom tile work anchors one end, while decorative tile accents create visual interest.',
-  },
-  {
-    original: '/images/property/patio-1.jpg',
-    thumbnail: '/images/property/patio-1-thumb.jpg',
-    description:
-      'Resort-style covered patio features custom lattice sunshade with ambient string lighting, stucco walls, and a glass entry door. Upscale outdoor living space includes comfortable lounge seating with blue and brown cushions, decorative wall art, and attractive paver accents, perfect for year-round entertaining.',
-  },
-  {
-    original: '/images/property/foyer-1.jpg',
-    thumbnail: '/images/property/foyer-1-thumb.jpg',
-    description:
-      'Elegant foyer features custom inlaid marble floor medallion and decorative glass entry door. Bright space enhanced by plantation shutters, sage green walls, and a dramatic domed ceiling with pendant light. Spacious hallway with designer accents creates a sophisticated entrance.',
-  },
-  {
-    original: '/images/property/living-room-1.jpg',
-    thumbnail: '/images/property/living-room-1-thumb.jpg',
-    description:
-      'Spacious living room showcases a cozy fireplace, plantation shutters, and elegant open-concept design. Features include warm hardwood and tile flooring transitions, high ceilings, and abundant natural light. Perfect blend of formal living and comfortable entertaining space.',
-  },
-  {
-    original: '/images/property/dining-room-1.jpg',
-    thumbnail: '/images/property/dining-room-1-thumb.jpg',
-    description:
-      'This light-filled dining area showcases sophisticated design with its crystal chandelier and circular dining arrangement. Crisp white crown molding and decorative wall niches provide elegant architectural detail against soft sage walls.',
-  },
-]
+import { propertyPhotos } from '@/lib/property-photos'
 
 export default function PhotosPage() {
   const [showGallery, setShowGallery] = useState(false)
 
   const galleryItems = propertyPhotos.map((photo) => ({
     original: photo.original,
+    originalAlt: photo.alt,
+    originalTitle: photo.description,
     thumbnail: photo.thumbnail,
+    thumbnailAlt: photo.alt,
     description: photo.description,
   }))
 
@@ -124,35 +48,28 @@ export default function PhotosPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                 Photo Preview ({propertyPhotos.length} Photos)
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {propertyPhotos.map((photo, index) => (
-                  <div
+                  <figure
                     key={index}
-                    className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity bg-gray-200 group"
+                    className="group cursor-pointer"
                     onClick={() => setShowGallery(true)}
                   >
-                    <img
-                      src={photo.original}
-                      alt={photo.description || `Property photo ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity flex items-center justify-center">
-                      <svg
-                        className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                    <picture>
+                      <source srcSet={photo.original} type="image/jpeg" />
+                      <img
+                        src={photo.original}
+                        alt={photo.alt}
+                        className="w-full h-52 md:h-48 lg:h-56 object-cover rounded-lg shadow-sm group-hover:shadow-lg transition-shadow"
+                        loading="lazy"
+                      />
+                    </picture>
+                    {photo.description && (
+                      <figcaption className="mt-3 text-sm text-gray-600 group-hover:text-gray-800">
+                        {photo.description}
+                      </figcaption>
+                    )}
+                  </figure>
                 ))}
               </div>
             </div>

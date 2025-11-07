@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Silverstone Ranch Homes',
-    images: [
-      {
-        url: '/images/property/exterior-1.jpg',
+        images: [
+          {
+            url: '/images/property/exterior-front-elevation.jpg',
         width: 1200,
         height: 630,
         alt: '7152 Royal Melbourne Drive, Silverstone Ranch',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: '7152 Royal Melbourne Drive | Silverstone Ranch Homes',
     description:
       'Get Top Dollar for Your Silverstone Ranch North Las Vegas Home – Fast.',
-    images: ['/images/property/exterior-1.jpg'],
+        images: ['/images/property/exterior-front-elevation.jpg'],
   },
   robots: {
     index: true,

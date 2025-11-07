@@ -24,7 +24,7 @@ export default function HomesForSalePage() {
             <div className="md:flex">
               <div className="md:w-1/2 relative h-64 md:h-auto bg-gray-200">
                 <Image
-                  src="/images/property/exterior-1.jpg"
+                  src="/images/property/exterior-front-elevation.jpg"
                   alt="7152 Royal Melbourne Drive"
                   fill
                   className="object-cover"

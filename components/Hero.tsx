@@ -69,7 +69,7 @@ export default function Hero() {
           {/* Right Column - Image or Additional Content */}
           <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl bg-gray-200">
             <Image
-              src="/images/property/exterior-1.jpg"
+              src="/images/property/exterior-front-elevation.jpg"
               alt="7152 Royal Melbourne Drive, Silverstone Ranch"
               fill
               className="object-cover"

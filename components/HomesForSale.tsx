@@ -11,7 +11,7 @@ export default function HomesForSale() {
           <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             <div className="relative h-64 bg-gray-200">
               <img
-                src="/images/property/exterior-1.jpg"
+                src="/images/property/exterior-front-elevation.jpg"
                 alt="7152 Royal Melbourne Drive"
                 className="w-full h-full object-cover"
                 loading="lazy"
