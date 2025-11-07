@@ -21,6 +21,9 @@ export default function Footer() {
                 <div className="text-xs text-gray-400">Homes</div>
               </div>
             </Link>
+            <p className="text-sm text-gray-300 font-semibold mb-3 leading-relaxed">
+              Silverstone Ranch Specialists | Dr. Jan Duffy REALTOR® | Berkshire Hathaway HomeServices | License: S.0197614.LLC
+            </p>
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
               Premier real estate services in Las Vegas, NV. Specializing in Silverstone Ranch luxury homes.
             </p>
