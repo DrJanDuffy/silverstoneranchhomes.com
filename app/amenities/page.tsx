@@ -1,164 +1,245 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+const coreAmenities = [
+  {
+    icon: '🌳',
+    title: 'Central Park & Greenbelts',
+    description:
+      'A 6-acre park anchors Silverstone Ranch with lawns, shade structures, picnic pavilions, and rolling greenbelts linking each village.',
+  },
+  {
+    icon: '🎾',
+    title: 'Tennis, Pickleball & Courts',
+    description:
+      'Lighted tennis and pickleball courts, basketball hoops, and open play areas keep residents active from sunrise to dusk.',
+  },
+  {
+    icon: '👨‍👩‍👧‍👦',
+    title: 'Playgrounds & Splash Pads',
+    description:
+      'Age-specific playgrounds, splash pads, and tot lots provide safe, shaded spaces for families to gather year-round.',
+  },
+  {
+    icon: '🚶',
+    title: 'Walking, Biking & Fitness Loops',
+    description:
+      'Miles of paved trails wrap the former fairways, connecting neighborhoods to parks, schools, and community amenities.',
+  },
+]
+
+const wellnessHighlights = [
+  {
+    title: 'Centennial Hills YMCA',
+    detail: 'Group fitness, indoor aquatics, and youth programs five minutes from the guard gate.',
+  },
+  {
+    title: 'Mount Charleston & Summerlin Trails',
+    detail: 'Elevation escapes, hiking, and cycling routes within 35 minutes.',
+  },
+  {
+    title: 'Centennial Hills Hospital & Clinics',
+    detail: 'A 226-bed hospital, VA clinic, and specialty practices within a 10-minute drive.',
+  },
+  {
+    title: 'Floyd Lamb Park & Gilcrease Orchard',
+    detail: 'Fishing lagoons, equestrian arenas, and seasonal farm events just north of the community.',
+  },
+]
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Amenities & Lifestyle | Parks, Trails, Clubhouse',
+  description:
+    'Explore Silverstone Ranch amenities: parks, trails, sports courts, clubhouse programming, HOA services, and nearby wellness resources curated for November 2025.',
+}
 
 export default function AmenitiesPage() {
-  const amenities = [
-    {
-      title: '6-Acre Family Park',
-      description: 'Spacious park with multiple recreational areas for families to enjoy',
-      icon: '🌳',
-      details: 'A massive 6-acre community park offering endless opportunities for recreation and relaxation.',
-    },
-    {
-      title: 'Playgrounds',
-      description: 'Safe, modern playground equipment for children of all ages',
-      icon: '🎠',
-      details: 'Multiple playground areas with age-appropriate equipment, safety surfacing, and shaded areas.',
-    },
-    {
-      title: 'Basketball & Tennis Courts',
-      description: 'Professional-grade courts for sports enthusiasts',
-      icon: '🏀',
-      details: 'Well-maintained basketball and tennis courts available for community use, perfect for staying active.',
-    },
-    {
-      title: 'Picnic & Barbecue Areas',
-      description: 'Perfect for family gatherings and outdoor dining',
-      icon: '🍖',
-      details: 'Designated picnic areas with barbecue facilities, ideal for community events and family celebrations.',
-    },
-    {
-      title: 'Walking & Biking Trails',
-      description: 'Scenic trails throughout the community',
-      icon: '🚶',
-      details: 'Extensive network of walking and biking trails connecting neighborhoods and providing safe routes for exercise.',
-    },
-    {
-      title: 'Lush Greenbelts',
-      description: 'Beautifully maintained green spaces',
-      icon: '🌿',
-      details: 'Carefully landscaped greenbelts throughout the community, creating a beautiful and serene environment.',
-    },
-  ]
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Community Amenities
+    <main className="bg-white">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-700 mb-3">Lifestyle Guide · Updated November 2025</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Silverstone Ranch Amenities & Lifestyle
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Silverstone Ranch offers an exceptional lifestyle with world-class amenities 
-            designed for families, active adults, and outdoor enthusiasts.
+          <p className="text-lg text-gray-700 mb-6">
+            Silverstone Ranch delivers a guarded, resort-inspired experience in Centennial Hills. From a 6-acre central park
+            to miles of walking loops, the community is designed for families, active adults, and professionals balancing
+            luxury with everyday convenience. This guide breaks down the amenity pillars that set Silverstone apart and
+            shows how Dr. Jan Duffy helps buyers experience each feature firsthand.
           </p>
         </div>
+      </section>
 
-        {/* Main Amenities Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {amenities.map((amenity, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="text-5xl mb-4 text-center">{amenity.icon}</div>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-3 text-center">
-                {amenity.title}
-              </h2>
-              <p className="text-gray-600 mb-4 text-center">{amenity.description}</p>
-              <p className="text-gray-700 text-sm leading-relaxed">{amenity.details}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Community Overview */}
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-            Silverstone Ranch Community
-          </h2>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              Silverstone homeowners have access to a comprehensive <strong>6-acre family park</strong> with 
-              playgrounds, basketball and tennis courts, picnic and barbecue areas, walking and biking trails, 
-              and lush greenbelts. This master-planned community was designed with families in mind, offering 
-              a perfect balance of recreation, relaxation, and natural beauty.
-            </p>
-            <p className="text-gray-700 leading-relaxed text-lg">
-              Whether you&apos;re looking to stay active, enjoy quality time with family, or simply relax in 
-              beautiful surroundings, Silverstone Ranch provides the amenities and lifestyle you&apos;re seeking.
-            </p>
-          </div>
-        </div>
-
-        {/* Additional Community Features */}
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Additional Community Features
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Top Schools</h3>
-              <p className="text-sm text-gray-600">Highly-rated school district</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Prime Location</h3>
-              <p className="text-sm text-gray-600">North Las Vegas convenience</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Gated Options</h3>
-              <p className="text-sm text-gray-600">Security and privacy available</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Golf Access</h3>
-              <p className="text-sm text-gray-600">Near Silverstone Golf Club</p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Experience Silverstone Ranch</h2>
-          <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-            Discover why so many families choose Silverstone Ranch as their home. Contact Dr. Jan Duffy 
-            to learn more about available properties and community amenities.
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200" id="core-amenities">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Core Community Amenities</h2>
+          <p className="text-gray-700 mb-8 text-lg leading-relaxed">
+            The master association invests heavily in common-space upkeep and recreational programming. Landscaped entries,
+            rolling greenbelts, and targeted lighting elevate the arrival experience day and night. Residents benefit from
+            on-site amenities maintained year-round by professional crews—a key differentiator among Northwest Las Vegas
+            enclaves.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="grid gap-6 sm:grid-cols-2">
+            {coreAmenities.map((amenity) => (
+              <div key={amenity.title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm">
+                <div className="text-4xl mb-4">{amenity.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{amenity.title}</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">{amenity.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200" id="clubhouse-programming">
+        <div className="mx-auto max-w-5xl grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Clubhouse Programming & Social Calendar</h2>
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+              HOA staff coordinate an evolving calendar of events at the main clubhouse. Seasonal celebrations, movie nights,
+              youth camps, and themed tastings foster social connection. Meeting rooms and covered patios are available for
+              private reservations with refundable deposits, making it easy to host milestone events without leaving the
+              neighborhood.
+            </p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Amenities You Can Reserve</h3>
+            <ul className="space-y-3 text-sm text-gray-700">
+              <li>Clubhouse great room with catering kitchen and AV hookups for presentations.</li>
+              <li>Pool cabanas and shade structures—ideal for summer birthdays or weekend socials.</li>
+              <li>Tennis and pickleball courts with night lighting for league play.</li>
+              <li>Park pavilions with built-in grills for family reunions and outdoor celebrations.</li>
+            </ul>
+            <p className="text-gray-700 mt-4 text-sm">
+              Reservation requests can be submitted via the CAMCO homeowner portal. Dr. Jan Duffy provides clients with the
+              latest fee schedule and insurance requirements so plans stay on track.
+            </p>
+          </div>
+          <aside className="rounded-2xl border border-blue-100 bg-white shadow-lg p-6">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Tour Amenities with Dr. Jan Duffy</h3>
+            <p className="text-sm text-gray-700 mb-4">
+              Schedule a curated community tour covering parks, clubhouse facilities, guard gate operations, and nearby
+              conveniences. Dr. Duffy also introduces you to HOA representatives and preferred service vendors.
+            </p>
+            <div className="flex flex-col gap-3">
+              <Link
+                href="/book-tour"
+                className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
+              >
+                Schedule a Community Tour
+              </Link>
+              <Link
+                href="/request-info"
+                className="inline-flex items-center justify-center rounded-lg border border-blue-600 px-4 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 transition"
+              >
+                Download Amenity Map
+              </Link>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200" id="outdoor-living">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Outdoor Living & Trail Network</h2>
+          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+            Silverstone Ranch prioritizes outdoor recreation. Trail loops stitch together each sub-association, allowing
+            residents to walk, jog, and bike without crossing major roads. Many pathways border the former golf fairways,
+            granting uninterrupted desert vistas. Fitness stations, pet-friendly waste stations, and shaded rest nodes are
+            strategically installed to support everyday routines.
+          </p>
+          <h3 className="text-xl font-semibold text-gray-900 mb-3">Key Trail Highlights</h3>
+          <ul className="space-y-3 text-sm text-gray-700">
+            <li><span className="font-semibold text-blue-600">Fairway Loop:</span> 2.3-mile circuit encircling the dormant golf corridors—ideal for sunrise walks.</li>
+            <li><span className="font-semibold text-blue-600">Park Connector:</span> Shortcuts linking Pinehurst, Tuscany, and The Palms to the central park and playgrounds.</li>
+            <li><span className="font-semibold text-blue-600">Neighborhood Spurs:</span> Cul-de-sac cut-throughs that lead to nearby schools and bus stops.</li>
+            <li><span className="font-semibold text-blue-600">Bike-Friendly Streets:</span> Low-traffic residential lanes with traffic calming and widened shoulders.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200" id="hoa-services">
+        <div className="mx-auto max-w-5xl grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">HOA Services & Resident Support</h2>
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+              The master association, managed by CAMCO, oversees 24/7 guard services, landscaping along the parkways,
+              reserve planning, and community communications. Sub-associations within Silverstone Ranch—such as The Palms,
+              Tuscany, and Pinehurst—layer on additional services like front-yard maintenance or exterior paint schedules.
+            </p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Digital Homeowner Tools</h3>
+            <ul className="space-y-3 text-sm text-gray-700">
+              <li>Online payment portal with automatic draft and credit card options.</li>
+              <li>Architectural review submissions handled through a digital ticketing system.</li>
+              <li>Visitor management for guard gates via smartphone apps and QR codes.</li>
+              <li>Community alerts and event calendars distributed through email and SMS.</li>
+            </ul>
+          </div>
+          <aside className="rounded-2xl border border-blue-100 bg-white shadow-lg p-6">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Need the Latest HOA Docs?</h3>
+            <p className="text-sm text-gray-700 mb-4">
+              Dr. Jan Duffy coordinates resale demand letters, status certificates, and architectural guidelines for buyers
+              and sellers—ensuring smooth contingencies and on-time closings.
+            </p>
             <Link
               href="/request-info"
-              className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
             >
-              Request Information
+              Request HOA Documentation Support
+            </Link>
+          </aside>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200" id="wellness-network">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Wellness & Recreation Network Beyond the Gates</h2>
+          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+            Centennial Hills is a wellness-forward district. Residents couple on-site amenities with a network of nearby
+            resources, including boutique fitness studios, medical centers, and outdoor adventures. Whether you prefer
+            curated fitness classes or weekend hikes, Silverstone Ranch keeps healthy living convenient.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {wellnessHighlights.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200" id="next-steps">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Plan Your Silverstone Ranch Experience</h2>
+          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+            Ready to explore amenities in person? Reach out to Dr. Jan Duffy for a curated tour, HOA document review, and a
+            tailored lifestyle consultation. Whether you are relocating, upsizing, or investing, you’ll receive concierge
+            support across lending, staging, and contract negotiations.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/book-tour"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
+            >
+              Schedule Amenities Tour
             </Link>
             <Link
               href="/homes-for-sale"
-              className="px-8 py-3 bg-blue-500 text-white border-2 border-white rounded-lg hover:bg-blue-400 transition-all font-semibold"
+              className="inline-flex items-center justify-center rounded-lg border border-blue-600 px-4 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 transition"
             >
-              View Available Homes
+              Browse Homes Near the Park
+            </Link>
+            <Link
+              href="/buyers-checklist"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition"
+            >
+              Download Buyer Checklist
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 
