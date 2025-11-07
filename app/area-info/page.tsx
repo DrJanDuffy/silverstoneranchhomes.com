@@ -78,6 +78,48 @@ export default function AreaInfoPage() {
               </ul>
             </div>
 
+            <div className="mb-8 rounded-lg border border-blue-100 bg-white p-6 shadow-sm">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">School Assignments &amp; Ratings</h3>
+              <p className="text-gray-700 mb-4">
+                Silverstone Ranch is zoned to highly rated Clark County School District campuses as of November 2025.
+                Ratings originate from GreatSchools.org and may change. Confirm attendance boundaries and program availability
+                directly with CCSD before enrolling or closing on a home.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-3 text-sm text-gray-700">
+                <div className="rounded-lg border border-blue-100 bg-blue-50 p-4">
+                  <p className="text-xs uppercase tracking-wide text-blue-700 font-semibold mb-1">Elementary</p>
+                  <p className="text-base font-semibold text-gray-900">O&apos;Roarke ES</p>
+                  <p className="text-xs text-blue-700 mb-1">GreatSchools 7/10</p>
+                  <p>STEM labs, robotics club, after-school tutoring for core subjects.</p>
+                </div>
+                <div className="rounded-lg border border-blue-100 bg-blue-50 p-4">
+                  <p className="text-xs uppercase tracking-wide text-blue-700 font-semibold mb-1">Middle</p>
+                  <p className="text-base font-semibold text-gray-900">Cadwallader MS</p>
+                  <p className="text-xs text-blue-700 mb-1">GreatSchools 8/10</p>
+                  <p>Project Lead the Way engineering electives and award-winning performing arts.</p>
+                </div>
+                <div className="rounded-lg border border-blue-100 bg-blue-50 p-4">
+                  <p className="text-xs uppercase tracking-wide text-blue-700 font-semibold mb-1">High</p>
+                  <p className="text-base font-semibold text-gray-900">Arbor View HS</p>
+                  <p className="text-xs text-blue-700 mb-1">GreatSchools 7/10</p>
+                  <p>Advanced Placement, medical academy CTE pathways, nationally ranked athletics.</p>
+                </div>
+              </div>
+              <p className="mt-4 text-xs text-gray-500">
+                Verify zoning at
+                <a
+                  href="https://ccsd.net/schools/zoning/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 font-semibold text-blue-600 hover:underline"
+                >
+                  ccsd.net/schools/zoning
+                </a>
+                {' '}
+                or call the CCSD zoning office at (702) 799-6430 for the latest boundary confirmation.
+              </p>
+            </div>
+
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
               Beyond its prime location, this luxury Las Vegas community boasts immaculately manicured 
               landscapes, resort-style amenities, and Mediterranean-inspired architecture that radiates 
@@ -88,8 +130,8 @@ export default function AreaInfoPage() {
 
             <p className="text-gray-700 leading-relaxed text-lg">
               Silverstone Ranch remains one of Las Vegas&apos; most desirable communities—where style, luxury, and
-              convenience converge. Request a private tour with Dr. Jan Duffy to explore which neighborhood enclave
-              aligns with your goals.
+              convenience converge. Request a private tour with Dr. Jan Duffy to confirm school options, review HOA
+              disclosures, and explore which neighborhood enclave aligns with your goals.
             </p>
           </div>
         </div>
@@ -113,7 +155,7 @@ export default function AreaInfoPage() {
             <div className="p-6 bg-gray-50 rounded-lg">
               <div className="text-3xl mb-3">🎓</div>
               <h3 className="font-semibold text-gray-900 mb-2">Education</h3>
-              <p className="text-sm text-gray-600">Top-rated CCSD schools</p>
+              <p className="text-sm text-gray-600">Zoned for O&apos;Roarke ES, Cadwallader MS, Arbor View HS</p>
             </div>
             <div className="p-6 bg-gray-50 rounded-lg">
               <div className="text-3xl mb-3">🏥</div>

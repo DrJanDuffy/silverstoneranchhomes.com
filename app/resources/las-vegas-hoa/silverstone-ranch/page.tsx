@@ -3,7 +3,9 @@ import Link from 'next/link'
 import {
   Calendar,
   ChevronRight,
+  ExternalLink,
   FileText,
+  GraduationCap,
   Home,
   Key,
   Mail,
@@ -261,12 +263,13 @@ export default function SilverstoneRanchHoaPage() {
             <div>
               <h2 className="text-3xl font-bold text-slate-900">Silverstone Ranch HOA Fees</h2>
               <p className="mt-3 max-w-3xl text-slate-700">
-                Fees vary by neighborhood pod and are billed quarterly. Below is the typical breakdown for 2025. Verify
-                current assessments before closing; Dr. Jan Duffy will confirm amounts during due diligence.
+                Fees vary by neighborhood pod and are billed quarterly. Below is the updated breakdown for Q4 2025.
+                Always verify current assessments and special budgets during escrow—Dr. Jan Duffy confirms amounts as
+                part of every due diligence review.
               </p>
             </div>
             <div className="hidden rounded-full border border-blue-100 bg-blue-50 px-6 py-2 text-sm font-medium text-blue-700 md:block">
-              Updated Q1 2025
+              Updated November 2025
             </div>
           </div>
 
@@ -287,30 +290,39 @@ export default function SilverstoneRanchHoaPage() {
               <tbody className="divide-y divide-slate-100 bg-white">
                 <tr>
                   <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
-                    The Palms at Silverstone
+                    The Palms (Guard-Gated Single-Family)
                   </th>
-                  <td className="px-6 py-5">$145</td>
-                  <td className="px-6 py-5">$65</td>
-                  <td className="px-6 py-5 font-semibold text-blue-700">$210</td>
-                  <td className="px-6 py-5">Common area landscape, gate access, private park</td>
+                  <td className="px-6 py-5">$158</td>
+                  <td className="px-6 py-5">$82</td>
+                  <td className="px-6 py-5 font-semibold text-blue-700">$240</td>
+                  <td className="px-6 py-5">24/7 guard house, boulevard landscaping, trail lighting, private park</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
-                    The Cottages / Tuscany Collection
+                    Tuscany &amp; Cottages (Gated Single-Family)
                   </th>
-                  <td className="px-6 py-5">$145</td>
-                  <td className="px-6 py-5">$55</td>
+                  <td className="px-6 py-5">$158</td>
+                  <td className="px-6 py-5">$94</td>
+                  <td className="px-6 py-5 font-semibold text-blue-700">$252</td>
+                  <td className="px-6 py-5">Front yard landscape, exterior paint cycle, clubhouse + fitness, reserves</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
+                    Pinehurst Townhomes (Golf Corridor)
+                  </th>
+                  <td className="px-6 py-5">$158</td>
+                  <td className="px-6 py-5">$128</td>
+                  <td className="px-6 py-5 font-semibold text-blue-700">$286</td>
+                  <td className="px-6 py-5">Roof + exterior insurance, landscape, private pool, pest control</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
+                    Non-Gated Villages (Eastpoint, Greenfield, Somerset)
+                  </th>
+                  <td className="px-6 py-5">$158</td>
+                  <td className="px-6 py-5">$42</td>
                   <td className="px-6 py-5 font-semibold text-blue-700">$200</td>
-                  <td className="px-6 py-5">Exterior paint, front yard maintenance, club room</td>
-                </tr>
-                <tr>
-                  <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
-                    The Bungalows / Tropicana Cove
-                  </th>
-                  <td className="px-6 py-5">$145</td>
-                  <td className="px-6 py-5">$45</td>
-                  <td className="px-6 py-5 font-semibold text-blue-700">$190</td>
-                  <td className="px-6 py-5">Trail system, community events, reserves</td>
+                  <td className="px-6 py-5">Arterial landscape, common park upkeep, community security patrol</td>
                 </tr>
               </tbody>
             </table>
@@ -320,8 +332,8 @@ export default function SilverstoneRanchHoaPage() {
             <div className="flex items-center gap-3">
               <Shield className="h-5 w-5" aria-hidden="true" />
               <p className="font-medium">
-                Tip: Closing agents require a resale demand and HOA status letter. Request documents 10–14 days before
-                your target closing to avoid rush fees.
+                Tip: Order resale demand, status letter, and gate access forms 10–14 days in advance to avoid rush fees
+                or delayed closings.
               </p>
             </div>
             <Link href="/request-info" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white shadow transition hover:bg-blue-600 sm:mt-0">
@@ -469,6 +481,10 @@ export default function SilverstoneRanchHoaPage() {
                   <Phone className="h-4 w-4" aria-hidden="true" />
                   (702) 531-3382
                 </a>
+                <a href="tel:7028393990" className="flex items-center gap-2 hover:text-blue-800">
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  Guard Gate: (702) 839-3990
+                </a>
                 <a href="mailto:hoa@camconevada.com" className="flex items-center gap-2 hover:text-blue-800">
                   <Mail className="h-4 w-4" aria-hidden="true" />
                   hoa@camconevada.com
@@ -483,9 +499,9 @@ export default function SilverstoneRanchHoaPage() {
             <div>
               <h2 className="text-3xl font-bold text-slate-900">Buyer & Seller Insights</h2>
               <p className="mt-3 max-w-3xl text-slate-700">
-                Silverstone Ranch inventory remains limited, with average days on market under 30 and list-to-sale price
-                ratios hovering around 98%. Homes with renovated kitchens and solar systems command notable premiums in
-                2025.
+                Silverstone Ranch inventory remains tight, with November 2025 closings averaging 13 days on market and
+                list-to-sale ratios of 101.8%. Renovated kitchens, energy-efficient upgrades, and outdoor living zones
+                continue to command premiums.
               </p>
             </div>
             <Link
@@ -499,9 +515,9 @@ export default function SilverstoneRanchHoaPage() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-6">
-              <h3 className="text-lg font-semibold text-slate-900">2025 Median Price</h3>
-              <p className="mt-2 text-3xl font-bold text-blue-700">$645,000</p>
-              <p className="mt-3 text-sm text-slate-700">Up 6.4% year-over-year with strongest demand for 4-bedroom plans.</p>
+              <h3 className="text-lg font-semibold text-slate-900">Median Price (Nov 2025)</h3>
+              <p className="mt-2 text-3xl font-bold text-blue-700">$685,000</p>
+              <p className="mt-3 text-sm text-slate-700">Up 5.2% year-over-year with strongest demand for renovated 4-bedroom plans.</p>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-slate-900">Buyer Hot Buttons</h3>
@@ -527,6 +543,78 @@ export default function SilverstoneRanchHoaPage() {
             <p>
               Looking for hyper-local stats? Explore our <Link href="/area-insight" className="font-semibold hover:text-blue-900">Silverstone Ranch market insights</Link> and subscribe for monthly HOA trend reports curated by Dr. Duffy.
             </p>
+          </div>
+        </section>
+
+        <section id="schools" className="mb-12 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900">School Assignments &amp; Ratings</h2>
+              <p className="mt-3 max-w-3xl text-slate-700">
+                Silverstone Ranch is currently zoned to highly-rated Clark County School District campuses focused on STEM
+                and college-ready pathways. Ratings reflect November 2025 GreatSchools.org data; always verify attendance
+                boundaries directly with CCSD prior to enrollment or purchase.
+              </p>
+            </div>
+            <a
+              href="https://ccsd.net/schools/zoning/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-blue-200 px-5 py-2 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-blue-50"
+            >
+              Verify CCSD Zoning
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
+            <table className="min-w-full divide-y divide-slate-200 text-left text-sm text-slate-700">
+              <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                <tr>
+                  <th scope="col" className="px-6 py-4">Campus</th>
+                  <th scope="col" className="px-6 py-4">GreatSchools Rating*</th>
+                  <th scope="col" className="px-6 py-4">Distance</th>
+                  <th scope="col" className="px-6 py-4">Highlights</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 bg-white">
+                <tr>
+                  <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
+                    O&apos;Roarke Elementary School
+                  </th>
+                  <td className="px-6 py-5"><span className="rounded-full bg-blue-100 px-3 py-1 font-semibold text-blue-700">7 / 10</span></td>
+                  <td className="px-6 py-5">1.4 miles</td>
+                  <td className="px-6 py-5">STEM labs, robotics club, after-school tutoring</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
+                    Ralph Cadwallader Middle School
+                  </th>
+                  <td className="px-6 py-5"><span className="rounded-full bg-blue-100 px-3 py-1 font-semibold text-blue-700">8 / 10</span></td>
+                  <td className="px-6 py-5">2.2 miles</td>
+                  <td className="px-6 py-5">Project Lead the Way engineering electives, award-winning band program</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-6 py-5 text-base font-semibold text-slate-900">
+                    Arbor View High School
+                  </th>
+                  <td className="px-6 py-5"><span className="rounded-full bg-blue-100 px-3 py-1 font-semibold text-blue-700">7 / 10</span></td>
+                  <td className="px-6 py-5">3.6 miles</td>
+                  <td className="px-6 py-5">Advanced Placement, medical academy CTE tracks, nationally ranked athletics</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-blue-100 bg-blue-50 px-5 py-4 text-sm text-blue-800">
+            <div className="flex items-start gap-3">
+              <GraduationCap className="mt-0.5 h-5 w-5" aria-hidden="true" />
+              <p>
+                *Ratings sourced from GreatSchools.org as of November 7, 2025. Attendance zones and program offerings are
+                subject to change—confirm directly with the Clark County School District zoning office or call
+                <a href="tel:7027996430" className="ml-1 font-semibold hover:underline">(702) 799-6430</a>.
+              </p>
+            </div>
           </div>
         </section>
 

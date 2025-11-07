@@ -153,7 +153,16 @@ export default function HomesForSalePage() {
               </button>
             </form>
             <p className="mt-4 text-xs text-gray-500">
-              Silverstone Ranch inventory updates hourly. Submit the form and Dr. Duffy will send curated options plus coming-soon homes you won&apos;t find on public portals.
+              Silverstone Ranch inventory updates hourly. Submit the form and Dr. Duffy will send curated options plus coming-soon homes you won&apos;t find on public portals. School attendance boundaries are set by CCSD—confirm zoning at
+              <a
+                href="https://ccsd.net/schools/zoning/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 font-semibold text-blue-600 hover:underline"
+              >
+                ccsd.net/schools/zoning
+              </a>
+              {' '}before you write an offer.
             </p>
           </div>
         </div>

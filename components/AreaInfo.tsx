@@ -62,6 +62,39 @@ export default function AreaInfo() {
             </ul>
           </div>
 
+          <div className="mb-8 rounded-lg border border-blue-100 bg-white/60 p-5 shadow-sm">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">School Snapshot (Nov 2025)</h3>
+            <div className="grid gap-4 sm:grid-cols-3 text-xs text-gray-700">
+              <div className="rounded-lg border border-blue-100 bg-blue-50 p-3">
+                <p className="font-semibold text-blue-700 uppercase tracking-wide mb-1">O&apos;Roarke ES</p>
+                <p className="font-semibold text-gray-900">GreatSchools 7/10</p>
+                <p>STEM labs, robotics club, enrichment tutoring.</p>
+              </div>
+              <div className="rounded-lg border border-blue-100 bg-blue-50 p-3">
+                <p className="font-semibold text-blue-700 uppercase tracking-wide mb-1">Cadwallader MS</p>
+                <p className="font-semibold text-gray-900">GreatSchools 8/10</p>
+                <p>Engineering electives, award-winning band.</p>
+              </div>
+              <div className="rounded-lg border border-blue-100 bg-blue-50 p-3">
+                <p className="font-semibold text-blue-700 uppercase tracking-wide mb-1">Arbor View HS</p>
+                <p className="font-semibold text-gray-900">GreatSchools 7/10</p>
+                <p>AP, medical academy CTE tracks, elite athletics.</p>
+              </div>
+            </div>
+            <p className="mt-3 text-[11px] text-gray-500">
+              Verify attendance boundaries with CCSD at
+              <a
+                href="https://ccsd.net/schools/zoning/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 font-semibold text-blue-600 hover:underline"
+              >
+                ccsd.net/schools/zoning
+              </a>
+              {' '}or call (702) 799-6430.
+            </p>
+          </div>
+
           <p className="text-gray-700 leading-relaxed mb-6">
             Beyond its prime location, this luxury Las Vegas community boasts immaculately manicured 
             landscapes, resort-style amenities, and Mediterranean-inspired architecture that radiates 
@@ -72,8 +105,8 @@ export default function AreaInfo() {
 
           <p className="text-gray-700 leading-relaxed">
             Silverstone Ranch remains one of Las Vegas&apos; most coveted addresses—where lifestyle, luxury, and
-            community converge. Connect with Dr. Jan Duffy to curate your personal tour and explore which
-            village best matches your goals.
+            community converge. Connect with Dr. Jan Duffy to confirm school options, review HOA disclosures, and
+            explore which village best matches your goals.
           </p>
         </div>
       </div>

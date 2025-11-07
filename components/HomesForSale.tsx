@@ -38,7 +38,20 @@ export default function HomesForSale() {
             </div>
           ))}
         </div>
-        
+        <p className="mb-8 text-xs text-gray-500">
+          School assignments referenced on this page reflect November 2025 CCSD zoning for O&apos;Roarke ES, Cadwallader MS, and Arbor View HS.
+          Verify boundaries at
+          <a
+            href="https://ccsd.net/schools/zoning/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-1 font-semibold text-blue-600 hover:underline"
+          >
+            ccsd.net/schools/zoning
+          </a>
+          {' '}before scheduling tours.
+        </p>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Featured Property Card */}
           <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
