@@ -1,25 +1,25 @@
 export default function MarketInsights() {
   const recentSales = [
     {
-      address: '7224 Royal Melbourne Dr',
-      listed: '$679,000',
-      sold: '$695,000',
-      daysOnMarket: 8,
-      feature: 'Updated kitchen',
+      address: 'Silverstone Ranch Residence • Silverlake Enclave',
+      listed: '$699,500',
+      sold: '$710,000',
+      daysOnMarket: 7,
+      feature: 'Outdoor living upgrade + three-car garage',
     },
     {
-      address: '7168 Royal Liverpool',
-      listed: '$669,000',
-      sold: '$679,000',
+      address: 'Guard-Gated Estate • The Palms',
+      listed: '$785,000',
+      sold: '$799,000',
+      daysOnMarket: 9,
+      feature: 'Remodeled kitchen, pool cabana, and view deck',
+    },
+    {
+      address: 'Pinehurst Townhome • Golf Corridor',
+      listed: '$415,000',
+      sold: '$420,000',
       daysOnMarket: 11,
-      feature: 'Pool',
-    },
-    {
-      address: '7135 Royal Aberdeen',
-      listed: '$689,000',
-      sold: '$712,000',
-      daysOnMarket: 6,
-      feature: 'Solar panels',
+      feature: 'HOA-maintained landscape with shaded patio',
     },
   ]
 
@@ -29,30 +29,30 @@ export default function MarketInsights() {
         <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
           Silverstone Ranch: 2025 Seller&apos;s Market Insights
         </h2>
-        <p className="text-center text-gray-600 mb-12">Last updated: March 30, 2025</p>
+        <p className="text-center text-gray-600 mb-12">Last updated: November 7, 2025</p>
 
         {/* Market Advantage */}
         <div className="bg-white rounded-lg p-8 mb-8 shadow-md">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Market Advantage: Historically Low Inventory</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Market Advantage: Inventory at Multi-Year Lows</h3>
           <p className="text-gray-700 mb-4">
             Homeowners and investors in Silverstone Ranch are uniquely positioned in today&apos;s market:
           </p>
           <ul className="space-y-3 text-gray-700 mb-6">
             <li className="flex items-start">
               <span className="text-green-600 mr-2 font-bold">•</span>
-              <span>Only <strong>6 active listings</strong> in your price range</span>
+              <span>Only <strong>18 active listings</strong> community-wide (down 12% month-over-month)</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-600 mr-2 font-bold">•</span>
-              <span><strong>32 qualified buyers</strong> actively searching for homes</span>
+              <span><strong>46 relocation and move-up buyers</strong> pre-approved and searching now</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-600 mr-2 font-bold">•</span>
-              <span>Multiple offers are becoming the norm</span>
+              <span>Multiple offers remain the norm for renovated, move-in-ready homes</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-600 mr-2 font-bold">•</span>
-              <span>Homes selling for <strong>3-5% above asking price</strong> on average</span>
+              <span>Listings secure <strong>101.8% of list price</strong> on average when staged and priced to comps</span>
             </li>
           </ul>
         </div>
@@ -65,20 +65,20 @@ export default function MarketInsights() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">12</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">13</div>
               <div className="text-sm text-gray-600">Average days on market</div>
-              <div className="text-xs text-green-600 mt-1">(down from 21 last quarter)</div>
+              <div className="text-xs text-green-600 mt-1">(down from 17 last quarter)</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">4.2</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">4.8</div>
               <div className="text-sm text-gray-600">Days to first offer</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">6</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">7</div>
               <div className="text-sm text-gray-600">Showings before offer</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">85%</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">82%</div>
               <div className="text-sm text-gray-600">Selling at or above list price</div>
             </div>
           </div>
@@ -115,24 +115,24 @@ export default function MarketInsights() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600 mb-2">+2.1%</div>
-              <div className="text-sm text-gray-600">Current quarter</div>
+              <div className="text-2xl font-bold text-green-600 mb-2">+1.9%</div>
+              <div className="text-sm text-gray-600">Trailing 30 days</div>
             </div>
             <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600 mb-2">+8.2%</div>
+              <div className="text-2xl font-bold text-green-600 mb-2">+5.4%</div>
               <div className="text-sm text-gray-600">Year-to-date</div>
             </div>
             <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600 mb-2">+15.4%</div>
+              <div className="text-2xl font-bold text-green-600 mb-2">+7.8%</div>
               <div className="text-sm text-gray-600">Year-over-year</div>
             </div>
             <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600 mb-2">+42%</div>
-              <div className="text-sm text-gray-600">Five-year total</div>
+              <div className="text-2xl font-bold text-green-600 mb-2">+38%</div>
+              <div className="text-sm text-gray-600">Five-year appreciation</div>
             </div>
           </div>
           <p className="text-gray-700 mt-6">
-            This consistent upward trend reflects sustained high demand from buyers.
+            This consistent upward trend reflects sustained demand from relocation buyers, medical professionals, and local move-up households who value guard-gated security.
           </p>
         </div>
 
@@ -163,9 +163,7 @@ export default function MarketInsights() {
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
             <h4 className="font-semibold text-gray-900 mb-2">Current Market Opportunity:</h4>
             <p className="text-gray-700 text-sm">
-              The next 60 days present an ideal selling window due to rising interest rates creating buyer 
-              urgency, extremely low inventory levels, a robust pool of qualified buyers, and the approach 
-              of peak selling season.
+              The next 90 days present an ideal selling window thanks to limited resale inventory, continued relocation activity from California and Arizona, and buyers motivated to close before spring 2026 rate adjustments.
             </p>
           </div>
         </div>

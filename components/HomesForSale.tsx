@@ -1,10 +1,43 @@
 export default function HomesForSale() {
+  const snapshot = [
+    {
+      label: 'Median Price',
+      value: '$685K',
+      caption: 'Nov 2025 closings',
+    },
+    {
+      label: 'Price / Sq Ft',
+      value: '$284',
+      caption: 'Up 3.8% YoY',
+    },
+    {
+      label: 'Avg. DOM',
+      value: '13 Days',
+      caption: 'Faster by 4 days',
+    },
+    {
+      label: 'Active Listings',
+      value: '18',
+      caption: 'Guard-gated & gated',
+    },
+  ]
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
           Silverstone Ranch Luxury Highlights
         </h2>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-12">
+          {snapshot.map((item) => (
+            <div key={item.label} className="rounded-lg border border-blue-100 bg-white p-6 shadow-sm">
+              <p className="text-xs uppercase tracking-wide text-blue-600 font-semibold mb-1">{item.label}</p>
+              <p className="text-2xl font-bold text-blue-900 mb-1">{item.value}</p>
+              <p className="text-xs text-blue-700">{item.caption}</p>
+            </div>
+          ))}
+        </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Featured Property Card */}

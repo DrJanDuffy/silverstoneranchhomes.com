@@ -1,6 +1,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+const marketSnapshot = [
+  {
+    label: 'Median Sale Price',
+    value: '$685,000',
+    caption: '+5.2% year-over-year',
+  },
+  {
+    label: 'Price Per Sq. Ft.',
+    value: '$284',
+    caption: 'Single-story homes command premium',
+  },
+  {
+    label: 'Avg. Days on Market',
+    value: '13 Days',
+    caption: 'Down from 17 last quarter',
+  },
+  {
+    label: 'Active Listings',
+    value: '18 Homes',
+    caption: '-12% month-over-month',
+  },
+]
+
 export default function HomesForSalePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
@@ -13,6 +36,126 @@ export default function HomesForSalePage() {
             Discover luxury homes in one of Las Vegas&apos; premier communities. 
             Experience the perfect blend of elegance, comfort, and modern living.
           </p>
+        </div>
+
+        {/* Market Snapshot & Search Filters */}
+        <div className="mb-16 grid gap-8 lg:grid-cols-3">
+          <div className="lg:col-span-2 bg-white rounded-lg shadow-lg p-8 border border-blue-100">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">November 2025 Market Snapshot</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {marketSnapshot.map((item) => (
+                <div key={item.label} className="rounded-lg border border-blue-100 bg-blue-50 p-4 text-center">
+                  <div className="text-sm uppercase tracking-wide text-blue-700 font-semibold mb-1">
+                    {item.label}
+                  </div>
+                  <div className="text-2xl font-bold text-blue-900 mb-1">{item.value}</div>
+                  <div className="text-xs text-blue-700">{item.caption}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-lg p-8 border border-blue-100">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Search Filters</h2>
+            <p className="text-sm text-gray-600 mb-6">
+              Narrow the current Silverstone Ranch inventory by price, size, or days on market. Ask Dr. Duffy for private and coming-soon listings not shown online.
+            </p>
+            <form className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="minPrice" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1">
+                    Min Price
+                  </label>
+                  <input
+                    id="minPrice"
+                    type="text"
+                    placeholder="$550,000"
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="maxPrice" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1">
+                    Max Price
+                  </label>
+                  <input
+                    id="maxPrice"
+                    type="text"
+                    placeholder="$900,000"
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="beds" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1">
+                    Bedrooms
+                  </label>
+                  <select
+                    id="beds"
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  >
+                    <option value="3+">3+</option>
+                    <option value="4+">4+</option>
+                    <option value="5+">5+</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="baths" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1">
+                    Bathrooms
+                  </label>
+                  <select
+                    id="baths"
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  >
+                    <option value="2+">2+</option>
+                    <option value="2.5+">2.5+</option>
+                    <option value="3+">3+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="dom" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1">
+                  Max Days on Market
+                </label>
+                <input
+                  id="dom"
+                  type="range"
+                  min="0"
+                  max="60"
+                  defaultValue="21"
+                  className="w-full"
+                />
+                <div className="flex justify-between text-xs text-gray-500">
+                  <span>0</span>
+                  <span>21</span>
+                  <span>60</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input
+                  id="excludeGolf"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
+                <label htmlFor="excludeGolf" className="text-sm text-gray-700">
+                  Exclude homes overlooking dormant golf course land
+                </label>
+              </div>
+
+              <button
+                type="button"
+                className="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-all"
+              >
+                Request Matching Listings
+              </button>
+            </form>
+            <p className="mt-4 text-xs text-gray-500">
+              Silverstone Ranch inventory updates hourly. Submit the form and Dr. Duffy will send curated options plus coming-soon homes you won&apos;t find on public portals.
+            </p>
+          </div>
         </div>
 
         {/* Featured Property */}
