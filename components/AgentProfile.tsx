@@ -13,9 +13,9 @@ export default function AgentProfile() {
           <div className="relative">
             <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-gray-200 shadow-xl">
               <picture>
-                <source srcSet="/images/agent/dr-jan-duffy.jpg" type="image/jpeg" />
+                <source srcSet="/images/agent/dr-jan-duffy-headshot-01.jpg" type="image/jpeg" />
                 <img
-                  src="/images/agent/dr-jan-duffy.jpg"
+                  src="/images/agent/dr-jan-duffy-headshot-01.jpg"
                   alt="Portrait of Dr. Jan Duffy, Las Vegas REALTOR"
                   className="h-full w-full object-cover"
                   loading="lazy"

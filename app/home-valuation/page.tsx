@@ -284,7 +284,7 @@ export default function HomeValuationPage() {
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 bg-gray-200 rounded-full overflow-hidden">
                       <img
-                        src="/images/agent/dr-jan-duffy.jpg"
+                        src="/images/agent/dr-jan-duffy-headshot-02.jpg"
                         alt="Dr. Jan Duffy"
                         className="w-full h-full object-cover"
                       />

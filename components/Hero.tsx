@@ -28,9 +28,9 @@ export default function Hero() {
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-8">
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg bg-gray-200">
                 <picture>
-                  <source srcSet="/images/agent/dr-jan-duffy.jpg" type="image/jpeg" />
+                  <source srcSet="/images/agent/dr-jan-duffy-headshot-01.jpg" type="image/jpeg" />
                   <img
-                    src="/images/agent/dr-jan-duffy.jpg"
+                    src="/images/agent/dr-jan-duffy-headshot-01.jpg"
                     alt="Dr. Jan Duffy REALTOR serving Silverstone Ranch"
                     className="h-full w-full object-cover"
                     loading="lazy"

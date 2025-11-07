@@ -3,6 +3,33 @@ import Link from 'next/link'
 import { Phone, Mail, ExternalLink } from 'lucide-react'
 
 export default function AgentPage() {
+  const headshots = [
+    {
+      src: '/images/agent/dr-jan-duffy-headshot-01.jpg',
+      caption: 'Studio portrait highlighting Dr. Duffy\'s client-first approach',
+    },
+    {
+      src: '/images/agent/dr-jan-duffy-headshot-02.jpg',
+      caption: 'Friendly headshot used across valuation and contact cards',
+    },
+    {
+      src: '/images/agent/dr-jan-duffy-headshot-03.jpg',
+      caption: 'Professional profile suited for relocation consultations',
+    },
+    {
+      src: '/images/agent/dr-jan-duffy-headshot-04.jpg',
+      caption: 'Neighborhood walk-through readiness',
+    },
+    {
+      src: '/images/agent/dr-jan-duffy-headshot-05.jpg',
+      caption: 'Community event presence in Centennial Hills',
+    },
+    {
+      src: '/images/agent/dr-jan-duffy-headshot-06.jpg',
+      caption: 'Media-ready portrait for market insights and podcasts',
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
@@ -21,7 +48,7 @@ export default function AgentPage() {
             <div className="relative">
               <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-xl bg-gray-200">
                 <Image
-                  src="/images/agent/dr-jan-duffy.jpg"
+                  src="/images/agent/dr-jan-duffy-headshot-01.jpg"
                   alt="Dr. Jan Duffy REALTOR"
                   fill
                   className="object-cover"
@@ -81,6 +108,35 @@ export default function AgentPage() {
                 each step.
               </p>
             </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Updated 2025 Headshots</h2>
+          <p className="text-sm text-gray-600 max-w-3xl mx-auto text-center mb-8">
+            Browse the latest professional headshots for Dr. Jan Duffy. These assets are optimized for listing
+            presentations, relocation packets, local media, and digital marketing campaigns throughout Silverstone
+            Ranch and the greater Las Vegas market.
+          </p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {headshots.map((photo) => (
+              <figure
+                key={photo.src}
+                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 shadow-sm transition hover:shadow-lg"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.caption}
+                  width={600}
+                  height={750}
+                  className="h-full w-full object-cover"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+                <figcaption className="px-4 py-3 text-sm text-gray-600">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
 
