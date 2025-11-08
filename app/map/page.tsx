@@ -1,13 +1,10 @@
-'use client'
-
-import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
 import { buildWebPageSchema } from '@/lib/seo'
 
-const MapComponent = dynamic(() => import('@/components/PropertyMap'), { ssr: false })
+const mapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch Interactive Map | Neighborhood Orientation',
