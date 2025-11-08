@@ -30,51 +30,6 @@ const communityStats = [
   { label: 'Active Listings', value: '18 Homes', detail: 'Limited guard-gated inventory fuels relocation interest.' },
 ]
 
-const highlightCards = [
-  {
-    title: 'Lifestyle & Amenities',
-    description:
-      'Guard-gated entries, resort-inspired common areas, and nearby Centennial Hills conveniences define everyday living in Silverstone Ranch.',
-    href: '/silverstone-ranch/amenities',
-  },
-  {
-    title: 'Golf Course Status',
-    description:
-      'Understand the May 2025 auction, current ownership, and how dormant fairways impact property values and landscaping decisions.',
-    href: '/golf-course-status',
-  },
-  {
-    title: 'Schools & Education',
-    description:
-      'Review zoning for O’Roarke Elementary, Cadwallader Middle, Arbor View High, plus private and charter alternatives nearby.',
-    href: '/silverstone-ranch/schools',
-  },
-  {
-    title: 'Market Insights',
-    description:
-      'Explore pricing trends, buyer demand, recent sales, and strategic guidance for November 2025 in Centennial Hills.',
-    href: '/market-insights',
-  },
-]
-
-const buyerSteps = [
-  {
-    title: '1. Discover the Community',
-    detail:
-      'Start with the Silverstone Ranch overview hub to understand lifestyle pillars, HOA structure, and the latest golf course developments.',
-  },
-  {
-    title: '2. Compare Neighborhoods',
-    detail:
-      'Review detailed guides for The Palms, Tuscany, Pinehurst, and more to match lot size, floor plans, and HOA fees with your goals.',
-  },
-  {
-    title: '3. Secure Representation',
-    detail:
-      'Schedule a strategy session with Dr. Jan Duffy—Las Vegas REALTOR®—to access private inventory, negotiate confidently, and manage disclosures.',
-  },
-]
-
 export default function HomePage() {
   const pageSchema = buildWebPageSchema({
     path: '/',

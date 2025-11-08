@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, Mail, ExternalLink, MessageCircle, Linkedin, Facebook, Home, Calculator, Building2, Image, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck } from 'lucide-react'
+import { Phone, Mail, ExternalLink, MessageCircle, Linkedin, Facebook, Home, Calculator, Building2, Image as ImageIcon, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck } from 'lucide-react'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function Footer() {
@@ -174,13 +174,13 @@ export default function Footer() {
           {/* Property */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
-              <Image className="h-5 w-5 text-blue-400" />
+              <ImageIcon className="h-5 w-5 text-blue-400" />
               Property
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/photos" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
-                  <Image className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
+                  <ImageIcon className="h-4 w-4 group-hover:text-blue-400 transition-colors" />
                   <span>Photos</span>
                 </Link>
               </li>

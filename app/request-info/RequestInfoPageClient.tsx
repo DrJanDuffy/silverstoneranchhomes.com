@@ -1,10 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import Link from 'next/link'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 const requestInfoSchema = z.object({
@@ -210,11 +210,13 @@ export default function RequestInfoPageClient() {
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gray-200 rounded-full overflow-hidden">
-                    <img
+                  <div className="w-16 h-16 bg-gray-200 rounded-full overflow-hidden relative">
+                    <Image
                       src="/images/agent/dr-jan-duffy-headshot-04.jpg"
                       alt="Dr. Jan Duffy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="64px"
+                      className="object-cover"
                     />
                   </div>
                 </div>

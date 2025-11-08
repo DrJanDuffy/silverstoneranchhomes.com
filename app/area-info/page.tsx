@@ -120,24 +120,6 @@ const relocationChecklist = [
   'Set up NV Energy, Southwest Gas, and Las Vegas Valley Water District accounts prior to closing.',
 ]
 
-const faqs = [
-  {
-    question: 'Is Silverstone Ranch considered part of Centennial Hills?',
-    answer:
-      'Yes. The community sits within the larger Centennial Hills planning area, benefitting from municipal investment, road improvements, and new retail corridors planned through 2027.',
-  },
-  {
-    question: 'Are there future transportation projects nearby?',
-    answer:
-      'Clark County’s 2040 transportation plan includes widening Grand Montecito Parkway and expanding park-and-ride options near Centennial Hills Transit Center, further improving commuter efficiency.',
-  },
-  {
-    question: 'What services does the Centennial Hills Community Center offer?',
-    answer:
-      'Operated by the City of Las Vegas, the center provides indoor pools, youth sports, senior programs, and seasonal camps within a ten-minute drive of Silverstone Ranch.',
-  },
-]
-
 const communityFaqs = [
   {
     question: 'How long does it take to reach the Las Vegas Strip from Silverstone Ranch?',

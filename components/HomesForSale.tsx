@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function HomesForSale() {
   const snapshot = [
     {
@@ -56,11 +58,13 @@ export default function HomesForSale() {
           {/* Featured Property Card */}
           <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             <div className="relative h-64 bg-gray-200">
-              <img
+              <Image
                 src="/images/property/exterior-front-elevation.jpg"
                 alt="Silverstone Ranch luxury home exterior"
-                className="w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={false}
               />
             </div>
             <div className="p-6">

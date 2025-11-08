@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { Phone, Mail } from 'lucide-react'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 const valuationSchema = z.object({

@@ -1,6 +1,6 @@
 'use client'
 
-import { Phone, Mail } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import ContactFormModal from './ContactFormModal'
 import { useState } from 'react'
 import { CONTACT_INFO } from '@/lib/contact-info'

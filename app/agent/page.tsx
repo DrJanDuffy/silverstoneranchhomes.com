@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Phone, Mail, ExternalLink, Award, Briefcase, Users, Calendar, Newspaper, Handshake } from 'lucide-react'
+import { Phone, Mail, ExternalLink, Award, Briefcase, Users, Calendar, Newspaper } from 'lucide-react'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
 import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
