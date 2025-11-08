@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function PrivacyPage() {
   return (
@@ -169,16 +170,33 @@ export default function PrivacyPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-6">
                 <p className="text-gray-700 mb-2">
-                  <strong>Dr. Jan Duffy REALTOR®</strong>
+                  <strong>{CONTACT_INFO.agentName} REALTOR®</strong>
                 </p>
                 <p className="text-gray-700 mb-2">
-                  Phone: <a href="tel:7025001530" className="text-blue-600 hover:text-blue-700">(702) 500-1530</a>
+                  Phone:{' '}
+                  <a href={`tel:${CONTACT_INFO.phone.tel}`} className="text-blue-600 hover:text-blue-700">
+                    {CONTACT_INFO.phone.display}
+                  </a>
                 </p>
                 <p className="text-gray-700 mb-2">
-                  Email: <a href="mailto:DrDuffySells@SilverStoneRanchHomes.com" className="text-blue-600 hover:text-blue-700">DrDuffySells@SilverStoneRanchHomes.com</a>
+                  Email:{' '}
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-blue-600 hover:text-blue-700">
+                    {CONTACT_INFO.email}
+                  </a>
+                </p>
+                <p className="text-gray-700 mb-2">
+                  Office:{' '}
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.address.display)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700"
+                  >
+                    {CONTACT_INFO.address.display}
+                  </a>
                 </p>
                 <p className="text-gray-700">
-                  License: S.0197614.LLC
+                  License: {CONTACT_INFO.license}
                 </p>
               </div>
             </section>

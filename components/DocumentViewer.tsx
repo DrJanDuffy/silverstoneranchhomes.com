@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { X, Lock, Download } from 'lucide-react'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 interface DocumentViewerProps {
   isOpen: boolean
@@ -108,10 +109,10 @@ export default function DocumentViewer({
                 <p className="mt-4 text-sm text-gray-500 text-center">
                   Need the password? Contact Dr. Jan Duffy at{' '}
                   <a
-                    href="tel:7025001530"
+                    href={`tel:${CONTACT_INFO.phone.tel}`}
                     className="text-blue-600 hover:text-blue-700"
                   >
-                    (702) 500-1530
+                    {CONTACT_INFO.phone.display}
                   </a>
                 </p>
               </div>

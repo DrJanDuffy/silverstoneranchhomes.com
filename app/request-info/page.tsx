@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 const requestInfoSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -271,16 +272,16 @@ export default function RequestInfoPage() {
                     </p>
                     <div className="flex flex-wrap gap-4 text-sm">
                       <a
-                        href="tel:7025001530"
+                        href={`tel:${CONTACT_INFO.phone.tel}`}
                         className="text-blue-600 hover:text-blue-700 font-medium"
                       >
-                        (702) 500-1530
+                        {CONTACT_INFO.phone.display}
                       </a>
                       <a
-                        href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                        href={`mailto:${CONTACT_INFO.email}`}
                         className="text-blue-600 hover:text-blue-700 font-medium"
                       >
-                        DrDuffySells@SilverStoneRanchHomes.com
+                        {CONTACT_INFO.email}
                       </a>
                     </div>
                   </div>

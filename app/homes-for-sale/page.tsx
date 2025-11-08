@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 const marketSnapshot = [
   {
@@ -394,10 +395,10 @@ export default function HomesForSalePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:7025001530"
+              href={`tel:${CONTACT_INFO.phone.tel}`}
               className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold"
             >
-              Call (702) 500-1530
+              Call {CONTACT_INFO.phone.display}
             </a>
             <Link
               href="/request-info"
@@ -407,6 +408,225 @@ export default function HomesForSalePage() {
             </Link>
           </div>
         </div>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Current Inventory Breakdown</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Inventory shifts every week. The November 7, 2025 analysis below highlights active, pending, and private listings
+            categorized by lot size, builder series, and upgrade level. Use it as a snapshot—connect with Dr. Duffy for the
+            latest status before you schedule tours or craft offers.
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Series</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Beds/Baths</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Lot Type</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">List Range</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
+                <tr className="bg-white">
+                  <td className="px-4 py-3 font-semibold">Pinehurst Collection</td>
+                  <td className="px-4 py-3">3-4 bed · 2-3 bath</td>
+                  <td className="px-4 py-3">Interior lots</td>
+                  <td className="px-4 py-3">4 active · 1 coming soon</td>
+                  <td className="px-4 py-3">$590K – $655K</td>
+                </tr>
+                <tr className="bg-gray-50/70">
+                  <td className="px-4 py-3 font-semibold">Silverlake Estates</td>
+                  <td className="px-4 py-3">4-5 bed · 3-4 bath</td>
+                  <td className="px-4 py-3">Pool-friendly, 8,000+ sq ft lots</td>
+                  <td className="px-4 py-3">6 active · 2 pending</td>
+                  <td className="px-4 py-3">$720K – $860K</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="px-4 py-3 font-semibold">Heights at Silverstone</td>
+                  <td className="px-4 py-3">Single-story, multigenerational suites</td>
+                  <td className="px-4 py-3">Corner + cul-de-sac</td>
+                  <td className="px-4 py-3">3 active · 1 private</td>
+                  <td className="px-4 py-3">$835K – $915K</td>
+                </tr>
+                <tr className="bg-gray-50/70">
+                  <td className="px-4 py-3 font-semibold">Townhome Villas</td>
+                  <td className="px-4 py-3">2-3 bed · 2.5 bath</td>
+                  <td className="px-4 py-3">Gated courtyard entries</td>
+                  <td className="px-4 py-3">2 active · 3 leased</td>
+                  <td className="px-4 py-3">$435K – $498K</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs text-gray-500">
+            *Data compiled from MLS, pocket listings, and homeowner outreach programs. Availability subject to change. Confirm HOA
+            dues and golf course disclosures prior to offer submission.
+          </p>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Silverstone Buyer Journey</h2>
+          <div className="grid lg:grid-cols-4 gap-6 text-sm text-gray-700 leading-relaxed">
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">Week 1: Prep & Strategy</h3>
+              <p>Consult with Dr. Duffy, secure pre-approval, define must-haves, and subscribe to off-market inventory alerts.</p>
+            </div>
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">Week 2: Tours & Comparables</h3>
+              <p>Tour curated properties (including twilight showings), review valuation packets, and evaluate HOA resale docs.</p>
+            </div>
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">Week 3: Offer & Negotiation</h3>
+              <p>Submit offer with escalation strategies, inspection timelines, and golf course disclosures acknowledged.</p>
+            </div>
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">Week 4+: Due Diligence</h3>
+              <p>Complete inspections, appraisal, insurance binding, and closing prep. Receive move-in concierge checklist.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Compare Silverstone to Nearby Communities</h2>
+          <div className="grid md:grid-cols-3 gap-8 text-sm text-gray-700 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Silverstone Ranch</h3>
+              <p>Guard-gated security, larger lot sizes, and established landscaping. HOA covers controlled access, common area upkeep, and community programming.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Skye Canyon</h3>
+              <p>Newer builds with resort amenities but higher SID/LID fees. Smaller lots; popular with active families seeking quick 215 access.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Tule Springs</h3>
+              <p>Expansive master-planned area with future retail development. Silverstone offers more mature landscaping and guard-gated feel.</p>
+            </div>
+          </div>
+          <p className="mt-6 text-gray-700 leading-relaxed">
+            Buyers choose Silverstone for the peace of mind that comes with dedicated gatehouse staff, established tree canopy, and
+            proximity to Floyd Lamb Park. The dormant golf course requires smart negotiation, yet the long-term upside remains
+            attractive for homeowners wanting stability near the 215 beltway.
+          </p>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Frequently Asked Buying Questions</h2>
+          <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+            <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+              <summary className="cursor-pointer text-base font-semibold text-gray-900">How fast do homes move under $700K?</summary>
+              <p className="mt-3">
+                Homes priced between $630K and $700K average nine days on market. Expect multiple offers within the first week; Dr. Duffy recommends touring immediately when alerts hit your inbox.
+              </p>
+            </details>
+            <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+              <summary className="cursor-pointer text-base font-semibold text-gray-900">Can I negotiate if the home backs dormant golf course land?</summary>
+              <p className="mt-3">
+                Yes. Buyers often secure landscaping credits, fencing allowances, or price adjustments to offset limited views. Documented golf course status is part of your due diligence package.
+              </p>
+            </details>
+            <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+              <summary className="cursor-pointer text-base font-semibold text-gray-900">Are there rental restrictions?</summary>
+              <p className="mt-3">
+                Silverstone Ranch requires a minimum six-month lease, HOA approval, and compliance with guard-gate registration. Investors should review HOA bylaws before writing offers.
+              </p>
+            </details>
+            <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+              <summary className="cursor-pointer text-base font-semibold text-gray-900">What about insurance considerations?</summary>
+              <p className="mt-3">
+                Insurance premiums vary based on heat and wind mitigation. Work with carriers that recognize Silverstone’s lower wildfire and flood risk compared to western valley communities.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Buyer Mindset & Offer Strategy</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Silverstone attracts buyers looking for established landscaping, guard-gated streets, and proximity to Centennial Hills
+            amenities. Understanding motivations by segment helps you craft offers or prep your listing with sharper focus.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-700 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Relocation Executives</h3>
+              <p>Prioritize quick occupancy, turnkey finishes, and guard-gate security. They often travel while home searches continue; virtual previews and move-in concierge services seal the deal.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Medical & Hospitality Professionals</h3>
+              <p>Value commute times to Centennial Hills Hospital and the Strip. Offer flexible closing or leasebacks to align with shift rotations and contract start dates.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Move-Up Las Vegas Residents</h3>
+              <p>Transitioning from Summerlin, Skye Canyon, or Providence, they focus on backyard space and multi-gen layouts. Highlight landscape upgrades, casita potential, and HOA amenity access.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Seller Advisory Corner</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Considering selling in the next 12 months? Use these insights to plan renovations, budget for carrying costs, and
+            understand what buyers expect in November 2025.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-700 leading-relaxed">
+            <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-amber-900 mb-2">Pre-List Essentials</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Invest $8K–$12K in desert landscaping refresh; buyers pay premiums for mature yards and evening lighting.</li>
+                <li>Service HVAC, pool equipment, and water softeners—inspection-ready systems calm relocation concerns.</li>
+                <li>Create a one-page brief summarizing the 2025 golf course status to hand buyers before tours.</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-amber-900 mb-2">Pricing & Timing</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>List between late January and May to capture relocation budgets and corporate allowances.</li>
+                <li>Homes with new exterior paint and refreshed stone accents average 3.4% higher list-to-sale ratios.</li>
+                <li>Budget for seller credits tied to heat mitigation or privacy landscaping when backing dormant fairways.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Service Providers You’ll Need</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Dr. Duffy maintains a vetted roster of professionals familiar with Silverstone guidelines. Partnering with local experts
+            keeps projects compliant and timelines tight.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-700 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Landscape & Outdoor Living</h3>
+              <p>Certified Water Smart Landscapes designers, irrigation auditors, and low-voltage lighting crews ready for quick refreshes or full backyard transformations.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Home Systems & Efficiency</h3>
+              <p>HVAC specialists, solar screen installers, and insulation pros who understand HOA requirements and desert climate performance expectations.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Contracts & Compliance</h3>
+              <p>Escrow officers, insurance advisors, and real estate attorneys that routinely process Silverstone transactions and stay current on golf course disclosures.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Silverstone Lifestyle Spotlight</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Buyers pursue Silverstone for more than homes—they invest in a lifestyle that balances outdoor adventure, community
+            events, and curated amenities.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-700 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Seasonal Programming</h3>
+              <p>Holiday golf-cart parades, summer splash parties, fall movie nights, and farmer’s markets hosted in the six-acre park keep neighbors connected year-round.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Outdoor Access</h3>
+              <p>Five-minute drives lead to Floyd Lamb Park, Tule Springs Fossil Beds, and Centennial Hills Library & YMCA—perfect for paddleboarding mornings, trail runs, and wellness classes.</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )

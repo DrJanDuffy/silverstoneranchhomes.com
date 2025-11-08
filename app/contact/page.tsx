@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { Phone, Mail } from 'lucide-react'
+import { Phone, Mail, MessageCircle, MapPin, Globe } from 'lucide-react'
 import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -79,10 +80,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                   <a
-                    href="tel:7025001530"
+                    href={`tel:${CONTACT_INFO.phone.tel}`}
                     className="text-lg text-blue-600 hover:text-blue-700 font-medium"
                   >
-                    (702) 500-1530
+                    {CONTACT_INFO.phone.display}
                   </a>
                   <p className="text-sm text-gray-600 mt-1">Available 24/7</p>
                 </div>
@@ -97,12 +98,70 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                   <a
-                    href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                    href={`mailto:${CONTACT_INFO.email}`}
                     className="text-lg text-blue-600 hover:text-blue-700 font-medium break-all"
                   >
-                    DrDuffySells@SilverStoneRanchHomes.com
+                    {CONTACT_INFO.email}
                   </a>
                   <p className="text-sm text-gray-600 mt-1">We respond within 24 hours</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <MessageCircle className="h-6 w-6 text-blue-600" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">{CONTACT_INFO.chat.label}</h3>
+                  <Link
+                    href={CONTACT_INFO.chat.url}
+                    className="text-lg text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    Start a Conversation
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">Chat with the Silverstone team any time</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Globe className="h-6 w-6 text-blue-600" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Website</h3>
+                  <a
+                    href={CONTACT_INFO.website.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-blue-600 hover:text-blue-700 font-medium break-all"
+                  >
+                    {CONTACT_INFO.website.display}
+                  </a>
+                  <p className="text-sm text-gray-600 mt-1">Explore listings, amenities, and market intel</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <MapPin className="h-6 w-6 text-blue-600" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Office</h3>
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.address.display)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    {CONTACT_INFO.address.display}
+                  </a>
+                  <p className="text-sm text-gray-600 mt-1">Serving {CONTACT_INFO.serviceAreas.join(', ')}</p>
                 </div>
               </div>
 

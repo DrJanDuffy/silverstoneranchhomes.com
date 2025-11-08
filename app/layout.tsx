@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { CONTACT_INFO } from '@/lib/contact-info'
 import './globals.css'
 
 const inter = Inter({
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Silverstone Ranch Homes | Luxury Community in Northwest Las Vegas',
   description:
     'Explore Silverstone Ranch in Northwest Las Vegas—guard-gated enclaves, former golf course view corridors, resort amenities, and expert guidance from Dr. Jan Duffy for buying, selling, or investing in the community.',
-  authors: [{ name: 'Dr. Jan Duffy' }],
+  authors: [{ name: CONTACT_INFO.agentName }],
   keywords: [
     'Silverstone Ranch',
     'Silverstone Ranch Las Vegas',
@@ -29,7 +31,8 @@ export const metadata: Metadata = {
     'Discover Silverstone Ranch—guard-gated living, former golf fairway corridors, and personalized guidance from Dr. Jan Duffy throughout North Las Vegas.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Silverstone Ranch Homes',
+    siteName: CONTACT_INFO.businessName,
+    url: CONTACT_INFO.website.url,
     images: [
       {
         url: '/images/property/exterior-front-elevation.jpg',
@@ -45,6 +48,7 @@ export const metadata: Metadata = {
     description:
       'Tour Silverstone Ranch in North Las Vegas—honest updates on the closed golf course, gated enclaves, and expert representation from Dr. Jan Duffy.',
     images: ['/images/property/exterior-front-elevation.jpg'],
+    site: CONTACT_INFO.website.url,
   },
   robots: {
     index: true,
@@ -68,17 +72,26 @@ export default function RootLayout({
               '@type': 'RealEstateAgent',
               name: 'Dr. Jan Duffy',
               jobTitle: 'REALTOR®',
-              telephone: '(702) 500-1530',
-              email: 'DrDuffySells@SilverStoneRanchHomes.com',
+              telephone: CONTACT_INFO.phone.display,
+              email: CONTACT_INFO.email,
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Las Vegas',
-                addressRegion: 'NV',
-                postalCode: '89131',
-                addressCountry: 'US',
+                streetAddress: CONTACT_INFO.address.street,
+                addressLocality: CONTACT_INFO.address.city,
+                addressRegion: CONTACT_INFO.address.state,
+                postalCode: CONTACT_INFO.address.postalCode,
+                addressCountry: CONTACT_INFO.address.country,
               },
-              url: 'https://silverstoneranchhomes.com',
-              sameAs: ['https://letmehelpyourealtor.com'],
+              url: CONTACT_INFO.website.url,
+              sameAs: [
+                CONTACT_INFO.website.url,
+                ...CONTACT_INFO.socialProfiles.map((profile) => profile.url),
+              ],
+              areaServed: CONTACT_INFO.serviceAreas,
+              worksFor: {
+                '@type': 'RealEstateAgent',
+                name: CONTACT_INFO.businessName,
+              },
             }),
           }}
         />
@@ -91,19 +104,21 @@ export default function RootLayout({
               name: 'Silverstone Ranch Community',
               description:
                 'Master-planned luxury community in Northwest Las Vegas featuring guard-gated enclaves, resort-style amenities, and residences along the former Silverstone golf fairways.',
-              url: 'https://silverstoneranchhomes.com',
+              url: CONTACT_INFO.website.url,
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Las Vegas',
-                addressRegion: 'NV',
-                postalCode: '89131',
-                addressCountry: 'US',
+                streetAddress: CONTACT_INFO.address.street,
+                addressLocality: CONTACT_INFO.address.city,
+                addressRegion: CONTACT_INFO.address.state,
+                postalCode: CONTACT_INFO.address.postalCode,
+                addressCountry: CONTACT_INFO.address.country,
               },
               areaServed: {
                 '@type': 'AdministrativeArea',
-                name: 'Centennial Hills, Las Vegas',
+                name: CONTACT_INFO.serviceAreas[1],
               },
-              image: 'https://silverstoneranchhomes.com/images/property/exterior-front-elevation.jpg',
+              image: `${CONTACT_INFO.website.url}images/property/exterior-front-elevation.jpg`,
+              telephone: CONTACT_INFO.phone.display,
             }),
           }}
         />
@@ -111,6 +126,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
         <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   )

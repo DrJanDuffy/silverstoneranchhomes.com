@@ -14,6 +14,11 @@ import {
   Shield,
   Users,
 } from 'lucide-react'
+import { CONTACT_INFO } from '@/lib/contact-info'
+
+const canonicalPath = '/resources/las-vegas-hoa/silverstone-ranch'
+const canonicalUrl = `${CONTACT_INFO.website.base}${canonicalPath}`
+const heroImageUrl = `${CONTACT_INFO.website.url}images/property/exterior-front-elevation.jpg`
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch HOA in Las Vegas | Fees, Amenities & Contacts',
@@ -27,20 +32,29 @@ export const metadata: Metadata = {
     'Summerlin area HOA',
   ],
   alternates: {
-    canonical: 'https://silverstoneranchhomes.com/resources/las-vegas-hoa/silverstone-ranch',
+    canonical: canonicalUrl,
   },
   openGraph: {
     title: 'Silverstone Ranch HOA | Las Vegas Fees, Amenities & Community Guide',
     description:
       'Detailed Silverstone Ranch HOA overview including dues, amenities, architectural guidelines, and management contacts for Northwest Las Vegas homeowners.',
-    url: 'https://silverstoneranchhomes.com/resources/las-vegas-hoa/silverstone-ranch',
+    url: canonicalUrl,
     type: 'article',
+    images: [
+      {
+        url: heroImageUrl,
+        width: 1200,
+        height: 630,
+        alt: 'Silverstone Ranch aerial view showing community layout and desert landscaping',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Silverstone Ranch HOA | Las Vegas Fees & Amenities',
     description:
       'Homeowners guide to the Silverstone Ranch HOA with up-to-date fees, amenities, community docs, and local insights from Dr. Jan Duffy.',
+    images: [heroImageUrl],
   },
 }
 
@@ -51,8 +65,6 @@ export default function SilverstoneRanchHoaPage() {
     { href: '/resources/las-vegas-hoa', label: 'Las Vegas HOA Guides' },
   ]
 
-  const canonicalUrl = 'https://silverstoneranchhomes.com/resources/las-vegas-hoa/silverstone-ranch'
-
   const structuredData = [
     {
       '@context': 'https://schema.org',
@@ -62,19 +74,19 @@ export default function SilverstoneRanchHoaPage() {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://silverstoneranchhomes.com/',
+          item: CONTACT_INFO.website.url,
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Resources',
-          item: 'https://silverstoneranchhomes.com/resources',
+          item: `${CONTACT_INFO.website.base}/resources`,
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Las Vegas HOA Guides',
-          item: 'https://silverstoneranchhomes.com/resources/las-vegas-hoa',
+          item: `${CONTACT_INFO.website.base}/resources/las-vegas-hoa`,
         },
         {
           '@type': 'ListItem',
@@ -93,7 +105,7 @@ export default function SilverstoneRanchHoaPage() {
       mainEntityOfPage: canonicalUrl,
       url: canonicalUrl,
       image: [
-        'https://silverstoneranchhomes.com/images/property/exterior-front-elevation.jpg',
+        heroImageUrl,
       ],
       datePublished: '2025-11-07',
       dateModified: '2025-11-07',
@@ -106,11 +118,11 @@ export default function SilverstoneRanchHoaPage() {
       ],
       author: {
         '@type': 'Person',
-        name: 'Dr. Jan Duffy',
+        name: CONTACT_INFO.agentName,
         jobTitle: 'Las Vegas REALTOR®',
-        email: 'mailto:DrDuffySells@SilverStoneRanchHomes.com',
-        telephone: '+1-702-500-1530',
-        url: 'https://silverstoneranchhomes.com/agent',
+        email: `mailto:${CONTACT_INFO.email}`,
+        telephone: CONTACT_INFO.phone.international,
+        url: `${CONTACT_INFO.website.url}agent`,
       },
       publisher: {
         '@type': 'Organization',

@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
+
+const canonicalUrl = `${CONTACT_INFO.website.base}/buyers-checklist`
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch Buyer Checklist | Due Diligence & Closing Timeline',
@@ -19,8 +22,8 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://silverstoneranchhomes.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Buyer Checklist', item: 'https://silverstoneranchhomes.com/buyers-checklist' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: CONTACT_INFO.website.url },
+      { '@type': 'ListItem', position: 2, name: 'Buyer Checklist', item: canonicalUrl },
     ],
   },
   {
@@ -32,6 +35,7 @@ const structuredData = [
     supply: { '@type': 'HowToSupply', name: 'Earnest money deposit, inspection funds, HOA document fees' },
     tool: { '@type': 'HowToTool', name: 'Buyer agent guidance, lender pre-approval, inspection vendors' },
     totalTime: 'P45D',
+    url: canonicalUrl,
     step: [
       {
         '@type': 'HowToStep',
@@ -390,10 +394,10 @@ export default function BuyersChecklistPage() {
                 Schedule Property Tours
               </Link>
               <a
-                href="tel:7025001530"
+                href={`tel:${CONTACT_INFO.phone.tel}`}
                 className="block text-center px-6 py-3 bg-transparent border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all"
               >
-                Call Dr. Jan Duffy: (702) 500-1530
+                Call Dr. Jan Duffy: {CONTACT_INFO.phone.display}
               </a>
             </div>
           </div>

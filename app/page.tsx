@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import PhotoGallery from '@/components/PhotoGallery'
-import AgentProfile from '@/components/AgentProfile'
-import Footer from '@/components/Footer'
+import AgentSummaryCard from '@/components/AgentSummaryCard'
 import ScrollToTop from '@/components/ScrollToTop'
 import { VirtualOpenHouseButton } from '@/components/VirtualOpenHouseButton'
 
@@ -130,6 +129,39 @@ export default function HomePage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
         <div className="mx-auto max-w-6xl space-y-10">
           <div>
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">Silverstone Service Suite</h2>
+            <p className="text-slate-700 leading-relaxed mb-6">
+              Buying or selling inside a guard-gated community demands precision. Dr. Duffy’s in-house service suite gives clients
+              one point of contact for every milestone—research, pricing, presentation, negotiation, and post-closing support. The
+              result is a streamlined experience that protects timelines and keeps stakeholders aligned from strategy session to
+              key handoff.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">Research & Forecasting</h3>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  Weekly market briefs analyze pricing bands, absorption rates, and buyer demographics for each Silverstone
+                  enclave. You know exactly how your home stacks up before the first showing.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">Presentation & Storytelling</h3>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  Certified staging partners, cinematic photography, and narrative-rich marketing copy highlight indoor-outdoor
+                  living, golf course disclosures, and community amenities buyers crave.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">Contract to Closing</h3>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  Concierge transaction managers coordinate inspections, appraisal responses, HOA approvals, and concierge move
+                  services so every signature lands on time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
             <h2 className="text-3xl font-bold text-slate-900 mb-6">Lifestyle Pillars that Define Silverstone Ranch</h2>
             <p className="text-slate-700 leading-relaxed mb-6">
               Silverstone balances resort-style amenities with the everyday essentials busy households expect. From education
@@ -257,7 +289,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <AgentProfile />
+            <AgentSummaryCard />
           </div>
         </div>
       </section>
@@ -312,6 +344,35 @@ export default function HomePage() {
               </p>
               <footer className="mt-3 text-xs font-semibold text-slate-900">— Drs. Martinez & Chen, Pinehurst</footer>
             </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+        <div className="mx-auto max-w-6xl space-y-6">
+          <h2 className="text-3xl font-bold text-slate-900">Home Finance & Logistics Snapshot</h2>
+          <p className="text-slate-700 leading-relaxed">
+            Every Silverstone transaction requires a blend of financial readiness and lifestyle planning. Dr. Duffy’s lending
+            partners pre-underwrite loans within 48 hours, outline appraisal gap strategies, and model payment scenarios based on
+            HOA dues and insurance updates. Her concierge also connects you with moving companies, pet transport, and school
+            registration teams so your relocation keeps momentum.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 text-sm text-slate-700 leading-relaxed">
+            <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-blue-700 mb-2">Financing Essentials</h3>
+              <p>Dual pre-approvals (conventional + jumbo), appraisal gap reserves, and buydown credits engineered to win in
+                multiple-offer scenarios.</p>
+            </div>
+            <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-blue-700 mb-2">Insurance & Risk</h3>
+              <p>Heat, wind, and flood mitigation recommendations lower premiums. Ask for the environmental risk guide tailored to
+                Silverstone’s microclimate.</p>
+            </div>
+            <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm">
+              <h3 className="text-lg font-semibold text-blue-700 mb-2">Move-In Logistics</h3>
+              <p>Guard gate registration, utility transfer schedules, HOA orientation, and vendor introductions handled by Dr.
+                Duffy’s concierge team.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -391,8 +452,18 @@ export default function HomePage() {
       </section>
 
       <VirtualOpenHouseButton />
-      <Footer />
       <ScrollToTop />
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+        <div className="mx-auto max-w-6xl space-y-6">
+          <h2 className="text-3xl font-bold text-slate-900">Silverstone Snapshot & Next Steps</h2>
+          <p className="text-slate-700 leading-relaxed">
+            Use this site as your command center. Explore deep dives on HOA fees, environmental risk, buyer checklists, and golf
+            course disclosures, then connect with Dr. Duffy to align your goals with the November 2025 market. Whether you&apos;re
+            comparing sub-associations, pricing an upcoming sale, or designing a relocation roadmap, the Silverstone team is ready
+            to support every milestone.
+          </p>
+        </div>
+      </section>
     </main>
   )
 }

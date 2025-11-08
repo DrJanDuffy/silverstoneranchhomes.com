@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://silverstoneranchhomes.com'
+  const baseUrl = CONTACT_INFO.website.base
 
   return [
     {

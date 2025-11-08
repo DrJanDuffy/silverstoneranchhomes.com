@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
+
+const canonicalUrl = `${CONTACT_INFO.website.base}/market-insights`
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch Market Insights | November 2025 Housing Trends',
@@ -19,8 +22,8 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://silverstoneranchhomes.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Market Insights', item: 'https://silverstoneranchhomes.com/market-insights' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: CONTACT_INFO.website.url },
+      { '@type': 'ListItem', position: 2, name: 'Market Insights', item: canonicalUrl },
     ],
   },
   {
@@ -30,8 +33,8 @@ const structuredData = [
     description:
       'Explore the latest Silverstone Ranch real estate performance metrics, including pricing trends, days on market, buyer demand, and future outlook as of November 2025.',
     author: { '@type': 'Person', name: 'Dr. Jan Duffy' },
-    publisher: { '@type': 'Organization', name: 'Silverstone Ranch Homes', url: 'https://silverstoneranchhomes.com' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://silverstoneranchhomes.com/market-insights' },
+    publisher: { '@type': 'Organization', name: CONTACT_INFO.businessName, url: CONTACT_INFO.website.base },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     datePublished: '2025-11-07',
     dateModified: '2025-11-07',
   },
@@ -543,10 +546,10 @@ export default function MarketInsightsPage() {
               Review Buyer Due Diligence Checklist
             </Link>
             <a
-              href="tel:7025001530"
+              href={`tel:${CONTACT_INFO.phone.tel}`}
               className="px-6 py-3 bg-transparent border-2 border-white rounded-lg font-semibold hover:bg-white/10 transition-all text-center"
             >
-              Call Dr. Jan Duffy • (702) 500-1530
+              Call Dr. Jan Duffy • {CONTACT_INFO.phone.display}
             </a>
           </div>
         </section>

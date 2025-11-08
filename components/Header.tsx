@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, User, Calendar, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck, LucideIcon } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle, ChevronDown, Home, Calculator, Info, Building2, Image, FileText, DollarSign, Sparkles, MapPin, Video, User, Calendar, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck, LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import GolfCourseAlert from './GolfCourseAlert'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 type NavItem = 
   | {
@@ -169,12 +170,19 @@ export default function Header() {
               <Info className="h-4 w-4" />
               Request Info
             </Link>
+            <Link
+              href={CONTACT_INFO.chat.url}
+              className="flex items-center gap-2 rounded-lg border border-blue-100 bg-white px-5 py-2.5 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50"
+            >
+              <MessageCircle className="h-4 w-4" />
+              {CONTACT_INFO.chat.label}
+            </Link>
             <a
-              href="tel:7025001530"
+              href={`tel:${CONTACT_INFO.phone.tel}`}
               className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-semibold text-white hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
               <Phone className="h-4 w-4" />
-              <span className="hidden xl:inline">(702) 500-1530</span>
+              <span className="hidden xl:inline">{CONTACT_INFO.phone.display}</span>
               <span className="xl:hidden">Call</span>
             </a>
           </div>
@@ -309,12 +317,20 @@ function MobileMenu({
               <Info className="h-5 w-5" />
               Request Info
             </Link>
+            <Link
+              href={CONTACT_INFO.chat.url}
+              onClick={onClose}
+              className="flex items-center gap-3 rounded-lg border border-blue-100 bg-white px-4 py-3 text-base font-semibold text-blue-700 hover:bg-blue-50"
+            >
+              <MessageCircle className="h-5 w-5" />
+              {CONTACT_INFO.chat.label}
+            </Link>
             <a
-              href="tel:7025001530"
+              href={`tel:${CONTACT_INFO.phone.tel}`}
               className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 text-base font-semibold text-white hover:from-blue-700 hover:to-blue-800 mt-4"
             >
               <Phone className="h-5 w-5" />
-              (702) 500-1530
+              {CONTACT_INFO.phone.display}
             </a>
           </nav>
         </div>

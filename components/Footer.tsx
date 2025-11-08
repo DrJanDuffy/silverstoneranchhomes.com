@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Phone, Mail, ExternalLink, Home, Calculator, Building2, Image, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck } from 'lucide-react'
+import { Phone, Mail, ExternalLink, MessageCircle, Linkedin, Facebook, Home, Calculator, Building2, Image, MapPin, User, Calendar, FileText, Sparkles, DollarSign, Video, Info, Shield, AlertTriangle, UserCheck, TrendingUp, ClipboardCheck } from 'lucide-react'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -26,7 +27,7 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="tel:7025001530"
+                href={`tel:${CONTACT_INFO.phone.tel}`}
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
               >
                 <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
@@ -34,11 +35,11 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-400">Phone</div>
-                  <div className="font-semibold">(702) 500-1530</div>
+                  <div className="font-semibold">{CONTACT_INFO.phone.display}</div>
                 </div>
               </a>
               <a
-                href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                href={`mailto:${CONTACT_INFO.email}`}
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
               >
                 <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
@@ -46,11 +47,23 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-400">Email</div>
-                  <div className="font-semibold text-sm break-all">DrDuffySells@SilverStoneRanchHomes.com</div>
+                  <div className="font-semibold text-sm break-all">{CONTACT_INFO.email}</div>
                 </div>
               </a>
               <a
-                href="https://letmehelpyourealtor.com"
+                href={CONTACT_INFO.chat.url}
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  <MessageCircle className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">{CONTACT_INFO.chat.label}</div>
+                  <div className="font-semibold text-sm">Start a Conversation</div>
+                </div>
+              </a>
+              <a
+                href={CONTACT_INFO.website.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
@@ -60,9 +73,43 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-400">Website</div>
-                  <div className="font-semibold text-sm">LetMeHelpYouRealtor.com</div>
+                  <div className="font-semibold text-sm">{CONTACT_INFO.website.display}</div>
                 </div>
               </a>
+              <a
+                href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.address.display)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              >
+                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">Office</div>
+                  <div className="font-semibold text-sm">{CONTACT_INFO.address.display}</div>
+                </div>
+              </a>
+            </div>
+            <div className="mt-6">
+              <h4 className="text-xs uppercase tracking-wide text-gray-400 mb-3">Social Profiles</h4>
+              <div className="flex items-center gap-3">
+                {CONTACT_INFO.socialProfiles.map((profile) => {
+                  const Icon = profile.label === 'LinkedIn' ? Linkedin : Facebook
+                  return (
+                    <a
+                      key={profile.url}
+                      href={profile.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-lg border border-gray-800 px-3 py-2 text-xs font-semibold text-gray-300 hover:text-white hover:border-blue-500 transition"
+                    >
+                      <Icon className="h-4 w-4" />
+                      {profile.label}
+                    </a>
+                  )
+                })}
+              </div>
             </div>
           </div>
 

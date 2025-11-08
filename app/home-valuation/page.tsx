@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Phone, Mail } from 'lucide-react'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 const valuationSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -15,6 +16,75 @@ const valuationSchema = z.object({
 })
 
 type ValuationFormData = z.infer<typeof valuationSchema>
+
+const valuationSteps = [
+  {
+    title: 'Neighborhood Analytics',
+    description:
+      'Review Silverstone sub-association data, including inventory levels, average price per square foot, and absorption rates for the past 90 days.',
+  },
+  {
+    title: 'Property Condition Review',
+    description:
+      'Document upgrades, roof age, HVAC service history, energy-efficient improvements, and landscape enhancements that influence buyer perception.',
+  },
+  {
+    title: 'Comparable Sales & Active Competition',
+    description:
+      'Compare similar floor plans, lot orientations, and golf course adjacency to determine pricing lanes and negotiation leverage.',
+  },
+  {
+    title: 'Pricing Strategy Roadmap',
+    description:
+      'Provide a tiered pricing plan with projected days on market, showing schedules, and escalation responses aligned with your timeline.',
+  },
+]
+
+const marketFactors = [
+  {
+    label: 'Guard-Gated Demand',
+    insight:
+      'Silverstone remains a top choice for buyers prioritizing security and mature landscaping—driving consistent appreciation even as new northwest communities open.',
+  },
+  {
+    label: 'Golf Course Status',
+    insight:
+      'The dormant course requires targeted disclosure and negotiation strategy. Dr. Duffy tracks city filings and HOA updates weekly to inform pricing.',
+  },
+  {
+    label: 'Seasonal Trends',
+    insight:
+      'Relocation traffic peaks November through March. Sellers who prep in Q4 capture out-of-state interest seeking spring closings.',
+  },
+  {
+    label: 'Renovation ROI',
+    insight:
+      'Smart thermostats, refreshed landscaping, and updated kitchens deliver the strongest return in Silverstone—often recouping 110%+ at resale.',
+  },
+]
+
+const sellerBenefits = [
+  {
+    title: '30-Page Market Report',
+    detail:
+      'Includes micro-neighborhood stats, heat maps, buyer demographics, and trend commentary so you understand every variable impacting value.',
+  },
+  {
+    title: 'Customized Listing Timeline',
+    detail:
+      'Receive a day-by-day playbook from pre-list prep through closing, covering staging, photography, marketing campaigns, and buyer follow-up cadence.',
+  },
+  {
+    title: 'Offer Review Framework',
+    detail:
+      'Dr. Duffy summarizes pros and cons of each offer—financing strength, contingency lengths, rent-back terms—so you can compare apples to apples quickly.',
+  },
+  {
+    title: 'Post-Sale Concierge',
+    detail:
+      'Coordinate movers, donation pickups, utility transfers, and relocation resources to simplify your transition after closing.',
+  },
+]
 
 export default function HomeValuationPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -67,6 +137,39 @@ export default function HomeValuationPage() {
             Get a comprehensive market analysis and find out how to sell for 15% above market average.
           </p>
         </div>
+
+        <section className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">How Your Silverstone Valuation Works</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            A quick online estimate rarely captures the nuance of Silverstone sub-associations, guard-gated premiums, and golf
+            course disclosures. Dr. Duffy combines technology with on-the-ground insight so you receive a pricing strategy rooted
+            in reality.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-700 leading-relaxed">
+            {valuationSteps.map((step) => (
+              <div key={step.title} className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Market Factors Influencing 2025 Pricing</h2>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            November 2025 market conditions favor well-presented Silverstone homes, yet strategic preparation remains essential.
+            These data points guide pricing, staging, and negotiation planning.
+          </p>
+          <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+            {marketFactors.map((factor) => (
+              <div key={factor.label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">{factor.label}</h3>
+                <p>{factor.insight}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Trust Indicators */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -299,14 +402,14 @@ export default function HomeValuationPage() {
                     </p>
                     <div className="flex flex-wrap gap-4 text-sm">
                       <a
-                        href="tel:7025001530"
+                        href={`tel:${CONTACT_INFO.phone.tel}`}
                         className="flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
                       >
                         <Phone className="h-4 w-4" />
-                        (702) 500-1530
+                        {CONTACT_INFO.phone.display}
                       </a>
                       <a
-                        href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                        href={`mailto:${CONTACT_INFO.email}`}
                         className="flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
                       >
                         <Mail className="h-4 w-4" />
@@ -323,6 +426,104 @@ export default function HomeValuationPage() {
                 We respect your privacy and will never share your information.
               </div>
             </div>
+            <section className="mt-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">What Sellers Gain from This Valuation</h2>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Beyond a pricing number, you’ll receive strategic guidance designed to maximize proceeds and minimize stress. Dr.
+                Duffy’s concierge approach keeps you informed and supported throughout the process.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-700 leading-relaxed">
+                {sellerBenefits.map((benefit) => (
+                  <div key={benefit.title} className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 shadow-sm">
+                    <h3 className="text-lg font-semibold text-amber-900 mb-2">{benefit.title}</h3>
+                    <p>{benefit.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+              <section className="mt-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Silverstone Valuation Methodology</h2>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Online estimators rarely account for gated access, desert landscaping upgrades, or the nuances of the dormant golf
+                  course. Dr. Duffy’s valuation process blends hyperlocal data with on-the-ground insight so you understand pricing
+                  lanes and negotiation leverage before you hit the market.
+                </p>
+                <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-700 leading-relaxed">
+                  <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5 shadow-sm">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-2">Micro-Neighborhood Comps</h3>
+                    <p>Compare your home against recent sales in The Palms, Silverlake, Pinehurst, and non-gated enclaves, adjusting for lot orientation, upgrades, and golf course proximity.</p>
+                  </div>
+                  <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5 shadow-sm">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-2">Buyer Demand Signals</h3>
+                    <p>Track relocation interest, cash vs. financed purchases, and days-on-market trends to anticipate offer velocity and escalation tactics.</p>
+                  </div>
+                  <div className="rounded-2xl border border-blue-100 bg-blue-50/80 p-5 shadow-sm">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-2">Upgrade & Condition Audit</h3>
+                    <p>Document flooring, kitchen, and outdoor enhancements alongside mechanical system age to craft value narratives buyers and appraisers respect.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mt-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Market Trends to Watch</h2>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  November 2025 performance demonstrates the resilience of Silverstone Ranch. Use these data points to prepare for the
+                  next quarter and align listing decisions with buyer expectations.
+                </p>
+                <ul className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                  <li><strong>Median Sale Price:</strong> $685,000 (+5.2% YoY) with renovated single-story homes leading appreciation.</li>
+                  <li><strong>Buyer Mix:</strong> 48% relocation cash or jumbo-financed purchasers; 32% move-up Las Vegas residents; 20% investors targeting townhomes.</li>
+                  <li><strong>List-to-Sale Ratio:</strong> 101.8% when listings launch with professional staging, twilight photography, and transparent golf course disclosures.</li>
+                  <li><strong>Days on Market:</strong> 13-day average with 72-hour negotiation windows for turnkey properties.</li>
+                </ul>
+              </section>
+
+              <section className="mt-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Seller Readiness Checklist</h2>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Use this checklist to align timelines and resources before listing. Dr. Duffy’s concierge team can coordinate each step.
+                </p>
+                <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-700 leading-relaxed">
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 shadow-sm">
+                    <h3 className="text-lg font-semibold text-amber-900 mb-2">30–45 Days Before Launch</h3>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>Schedule landscaping refresh and exterior paint touch-ups.</li>
+                      <li>Complete pre-list inspections (roof, HVAC, pool, plumbing).</li>
+                      <li>Order HOA resale package and golf course disclosure addenda.</li>
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-5 shadow-sm">
+                    <h3 className="text-lg font-semibold text-amber-900 mb-2">Launch Week Essentials</h3>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>Stage indoor-outdoor zones with cafe lighting and desert-friendly furnishings.</li>
+                      <li>Coordinate twilight photography, video storytelling, and 3D tours.</li>
+                      <li>Prepare a one-sheet summarizing recent upgrades and community amenities.</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mt-16 bg-white rounded-lg shadow-xl p-8 md:p-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Valuation Questions</h2>
+                <div className="space-y-4">
+                  <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+                    <summary className="cursor-pointer text-base font-semibold text-gray-900">How do dormant golf course views influence value?</summary>
+                    <p className="mt-3 text-sm text-gray-700 leading-relaxed">
+                      Buyers recognize the unique setting but factor landscaping privacy and future development risk. Dr. Duffy balances pricing with allowances for view enhancements so you stay competitive while retaining leverage.</p>
+                  </details>
+                  <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+                    <summary className="cursor-pointer text-base font-semibold text-gray-900">Can upgrades recoup costs during resale?</summary>
+                    <p className="mt-3 text-sm text-gray-700 leading-relaxed">
+                      Outdoor kitchens, refreshed primary baths, and smart-home packages deliver the strongest ROI. Your valuation report includes upgrade recommendations tied to current buyer demand.</p>
+                  </details>
+                  <details className="rounded-lg border border-slate-200 bg-slate-50/80 p-4">
+                    <summary className="cursor-pointer text-base font-semibold text-gray-900">What if I’m 6–12 months from selling?</summary>
+                    <p className="mt-3 text-sm text-gray-700 leading-relaxed">
+                      Dr. Duffy produces a rolling valuation update, contractor calendar, and seasonal maintenance plan so you can pace investments and monitor market shifts leading up to your launch window.</p>
+                  </details>
+                </div>
+              </section>
           </div>
         )}
       </div>

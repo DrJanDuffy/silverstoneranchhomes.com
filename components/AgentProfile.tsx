@@ -1,4 +1,5 @@
 import { Phone, Mail, ExternalLink } from 'lucide-react'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function AgentProfile() {
   return (
@@ -79,34 +80,34 @@ export default function AgentProfile() {
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-blue-600" />
                 <a
-                  href="tel:7025001530"
+                  href={`tel:${CONTACT_INFO.phone.tel}`}
                   className="text-lg font-semibold text-gray-900 hover:text-blue-600"
                 >
-                  (702) 500-1530
+                  {CONTACT_INFO.phone.display}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-blue-600" />
                 <a
-                  href="mailto:DrDuffySells@SilverStoneRanchHomes.com"
+                  href={`mailto:${CONTACT_INFO.email}`}
                   className="text-lg font-semibold text-gray-900 hover:text-blue-600"
                 >
-                  DrDuffySells@SilverStoneRanchHomes.com
+                  {CONTACT_INFO.email}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <ExternalLink className="h-5 w-5 text-blue-600" />
                 <a
-                  href="https://letmehelpyourealtor.com"
+                  href={CONTACT_INFO.website.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg font-semibold text-gray-900 hover:text-blue-600"
                 >
-                  LetMeHelpYouRealtor.com
+                  {CONTACT_INFO.website.display}
                 </a>
               </div>
               <div className="text-sm text-gray-600 mt-2">
-                License: S.0197614.LLC
+                License: {CONTACT_INFO.license}
               </div>
             </div>
 

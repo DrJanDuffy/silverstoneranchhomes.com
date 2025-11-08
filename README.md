@@ -120,8 +120,10 @@ The site is configured for Vercel deployment:
 - **Agent**: Dr. Jan Duffy REALTOR®
 - **Phone**: (702) 500-1530
 - **Email**: DrDuffySells@SilverStoneRanchHomes.com
+- **Office**: 8721 Deering Bay Dr, Las Vegas, NV 89131
+- **Website**: https://www.silverstoneranchhomes.com/
+- **Social**: [LinkedIn](https://www.linkedin.com/company/centennialhills/) · [Facebook](https://www.facebook.com/SilverstoneRanchHomes)
 - **License**: S.0197614.LLC
-- **Website**: LetMeHelpYouRealtor.com
 
 ## License
 

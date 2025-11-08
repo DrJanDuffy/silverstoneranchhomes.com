@@ -3,6 +3,7 @@
 import { Phone, Mail } from 'lucide-react'
 import ContactFormModal from './ContactFormModal'
 import { useState } from 'react'
+import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function Hero() {
   const [showContactModal, setShowContactModal] = useState(false)
@@ -41,11 +42,11 @@ export default function Hero() {
                 <p className="font-semibold text-gray-900">Dr. Jan Duffy REALTOR</p>
                 <p className="text-sm text-gray-600">Silverstone Ranch Homes</p>
                 <a
-                  href="tel:7025001530"
+                  href={`tel:${CONTACT_INFO.phone.tel}`}
                   className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 mt-1"
                 >
                   <Phone className="h-4 w-4" />
-                  (702) 500-1530
+                  {CONTACT_INFO.phone.display}
                 </a>
               </div>
             </div>
