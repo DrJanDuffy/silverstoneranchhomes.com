@@ -1,7 +1,13 @@
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildFaqSchema, buildLocalBusinessSchema, buildWebPageSchema } from '@/lib/seo'
+import {
+  buildFaqSchema,
+  buildLocalBusinessSchema,
+  buildWebPageSchema,
+  buildRealEstateServices,
+  buildEnhancedOrganizationSchema,
+} from '@/lib/seo'
 import ContactPageClient from './ContactPageClient'
 
 export const metadata: Metadata = {
@@ -31,9 +37,12 @@ export default function ContactPage() {
       { name: 'Home', path: '/' },
       { name: 'Contact', path },
     ],
+    type: 'ContactPage',
   })
 
   const localBusinessSchema = buildLocalBusinessSchema()
+  const organizationSchema = buildEnhancedOrganizationSchema()
+  const services = buildRealEstateServices()
 
   const faqSchema = buildFaqSchema(path, [
     {
@@ -53,7 +62,7 @@ export default function ContactPage() {
     },
   ])
 
-  const schemaData = [pageSchema, localBusinessSchema, faqSchema].filter(Boolean)
+  const schemaData = [pageSchema, organizationSchema, localBusinessSchema, faqSchema, ...services].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">

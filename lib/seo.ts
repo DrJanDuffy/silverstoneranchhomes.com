@@ -224,4 +224,152 @@ export function buildPlaceSchema() {
   }
 }
 
+/**
+ * Builds a Service schema for real estate offerings.
+ */
+export function buildServiceSchema({
+  name,
+  description,
+  serviceType,
+  areaServed,
+  provider,
+}: {
+  name: string
+  description: string
+  serviceType: string
+  areaServed?: string[]
+  provider?: Record<string, unknown>
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    serviceType,
+    provider: provider || {
+      '@type': 'RealEstateAgent',
+      name: CONTACT_INFO.agentName,
+      telephone: CONTACT_INFO.phone.display,
+      email: CONTACT_INFO.email,
+    },
+    areaServed: areaServed || CONTACT_INFO.serviceAreas,
+  }
+}
+
+/**
+ * Builds an array of Service schemas for all real estate services.
+ */
+export function buildRealEstateServices() {
+  return [
+    buildServiceSchema({
+      name: 'Buyer Concierge Service',
+      description:
+        'Comprehensive buyer representation including relocation kits, private community tours, lender coordination, and guard gate orientation for Silverstone Ranch.',
+      serviceType: 'Real Estate Buyer Representation',
+    }),
+    buildServiceSchema({
+      name: 'Listing Concierge Service',
+      description:
+        'Full-service seller representation featuring pricing strategy, professional staging, cinematic marketing, and transaction management for Silverstone Ranch properties.',
+      serviceType: 'Real Estate Seller Representation',
+    }),
+    buildServiceSchema({
+      name: 'Private Property Tours',
+      description:
+        'Curated in-person and virtual property tours with concierge support, guard gate pre-clearance, and detailed disclosure packets.',
+      serviceType: 'Real Estate Property Tours',
+    }),
+    buildServiceSchema({
+      name: 'Home Valuation & Market Analysis',
+      description:
+        'Data-driven home pricing analysis with comparable market data, staging recommendations, and customized selling roadmap for Silverstone Ranch sellers.',
+      serviceType: 'Real Estate Valuation',
+    }),
+  ]
+}
+
+/**
+ * Builds a Review schema from testimonial data.
+ */
+export function buildReviewSchema({
+  reviewBody,
+  author,
+  datePublished,
+  ratingValue,
+}: {
+  reviewBody: string
+  author: string
+  datePublished?: string
+  ratingValue?: number
+}) {
+  return {
+    '@type': 'Review',
+    reviewBody,
+    author: {
+      '@type': 'Person',
+      name: author,
+    },
+    ...(datePublished ? { datePublished } : {}),
+    ...(ratingValue
+      ? {
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue,
+            bestRating: 5,
+          },
+        }
+      : {}),
+  }
+}
+
+/**
+ * Builds an AggregateRating schema.
+ */
+export function buildAggregateRatingSchema({
+  ratingValue,
+  reviewCount,
+  bestRating = 5,
+}: {
+  ratingValue: number
+  reviewCount: number
+  bestRating?: number
+}) {
+  return {
+    '@type': 'AggregateRating',
+    ratingValue,
+    reviewCount,
+    bestRating,
+  }
+}
+
+/**
+ * Enhanced organization schema with award and service offerings.
+ */
+export function buildEnhancedOrganizationSchema() {
+  const services = buildRealEstateServices()
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: CONTACT_INFO.businessName,
+    url: CONTACT_INFO.website.url,
+    logo: buildCanonical('/images/property/exterior-front-elevation.jpg'),
+    sameAs: CONTACT_INFO.socialProfiles.map((profile) => profile.url),
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: CONTACT_INFO.phone.international,
+        contactType: 'customer service',
+        areaServed: CONTACT_INFO.serviceAreas,
+        availableLanguage: ['English'],
+      },
+    ],
+    award: 'Berkshire Hathaway Circle, Top 1% Las Vegas REALTORS® for closed volume (2024)',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Real Estate Services',
+      itemListElement: services,
+    },
+  }
+}
+
 

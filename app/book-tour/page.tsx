@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
+import { buildHowToSchema, buildWebPageSchema, buildServiceSchema } from '@/lib/seo'
 import BookTourPageClient from './BookTourPageClient'
 
 export const metadata: Metadata = {
@@ -55,7 +55,14 @@ export default function BookTourPage() {
     steps: tourSteps,
   })
 
-  const schemaData = [pageSchema, howToSchema].filter(Boolean)
+  const tourService = buildServiceSchema({
+    name: 'Private Property Tours',
+    description:
+      'Curated in-person and virtual property tours with concierge support, guard gate pre-clearance, and detailed disclosure packets.',
+    serviceType: 'Real Estate Property Tours',
+  })
+
+  const schemaData = [pageSchema, howToSchema, tourService].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">

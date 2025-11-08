@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
+import { buildHowToSchema, buildWebPageSchema, buildServiceSchema } from '@/lib/seo'
 import HomeValuationPageClient from './HomeValuationPageClient'
 
 export const metadata: Metadata = {
@@ -57,7 +57,14 @@ export default function HomeValuationPage() {
     ],
   })
 
-  const schemaData = [pageSchema, howToSchema].filter(Boolean)
+  const valuationService = buildServiceSchema({
+    name: 'Home Valuation & Market Analysis',
+    description:
+      'Data-driven home pricing analysis with comparable market data, staging recommendations, and customized selling roadmap for Silverstone Ranch sellers.',
+    serviceType: 'Real Estate Valuation',
+  })
+
+  const schemaData = [pageSchema, howToSchema, valuationService].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">

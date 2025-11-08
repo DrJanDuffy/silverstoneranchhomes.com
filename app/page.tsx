@@ -5,7 +5,13 @@ import AgentSummaryCard from '@/components/AgentSummaryCard'
 import ScrollToTop from '@/components/ScrollToTop'
 import { VirtualOpenHouseButton } from '@/components/VirtualOpenHouseButton'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildWebPageSchema } from '@/lib/seo'
+import {
+  buildWebPageSchema,
+  buildEnhancedOrganizationSchema,
+  buildRealEstateServices,
+  buildReviewSchema,
+  buildAggregateRatingSchema,
+} from '@/lib/seo'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 export const metadata: Metadata = {
@@ -38,9 +44,45 @@ export default function HomePage() {
       'Silverstone Ranch Homes curates pricing trends, lifestyle amenities, and concierge-level real estate guidance for buyers and sellers in Northwest Las Vegas.',
   })
 
+  const organizationSchema = buildEnhancedOrganizationSchema()
+  const services = buildRealEstateServices()
+
+  // Extract reviews from testimonials
+  const reviews = [
+    buildReviewSchema({
+      reviewBody:
+        "We wanted space for entertaining without leaving Centennial Hills. Silverstone's guard gate, trails, and HOA concierge made our transition seamless. Dr. Duffy handled everything—from lender introductions to the final walkthrough.",
+      author: 'The Donovan Family',
+      ratingValue: 5,
+    }),
+    buildReviewSchema({
+      reviewBody:
+        'As surgeons with variable hours, we needed low-maintenance living and quick hospital access. Pinehurst townhomes delivered, and the fitness loop keeps us active between shifts.',
+      author: 'Drs. Martinez & Chen',
+      ratingValue: 5,
+    }),
+  ]
+
+  const aggregateRating = buildAggregateRatingSchema({
+    ratingValue: 5.0,
+    reviewCount: reviews.length,
+  })
+
+  // Combine LocalBusiness with reviews and rating
+  const localBusinessWithReviews = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    name: `${CONTACT_INFO.agentName} | ${CONTACT_INFO.businessName}`,
+    url: CONTACT_INFO.website.url,
+    aggregateRating,
+    review: reviews,
+  }
+
+  const schemaData = [pageSchema, organizationSchema, localBusinessWithReviews, ...services]
+
   return (
     <main className="bg-white">
-      <SeoJsonLd id="home-schema" data={pageSchema} />
+      <SeoJsonLd id="home-schema" data={schemaData as Record<string, unknown>[]} />
       <section className="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
           <div>
