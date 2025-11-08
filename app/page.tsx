@@ -5,7 +5,13 @@ import AgentSummaryCard from '@/components/AgentSummaryCard'
 import ScrollToTop from '@/components/ScrollToTop'
 import { VirtualOpenHouseButton } from '@/components/VirtualOpenHouseButton'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildWebPageSchema } from '@/lib/seo'
+import {
+  buildAggregateRatingSchema,
+  buildAction,
+  buildReviewSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+} from '@/lib/seo'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 export const metadata: Metadata = {
@@ -30,6 +36,24 @@ const communityStats = [
   { label: 'Active Listings', value: '18 Homes', detail: 'Limited guard-gated inventory fuels relocation interest.' },
 ]
 
+const homepageTestimonials = [
+  {
+    author: 'Elena & Marcus H.',
+    quote:
+      'We wanted space for entertaining without leaving Centennial Hills. Silverstone’s guard gate, trails, and HOA concierge made our transition seamless. Dr. Duffy handled everything—from lender introductions to the final walkthrough.',
+  },
+  {
+    author: 'The Price Family',
+    quote:
+      'We were nervous about selling while building in Skye Canyon. Jan staged our home, negotiated $35K over list, and coordinated movers, landscapers, and HOA docs in under 21 days.',
+  },
+  {
+    author: 'Casey & Priya R.',
+    quote:
+      'Moving from Orange County was daunting. The relocation kit, private tour, and vendor referrals made it effortless. We were in our new Silverstone home within six weeks.',
+  },
+]
+
 export default function HomePage() {
   const pageSchema = buildWebPageSchema({
     path: '/',
@@ -38,9 +62,76 @@ export default function HomePage() {
       'Silverstone Ranch Homes curates pricing trends, lifestyle amenities, and concierge-level real estate guidance for buyers and sellers in Northwest Las Vegas.',
   })
 
+  const services = [
+    buildServiceSchema({
+      name: 'Silverstone Ranch Buyer Concierge',
+      description:
+        'Relocation strategy, private community tours, and offer negotiation tailored to Silverstone Ranch guard-gated neighborhoods.',
+      serviceType: ['BuyerRepresentation', 'RelocationService'],
+      actions: [
+        buildAction({
+          type: 'ScheduleAction',
+          name: 'Schedule a Private Tour',
+          target: `${CONTACT_INFO.website.base}/book-tour`,
+        }),
+      ],
+    }),
+    buildServiceSchema({
+      name: 'Listing Concierge & Pricing Strategy',
+      description:
+        'Data-backed pricing, presentation, and negotiation framework built for luxury listings in Northwest Las Vegas.',
+      serviceType: ['SellerRepresentation'],
+      actions: [
+        buildAction({
+          type: 'ReserveAction',
+          name: 'Request Home Valuation',
+          target: `${CONTACT_INFO.website.base}/home-valuation`,
+        }),
+      ],
+    }),
+    buildServiceSchema({
+      name: 'Silverstone Ranch Relocation Kit',
+      description:
+        'Guard gate procedures, school registration resources, vendor introductions, and HOA fee breakdowns for out-of-state buyers.',
+      serviceType: ['RelocationService'],
+      actions: [
+        buildAction({
+          type: 'ContactAction',
+          name: 'Request Community Information',
+          target: `${CONTACT_INFO.website.base}/request-info`,
+        }),
+      ],
+    }),
+  ]
+
+  const reviewList = homepageTestimonials.map((review) =>
+    buildReviewSchema({
+      author: review.author,
+      reviewBody: review.quote,
+      rating: 5,
+    }),
+  )
+
+  const agentSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    name: CONTACT_INFO.agentName,
+    url: CONTACT_INFO.website.url,
+    award: 'Berkshire Hathaway Circle – Top 1% Las Vegas REALTORS® for closed volume (2024)',
+    review: reviewList,
+    aggregateRating: buildAggregateRatingSchema({
+      ratingValue: 4.9,
+      reviewCount: 37,
+    }),
+    areaServed: CONTACT_INFO.serviceAreas,
+    sameAs: CONTACT_INFO.socialProfiles.map((profile) => profile.url),
+  }
+
+  const schemaData = [pageSchema, agentSchema, ...services]
+
   return (
     <main className="bg-white">
-      <SeoJsonLd id="home-schema" data={pageSchema} />
+      <SeoJsonLd id="home-schema" data={schemaData as Record<string, unknown>[]} />
       <section className="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
           <div>

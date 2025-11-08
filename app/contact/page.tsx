@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildFaqSchema, buildLocalBusinessSchema, buildWebPageSchema } from '@/lib/seo'
+import { buildAction, buildFaqSchema, buildLocalBusinessSchema, buildServiceSchema, buildWebPageSchema } from '@/lib/seo'
 import ContactPageClient from './ContactPageClient'
 
 export const metadata: Metadata = {
@@ -35,6 +35,30 @@ export default function ContactPage() {
 
   const localBusinessSchema = buildLocalBusinessSchema()
 
+  const conciergeServiceSchema = buildServiceSchema({
+    name: 'Silverstone Ranch Concierge Desk',
+    description:
+      'Concierge support for property tours, HOA documents, relocation resources, and valuation consults within Silverstone Ranch.',
+    serviceType: ['CustomerService', 'RealEstateConsultation'],
+    actions: [
+      buildAction({
+        type: 'ContactAction',
+        name: 'Call Silverstone Ranch Homes',
+        target: `tel:${CONTACT_INFO.phone.tel}`,
+      }),
+      buildAction({
+        type: 'ContactAction',
+        name: 'Email Dr. Jan Duffy',
+        target: `mailto:${CONTACT_INFO.email}`,
+      }),
+      buildAction({
+        type: 'ScheduleAction',
+        name: 'Chat with Concierge',
+        target: `${CONTACT_INFO.website.base}${CONTACT_INFO.chat.url}`,
+      }),
+    ],
+  })
+
   const faqSchema = buildFaqSchema(path, [
     {
       question: 'Can I schedule a private tour outside of business hours?',
@@ -53,7 +77,7 @@ export default function ContactPage() {
     },
   ])
 
-  const schemaData = [pageSchema, localBusinessSchema, faqSchema].filter(Boolean)
+  const schemaData = [pageSchema, localBusinessSchema, conciergeServiceSchema, faqSchema].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">

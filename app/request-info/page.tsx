@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
+import { buildAction, buildHowToSchema, buildServiceSchema, buildWebPageSchema } from '@/lib/seo'
 import RequestInfoPageClient from './RequestInfoPageClient'
 
 export const metadata: Metadata = {
@@ -56,7 +56,21 @@ export default function RequestInfoPage() {
     ],
   })
 
-  const schemaData = [pageSchema, howToSchema].filter(Boolean)
+  const conciergeInformationService = buildServiceSchema({
+    name: 'Silverstone Ranch Information Concierge',
+    description:
+      'Personalized Silverstone Ranch relocation kits, HOA fee breakdowns, and market analytics delivered by Dr. Jan Duffy.',
+    serviceType: ['InformationService', 'RealEstateConsultation'],
+    actions: [
+      buildAction({
+        type: 'ContactAction',
+        name: 'Submit Concierge Request',
+        target: `${CONTACT_INFO.website.base}/request-info`,
+      }),
+    ],
+  })
+
+  const schemaData = [pageSchema, conciergeInformationService, howToSchema].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">

@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
+import { buildAction, buildFaqSchema, buildServiceSchema, buildWebPageSchema } from '@/lib/seo'
 
 const canonicalPath = '/resources/las-vegas-hoa/silverstone-ranch'
 const canonicalUrl = `${CONTACT_INFO.website.base}${canonicalPath}`
@@ -98,7 +98,26 @@ export default function SilverstoneRanchHoaPage() {
     hoaFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
   )
 
-  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+  const hoaDocumentService = buildServiceSchema({
+    name: 'Silverstone Ranch HOA Document Concierge',
+    description:
+      'Delivery of HOA budgets, resale packages, architectural guidelines, and amenity overviews for Silverstone Ranch homeowners and buyers.',
+    serviceType: ['DocumentService', 'RealEstateConsultation'],
+    actions: [
+      buildAction({
+        type: 'ContactAction',
+        name: 'Request HOA Packet',
+        target: `${CONTACT_INFO.website.base}/request-info`,
+      }),
+      buildAction({
+        type: 'ContactAction',
+        name: 'Speak with HOA Concierge',
+        target: `tel:${CONTACT_INFO.phone.tel}`,
+      }),
+    ],
+  })
+
+  const schemaData = [pageSchema, hoaDocumentService, faqSchema].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-20 px-4 sm:px-6 lg:px-8">

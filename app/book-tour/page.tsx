@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
-import { buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
+import { buildAction, buildHowToSchema, buildServiceSchema, buildWebPageSchema } from '@/lib/seo'
 import BookTourPageClient from './BookTourPageClient'
 
 export const metadata: Metadata = {
@@ -55,7 +55,21 @@ export default function BookTourPage() {
     steps: tourSteps,
   })
 
-  const schemaData = [pageSchema, howToSchema].filter(Boolean)
+  const tourServiceSchema = buildServiceSchema({
+    name: 'Silverstone Ranch Private Tour Coordination',
+    description:
+      'Concierge tour planning with guard gate access, itinerary design, and post-tour vendor introductions for Silverstone Ranch listings.',
+    serviceType: ['TourBookingService'],
+    actions: [
+      buildAction({
+        type: 'ScheduleAction',
+        name: 'Book a Tour',
+        target: `${CONTACT_INFO.website.base}/book-tour`,
+      }),
+    ],
+  })
+
+  const schemaData = [pageSchema, tourServiceSchema, howToSchema].filter(Boolean)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">

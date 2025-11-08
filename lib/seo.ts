@@ -224,4 +224,137 @@ export function buildPlaceSchema() {
   }
 }
 
+export type ActionEntry = {
+  type?: 'ScheduleAction' | 'ReserveAction' | 'ContactAction'
+  name: string
+  target: string
+  description?: string
+  availabilityStarts?: string
+}
+
+export function buildAction(action: ActionEntry) {
+  const { type = 'ScheduleAction', name, target, description, availabilityStarts } = action
+  return {
+    '@type': type,
+    name,
+    target,
+    ...(description ? { description } : {}),
+    ...(availabilityStarts ? { availabilityStarts } : {}),
+    participant: {
+      '@type': 'Person',
+      name: CONTACT_INFO.agentName,
+    },
+  }
+}
+
+export type ServiceEntry = {
+  name: string
+  description: string
+  areaServed?: string[]
+  serviceType?: string[]
+  actions?: ActionEntry[]
+  provider?: Record<string, unknown>
+  audience?: Record<string, unknown>
+}
+
+export function buildServiceSchema(service: ServiceEntry) {
+  const {
+    name,
+    description,
+    areaServed = CONTACT_INFO.serviceAreas,
+    serviceType,
+    actions = [],
+    provider,
+    audience,
+  } = service
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    areaServed,
+    ...(serviceType ? { serviceType } : {}),
+    provider: provider ?? buildRealEstateAgentSchema(),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${name} Offer Catalog`,
+      itemListElement: actions.map((cta) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name },
+        potentialAction: buildAction(cta),
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+      })),
+    },
+    audience,
+  }
+}
+
+export type OfferEntry = {
+  name: string
+  description: string
+  url: string
+  priceCurrency?: string
+  availability?: string
+  validFrom?: string
+}
+
+export function buildOfferSchema(entry: OfferEntry) {
+  const { name, description, url, priceCurrency = 'USD', availability = 'https://schema.org/InStock', validFrom } = entry
+  return {
+    '@type': 'Offer',
+    name,
+    description,
+    url,
+    priceCurrency,
+    availability,
+    ...(validFrom ? { validFrom } : {}),
+  }
+}
+
+export type ReviewEntry = {
+  author: string
+  reviewBody: string
+  rating?: number
+  url?: string
+  datePublished?: string
+}
+
+export function buildReviewSchema(entry: ReviewEntry) {
+  const { author, reviewBody, rating, url, datePublished } = entry
+  return {
+    '@type': 'Review',
+    reviewBody,
+    author: { '@type': 'Person', name: author },
+    ...(rating
+      ? {
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: rating,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }
+      : {}),
+    ...(url ? { url } : {}),
+    ...(datePublished ? { datePublished } : {}),
+  }
+}
+
+export type AggregateRatingEntry = {
+  ratingValue: number
+  reviewCount: number
+}
+
+export function buildAggregateRatingSchema(entry: AggregateRatingEntry) {
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: entry.ratingValue,
+    bestRating: 5,
+    worstRating: 1,
+    reviewCount: entry.reviewCount,
+  }
+}
+
 
