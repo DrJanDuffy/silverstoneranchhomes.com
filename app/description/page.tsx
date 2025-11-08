@@ -1,9 +1,73 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Community Description | Lifestyle Overview',
+  description:
+    'Dive into Silverstone Ranch community highlights—architecture, amenities, schools, and lifestyle perks curated by Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/description',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Community Description',
+    description:
+      'Learn about Silverstone Ranch architecture, amenities, schools, and lifestyle experiences with guidance from Dr. Jan Duffy.',
+    url: `${CONTACT_INFO.website.base}/description`,
+    type: 'website',
+  },
+}
+
+const communityFaqs = [
+  {
+    question: 'What architectural styles dominate Silverstone Ranch?',
+    answer:
+      'Expect Spanish, Mediterranean, and desert-modern elevations with stone accents, gated courtyards, and flexible floor plans that emphasize indoor-outdoor living.',
+  },
+  {
+    question: 'Are there updates on the dormant golf course?',
+    answer:
+      'The May 2025 auction placed the former fairways with a redevelopment group evaluating park concepts. Native landscaping and walking paths remain accessible, and Dr. Duffy tracks every city filing for clients.',
+  },
+  {
+    question: 'How close are essential services and schools?',
+    answer:
+      'Centennial Hills Hospital, Smith’s Marketplace, Costco, and zoned schools like O’Roarke Elementary and Arbor View High sit within a ten-minute drive of the guard gates.',
+  },
+  {
+    question: 'Can investors purchase homes in Silverstone?',
+    answer:
+      'Yes. Lease terms must be six months or longer, tenants register with the guard gate, and landscape standards must stay compliant. Dr. Duffy guides investors through approvals and leasing demand.',
+  },
+]
 
 export default function DescriptionPage() {
+  const path = '/description'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Community Overview',
+    description:
+      'Comprehensive overview of Silverstone Ranch architecture, amenities, schools, and lifestyle experiences curated for buyers and sellers.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Community Description', path },
+    ],
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    communityFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="description" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center max-w-3xl mx-auto">
           <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">

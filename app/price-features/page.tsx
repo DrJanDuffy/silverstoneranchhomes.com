@@ -1,5 +1,24 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Price & Features Guide',
+  description:
+    'Explore Silverstone Ranch pricing bands, upgrade packages, and lifestyle amenities with insights from Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/price-features',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Price & Features Guide',
+    description:
+      'Compare pricing tiers, upgrade ROI, and community amenities across Silverstone Ranch enclaves with curated guidance from Dr. Jan Duffy.',
+    url: `${CONTACT_INFO.website.base}/price-features`,
+    type: 'website',
+  },
+}
 
 const designPackages = [
   {
@@ -113,8 +132,21 @@ const financingScenarios = [
 ]
 
 export default function PriceFeaturesPage() {
+  const path = '/price-features'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Price & Features Guide',
+    description:
+      'Detailed overview of Silverstone Ranch pricing tiers, upgrade packages, and lifestyle amenities curated for luxury buyers.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Price & Features', path },
+    ],
+  })
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="price-features" data={pageSchema} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

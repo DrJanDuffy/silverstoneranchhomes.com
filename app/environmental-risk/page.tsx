@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
-
-const canonicalUrl = `${CONTACT_INFO.website.base}/environmental-risk`
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch Environmental Risk Assessment | 30-Year Outlook',
@@ -15,52 +15,17 @@ export const metadata: Metadata = {
     'Silverstone Ranch wildfire preparedness',
     'heat risk Silverstone Ranch homes',
   ],
-}
-
-const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: CONTACT_INFO.website.url },
-      { '@type': 'ListItem', position: 2, name: 'Environmental Risk', item: canonicalUrl },
-    ],
+  alternates: {
+    canonical: '/environmental-risk',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Silverstone Ranch Environmental Risk Assessment - November 2025',
+  openGraph: {
+    title: 'Silverstone Ranch Environmental Risk Assessment | 30-Year Outlook',
     description:
-      'Understand environmental and climate-related risks impacting Silverstone Ranch homes over the next 30 years, including mitigation steps for buyers and residents.',
-    author: { '@type': 'Person', name: 'Dr. Jan Duffy' },
-    publisher: { '@type': 'Organization', name: CONTACT_INFO.businessName, url: CONTACT_INFO.website.base },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
-    datePublished: '2025-11-07',
-    dateModified: '2025-11-07',
+      'Analyze Silverstone Ranch heat, wildfire, flood, and wind exposure with mitigation plans curated by Dr. Jan Duffy REALTOR®.',
+    url: `${CONTACT_INFO.website.base}/environmental-risk`,
+    type: 'article',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'What is the heat risk outlook for Silverstone Ranch?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Heat risk is Moderate to High with average summer highs reaching 109°F by 2055. Homes with upgraded HVAC, low-E windows, and desert landscaping perform best. Dr. Jan Duffy connects buyers with energy efficiency contractors to mitigate costs.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Does Silverstone Ranch face wildfire exposure?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Wildfire risk is Moderate due to proximity to desert preserves. Maintaining defensible space, using fire-resistant roof materials, and enrolling in HOA landscape maintenance are recommended strategies.',
-        },
-      },
-    ],
-  },
-]
+}
 
 const riskCategories = [
   {
@@ -132,6 +97,29 @@ const planningChecklist = [
   },
 ]
 
+const environmentalFaqs = [
+  {
+    question: 'What is the heat risk outlook for Silverstone Ranch?',
+    answer:
+      'Heat risk is Moderate to High with average summer highs reaching 109°F by 2055. Homes with upgraded HVAC, low-E windows, and desert landscaping perform best.',
+  },
+  {
+    question: 'Does Silverstone Ranch face wildfire exposure?',
+    answer:
+      'Wildfire risk is Moderate due to proximity to desert preserves. Maintaining defensible space, using fire-resistant materials, and coordinating with HOA landscaping teams is recommended.',
+  },
+  {
+    question: 'Are special assessments expected for HOA landscape changes?',
+    answer:
+      'Current reserves cover routine maintenance, but future drought mitigation or landscaping upgrades may prompt assessments. Request the latest HOA budget during escrow and attend community meetings.',
+  },
+  {
+    question: 'How soon should I line up contractors after closing?',
+    answer:
+      'Schedule HVAC evaluations, irrigation audits, and roofing inspections within the first 60 days to prepare for summer heat and monsoon season.',
+  },
+]
+
 const heatStrategies = [
   'Install radiant barriers or additional attic insulation to reduce heat gain by up to 15%.',
   'Opt for desert-friendly shading such as pergolas, motorized shades, or strategically placed trees.',
@@ -195,9 +183,28 @@ const vendorSupport = [
 ]
 
 export default function EnvironmentalRiskPage() {
+  const path = '/environmental-risk'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Environmental Risk Assessment',
+    description:
+      'Silverstone Ranch 30-year outlook for heat, wildfire, flood, and wind exposure with mitigation strategies from Dr. Jan Duffy.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Environmental Risk', path },
+    ],
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    environmentalFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+
   return (
     <main className="bg-gradient-to-br from-emerald-50 to-white min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <SeoJsonLd id="environmental-risk" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center md:text-left space-y-6">
           <div className="inline-flex items-center rounded-full border border-emerald-200 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">

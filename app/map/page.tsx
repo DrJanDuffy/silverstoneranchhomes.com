@@ -1,12 +1,46 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+
+const MapComponent = dynamic(() => import('@/components/PropertyMap'), { ssr: false })
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Interactive Map | Neighborhood Orientation',
+  description:
+    'Explore Silverstone Ranch through an interactive map highlighting guard gates, amenities, schools, and surrounding conveniences.',
+  alternates: {
+    canonical: '/map',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Interactive Map',
+    description:
+      'Visualize Silverstone Ranch guard gates, parks, schools, and nearby services via an interactive map curated by Dr. Jan Duffy.',
+    url: `${CONTACT_INFO.website.base}/map`,
+    type: 'website',
+  },
+}
 
 export default function MapPage() {
-  const mapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+  const path = '/map'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Map',
+    description:
+      'Interactive Silverstone Ranch map showing guard gates, amenity hubs, and surrounding conveniences for relocation planning.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Map', path },
+    ],
+  })
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="map" data={pageSchema} />
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

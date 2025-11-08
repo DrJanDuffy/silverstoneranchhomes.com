@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
-
-const canonicalUrl = `${CONTACT_INFO.website.base}/buyers-checklist`
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch Buyer Checklist | Due Diligence & Closing Timeline',
@@ -15,51 +15,17 @@ export const metadata: Metadata = {
     'HOA documents Silverstone Ranch',
     'Silverstone Ranch inspection checklist',
   ],
-}
-
-const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: CONTACT_INFO.website.url },
-      { '@type': 'ListItem', position: 2, name: 'Buyer Checklist', item: canonicalUrl },
-    ],
+  alternates: {
+    canonical: '/buyers-checklist',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: 'Silverstone Ranch Buyer Checklist',
+  openGraph: {
+    title: 'Silverstone Ranch Buyer Checklist | Due Diligence & Closing Timeline',
     description:
-      'A step-by-step guide for purchasing a Silverstone Ranch home, including offer prep, inspections, HOA document review, and closing coordination.',
-    supply: { '@type': 'HowToSupply', name: 'Earnest money deposit, inspection funds, HOA document fees' },
-    tool: { '@type': 'HowToTool', name: 'Buyer agent guidance, lender pre-approval, inspection vendors' },
-    totalTime: 'P45D',
-    url: canonicalUrl,
-    step: [
-      {
-        '@type': 'HowToStep',
-        name: 'Consult & Get Pre-Approved',
-        text: 'Meet with Dr. Jan Duffy to align goals, secure financing pre-approval, and receive curated property lists.',
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Offer Strategy & Negotiation',
-        text: 'Review comps, golf course disclosures, and HOA rules to craft a competitive yet protected offer.',
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Due Diligence Window',
-        text: 'Order inspections, review HOA resale package, confirm insurance coverage, and evaluate environmental risks.',
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Closing & Move-In Coordination',
-        text: 'Finalize loan conditions, walkthrough the property, and coordinate move-in with HOA gate passes and vendors.',
-      },
-    ],
+      'Stay on schedule with the Silverstone Ranch buyer checklist—financing prep, HOA documents, inspections, and closing tasks curated by Dr. Jan Duffy.',
+    url: `${CONTACT_INFO.website.base}/buyers-checklist`,
+    type: 'article',
   },
-]
+}
 
 const checklistSections = [
   {
@@ -97,6 +63,27 @@ const checklistSections = [
       'Arrange utilities transfer, mover schedules, and HOA gate access forms.',
       'Plan final walkthrough 48 hours before closing to confirm condition and repairs.',
     ],
+  },
+]
+
+const howToSteps = [
+  {
+    title: 'Consult & Get Pre-Approved',
+    detail:
+      'Meet with Dr. Jan Duffy to align goals, secure financing pre-approval, and receive curated property lists.',
+  },
+  {
+    title: 'Offer Strategy & Negotiation',
+    detail: 'Review comps, golf course disclosures, and HOA rules to craft a competitive yet protected offer.',
+  },
+  {
+    title: 'Due Diligence Window',
+    detail: 'Order inspections, review HOA resale package, confirm insurance coverage, and evaluate environmental risks.',
+  },
+  {
+    title: 'Closing & Move-In Coordination',
+    detail:
+      'Finalize loan conditions, walkthrough the property, and coordinate move-in with HOA gate passes and vendors.',
   },
 ]
 
@@ -183,9 +170,40 @@ const faqs = [
 ]
 
 export default function BuyersChecklistPage() {
+  const path = '/buyers-checklist'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Buyer Checklist',
+    description:
+      'Step-by-step Silverstone Ranch buyer checklist covering financing, inspections, HOA documentation, and closing tasks with guidance from Dr. Jan Duffy.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Buyer Checklist', path },
+    ],
+    additional: {
+      about: CONTACT_INFO.businessName,
+    },
+  })
+
+  const howToSchema = buildHowToSchema({
+    path,
+    name: 'Silverstone Ranch Buyer Checklist',
+    description:
+      'Use this Silverstone Ranch buyer roadmap to prepare offers, manage inspections, and coordinate move-in with HOA approvals.',
+    steps: howToSteps,
+    totalTime: 'P45D',
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    faqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, howToSchema, faqSchema].filter(Boolean)
+
   return (
     <main className="bg-gradient-to-br from-slate-50 to-white min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <SeoJsonLd id="buyers-checklist" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center md:text-left space-y-6">
           <div className="inline-flex items-center rounded-full border border-slate-200 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">

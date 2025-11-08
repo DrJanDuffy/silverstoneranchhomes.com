@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
 
-const canonicalUrl = `${CONTACT_INFO.website.base}/buy-with-agent`
+const path = '/buy-with-agent'
+const canonicalUrl = `${CONTACT_INFO.website.base}${path}`
 
 export const metadata: Metadata = {
   title: 'Why You Need a Buyer Agent for Silverstone Ranch Homes',
@@ -15,30 +18,16 @@ export const metadata: Metadata = {
     'Dr. Jan Duffy real estate agent',
     'Silverstone Ranch real estate guidance',
   ],
-}
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Why You Need a Buyer Agent for Silverstone Ranch Homes',
-  description:
-    'Expert guidance from Dr. Jan Duffy helps Silverstone Ranch buyers uncover inventory, negotiate pricing, and navigate HOA due diligence in Northwest Las Vegas.',
-  author: {
-    '@type': 'Person',
-    name: CONTACT_INFO.agentName,
-    email: CONTACT_INFO.email,
-    telephone: CONTACT_INFO.phone.international,
+  alternates: {
+    canonical: path,
   },
-  publisher: {
-    '@type': 'Organization',
-    name: CONTACT_INFO.businessName,
-    url: CONTACT_INFO.website.base,
+  openGraph: {
+    title: 'Why You Need a Buyer Agent for Silverstone Ranch Homes',
+    description:
+      'Partner with Dr. Jan Duffy REALTOR® to unlock pre-market opportunities, negotiate confidently, and streamline your Silverstone Ranch home purchase.',
+    url: canonicalUrl,
+    type: 'article',
   },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': canonicalUrl,
-  },
-  url: canonicalUrl,
 }
 
 const benefitHighlights = [
@@ -423,12 +412,56 @@ const diligenceSupport = [
 ]
 
 export default function BuyWithAgentPage() {
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Buyer Representation',
+    description:
+      'Work with Dr. Jan Duffy REALTOR® to access pre-market Silverstone Ranch listings, negotiate winning offers, and manage every HOA and inspection milestone.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Buy with Agent', path },
+    ],
+  })
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Why You Need a Buyer Agent for Silverstone Ranch Homes',
+    description:
+      'Expert guidance from Dr. Jan Duffy helps Silverstone Ranch buyers uncover inventory, negotiate pricing, and navigate HOA due diligence in Northwest Las Vegas.',
+    author: {
+      '@type': 'Person',
+      name: CONTACT_INFO.agentName,
+      email: CONTACT_INFO.email,
+      telephone: CONTACT_INFO.phone.international,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: CONTACT_INFO.businessName,
+      url: CONTACT_INFO.website.base,
+    },
+    mainEntityOfPage: pageSchema.url,
+    url: pageSchema.url,
+  }
+
+  const howToSchema = buildHowToSchema({
+    path,
+    name: 'Silverstone Ranch Buying Framework',
+    description:
+      'Follow the Silverstone Ranch buying framework to prepare strategy sessions, negotiate offers, and manage due diligence with concierge support.',
+    steps: processSteps.map((step) => ({ title: step.title, detail: step.detail })),
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    financingFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, articleSchema, howToSchema, faqSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <SeoJsonLd id="buy-with-agent" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center">
           <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">

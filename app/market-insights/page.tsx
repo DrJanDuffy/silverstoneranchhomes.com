@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
 
-const canonicalUrl = `${CONTACT_INFO.website.base}/market-insights`
+const path = '/market-insights'
+const canonicalUrl = `${CONTACT_INFO.website.base}${path}`
 
 export const metadata: Metadata = {
   title: 'Silverstone Ranch Market Insights | November 2025 Housing Trends',
@@ -15,30 +18,17 @@ export const metadata: Metadata = {
     'Las Vegas real estate statistics November 2025',
     'Silverstone Ranch days on market',
   ],
-}
-
-const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: CONTACT_INFO.website.url },
-      { '@type': 'ListItem', position: 2, name: 'Market Insights', item: canonicalUrl },
-    ],
+  alternates: {
+    canonical: path,
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Silverstone Ranch Real Estate Market Insights - November 2025',
+  openGraph: {
+    title: 'Silverstone Ranch Market Insights | November 2025 Housing Trends',
     description:
-      'Explore the latest Silverstone Ranch real estate performance metrics, including pricing trends, days on market, buyer demand, and future outlook as of November 2025.',
-    author: { '@type': 'Person', name: 'Dr. Jan Duffy' },
-    publisher: { '@type': 'Organization', name: CONTACT_INFO.businessName, url: CONTACT_INFO.website.base },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
-    datePublished: '2025-11-07',
-    dateModified: '2025-11-07',
+      'November 2025 Silverstone Ranch real estate report: pricing shifts, buyer demand, inventory trends, and guidance from Dr. Jan Duffy REALTOR®.',
+    url: canonicalUrl,
+    type: 'article',
   },
-]
+}
 
 const primaryMetrics = [
   {
@@ -189,9 +179,36 @@ const faqs = [
 ]
 
 export default function MarketInsightsPage() {
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Market Insights',
+    description:
+      'Silverstone Ranch monthly housing trends covering pricing, absorption, and buyer demand insights curated by Dr. Jan Duffy REALTOR®.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Market Insights', path },
+    ],
+  })
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Silverstone Ranch Real Estate Market Insights - November 2025',
+    description:
+      'Explore the latest Silverstone Ranch real estate performance metrics, including pricing trends, days on market, buyer demand, and future outlook as of November 2025.',
+    author: { '@type': 'Person', name: CONTACT_INFO.agentName },
+    publisher: { '@type': 'Organization', name: CONTACT_INFO.businessName, url: CONTACT_INFO.website.base },
+    mainEntityOfPage: pageSchema.url,
+    datePublished: '2025-11-07',
+    dateModified: '2025-11-07',
+    url: pageSchema.url,
+  }
+
+  const schemaData = [pageSchema, articleSchema]
+
   return (
     <main className="bg-gradient-to-br from-blue-50 to-white min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <SeoJsonLd id="market-insights" data={schemaData} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center md:text-left space-y-6">
           <div className="inline-flex items-center rounded-full border border-blue-200 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">

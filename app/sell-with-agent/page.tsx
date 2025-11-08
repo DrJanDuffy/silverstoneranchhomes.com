@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
 
-const canonicalUrl = `${CONTACT_INFO.website.base}/sell-with-agent`
+const path = '/sell-with-agent'
+const canonicalUrl = `${CONTACT_INFO.website.base}${path}`
 
 export const metadata: Metadata = {
   title: 'Why You Need an Agent to Sell Your Silverstone Ranch Home',
@@ -15,30 +18,16 @@ export const metadata: Metadata = {
     'Dr. Jan Duffy listing specialist',
     'Silverstone Ranch real estate marketing',
   ],
-}
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Why You Need an Agent to Sell Your Silverstone Ranch Home',
-  description:
-    'Discover how Dr. Jan Duffy positions Silverstone Ranch properties for top dollar with pre-market prep, pricing strategy, and transparent golf course disclosures.',
-  author: {
-    '@type': 'Person',
-    name: CONTACT_INFO.agentName,
-    email: CONTACT_INFO.email,
-    telephone: CONTACT_INFO.phone.international,
+  alternates: {
+    canonical: path,
   },
-  publisher: {
-    '@type': 'Organization',
-    name: CONTACT_INFO.businessName,
-    url: CONTACT_INFO.website.base,
+  openGraph: {
+    title: 'Why You Need an Agent to Sell Your Silverstone Ranch Home',
+    description:
+      'Position your Silverstone Ranch listing for top-dollar results with strategic pricing, luxury marketing, and negotiation led by Dr. Jan Duffy REALTOR®.',
+    url: canonicalUrl,
+    type: 'article',
   },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': canonicalUrl,
-  },
-  url: canonicalUrl,
 }
 
 const sellerAdvantages = [
@@ -216,6 +205,24 @@ const expandedFaqs = [
     question: 'Can you help with estate or trust sales?',
     answer:
       'Yes. Expect coordination with attorneys, appraisers, and beneficiaries, plus secure document management and estate sale partners.',
+  },
+]
+
+const sellerFaqHighlights = [
+  {
+    question: 'How do we handle the golf course disclosure?',
+    answer:
+      'The May 2025 auction results and dormant course status must be disclosed to buyers. Dr. Duffy provides approved language, comparable sales, and landscaping recommendations to present value clearly.',
+  },
+  {
+    question: 'What preparation yields the best ROI?',
+    answer:
+      'Fresh paint, updated lighting, and professional landscaping produce the strongest buyer response. Dr. Duffy coordinates vetted vendors and staging tailored to desert architecture.',
+  },
+  {
+    question: 'Can I align my sale with a relocation timeline?',
+    answer:
+      'Yes. Dr. Duffy negotiates lease-back or post-possession terms, coordinates out-of-state movers, and ensures your purchase timeline syncs with Silverstone closing schedules.',
   },
 ]
 
@@ -424,12 +431,58 @@ const exitStrategies = [
 ]
 
 export default function SellWithAgentPage() {
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Listing Representation',
+    description:
+      'List your Silverstone Ranch home with Dr. Jan Duffy for strategic pricing, luxury marketing, and concierge buyer management that maximizes equity.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Sell with Agent', path },
+    ],
+  })
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Why You Need an Agent to Sell Your Silverstone Ranch Home',
+    description:
+      'Discover how Dr. Jan Duffy positions Silverstone Ranch properties for top dollar with pre-market prep, pricing strategy, and transparent golf course disclosures.',
+    author: {
+      '@type': 'Person',
+      name: CONTACT_INFO.agentName,
+      email: CONTACT_INFO.email,
+      telephone: CONTACT_INFO.phone.international,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: CONTACT_INFO.businessName,
+      url: CONTACT_INFO.website.base,
+    },
+    mainEntityOfPage: pageSchema.url,
+    url: pageSchema.url,
+  }
+
+  const howToSchema = buildHowToSchema({
+    path,
+    name: 'Silverstone Ranch Listing Launch Plan',
+    description:
+      'Four-step listing launch process covering pre-list preparation, marketing campaigns, offer negotiations, and contract-to-close management for Silverstone Ranch sellers.',
+    steps: marketingPlan.map((step) => ({ title: step.title, detail: step.detail })),
+  })
+
+  const combinedFaqs = [...expandedFaqs, ...sellerFaqHighlights]
+
+  const faqSchema = buildFaqSchema(
+    path,
+    combinedFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, articleSchema, howToSchema, faqSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <SeoJsonLd id="sell-with-agent" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center">
           <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-6">
@@ -825,28 +878,12 @@ export default function SellWithAgentPage() {
         <section className="bg-white rounded-lg shadow-xl p-8 md:p-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Seller FAQs for Silverstone Ranch</h2>
           <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">How do we handle the golf course disclosure?</h3>
-              <p className="text-gray-700 leading-relaxed">
-                The May 2025 auction results and dormant course status must be disclosed to buyers. Dr. Duffy provides approved
-                language, comparable sales without golf frontage premiums, and landscaping recommendations to present your home’s
-                value clearly.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">What preparation yields the best ROI?</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Fresh paint, updated lighting, and professional landscaping deliver the strongest buyer response. Dr. Duffy
-                coordinates vetted vendors and staging that accentuate desert architecture and guard-gated lifestyle.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Can I align my sale with a relocation timeline?</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Yes. Dr. Duffy negotiates lease-back or post-possession terms, coordinates out-of-state movers, and ensures your
-                purchase timeline syncs with the Silverstone closing schedule.
-              </p>
-            </div>
+            {sellerFaqHighlights.map((faq) => (
+              <div key={faq.question}>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </section>
 

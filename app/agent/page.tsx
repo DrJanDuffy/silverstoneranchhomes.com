@@ -1,7 +1,26 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { Phone, Mail, ExternalLink, Award, Briefcase, Users, Calendar, Newspaper, Handshake } from 'lucide-react'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Meet Dr. Jan Duffy | Silverstone Ranch REALTOR®',
+  description:
+    'Learn about Dr. Jan Duffy’s concierge approach, credentials, and community leadership serving Silverstone Ranch buyers and sellers.',
+  alternates: {
+    canonical: '/agent',
+  },
+  openGraph: {
+    title: 'Meet Dr. Jan Duffy | Silverstone Ranch REALTOR®',
+    description:
+      'Discover the concierge representation, accolades, and Silverstone Ranch expertise provided by Dr. Jan Duffy REALTOR®.',
+    url: `${CONTACT_INFO.website.base}/agent`,
+    type: 'profile',
+  },
+}
 
 const credentials = [
   'Top 1% Las Vegas REALTOR® · Berkshire Hathaway HomeServices',
@@ -409,8 +428,28 @@ const strategicAlliances = [
 ]
 
 export default function AgentPage() {
+  const path = '/agent'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Meet Dr. Jan Duffy',
+    description:
+      'Learn about Dr. Jan Duffy REALTOR®, her concierge approach, and leadership within the Silverstone Ranch community.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Meet the Agent', path },
+    ],
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    faqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="agent" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section>
           <div className="text-center mb-12">

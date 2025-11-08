@@ -4,6 +4,43 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import type { Metadata } from 'next'
+import { Calendar, Clock, MapPin, Users } from 'lucide-react'
+import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Book a Silverstone Ranch Tour | Schedule with Dr. Jan Duffy',
+  description:
+    'Schedule a private Silverstone Ranch property tour or community preview with Dr. Jan Duffy REALTOR®. Choose in-person or virtual options.',
+  alternates: {
+    canonical: '/book-tour',
+  },
+  openGraph: {
+    title: 'Book a Silverstone Ranch Tour',
+    description:
+      'Arrange in-person or virtual Silverstone Ranch tours, guard gate access, and custom itineraries with Dr. Jan Duffy.',
+    url: `${CONTACT_INFO.website.base}/book-tour`,
+    type: 'website',
+  },
+}
+
+const tourSteps = [
+  {
+    title: 'Share Your Schedule',
+    detail: 'Tell us your preferred dates, time windows, and whether you are visiting in person or virtually.',
+  },
+  {
+    title: 'Curate Listings & Preview Routes',
+    detail: 'Receive a tailored line-up of Silverstone Ranch homes plus comparable neighborhoods based on your goals.',
+  },
+  {
+    title: 'Tour with Concierge Support',
+    detail: 'Arrive to pre-confirmed guard gate access, printed disclosures, and vendor introductions after each showing.',
+  },
+]
 
 const bookTourSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -52,8 +89,25 @@ export default function BookTourPage() {
     }
   }
 
+  const path = '/book-tour'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Book a Silverstone Ranch Tour',
+    description:
+      'Schedule private or virtual tours of Silverstone Ranch listings with concierge coordination from Dr. Jan Duffy.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Book a Tour', path },
+    ],
+  })
+
+  const howToSchema = buildHowToSchema({ path, name: 'Silverstone Ranch Tour Scheduling', description: 'Three-step process to schedule a Silverstone Ranch tour with concierge support.', steps: tourSteps })
+
+  const schemaData = [pageSchema, howToSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="book-tour" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-2xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">

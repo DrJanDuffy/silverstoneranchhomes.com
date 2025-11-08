@@ -1,10 +1,23 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Silverstone Golf Course Status Update 2025 | May Auction Details',
+  title: 'Silverstone Ranch Golf Course Status & Redevelopment Updates',
   description:
-    'Official November 2025 update on the Silverstone Ranch golf course. Review May 2025 auction results, timeline, future scenarios, and buyer impact before purchasing in 89131.',
+    'Stay informed on Silverstone Ranch golf course ownership, redevelopment plans, and community landscaping strategies with updates from Dr. Jan Duffy.',
+  alternates: {
+    canonical: '/golf-course-status',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Golf Course Status',
+    description:
+      'Review the latest on Silverstone Ranch golf course auctions, city filings, and landscaping guidance for homeowners.',
+    url: `${CONTACT_INFO.website.base}/golf-course-status`,
+    type: 'article',
+  },
 }
 
 const timeline = [
@@ -123,8 +136,28 @@ const communicationPlan = [
 ]
 
 export default function GolfCourseStatusPage() {
+  const path = '/golf-course-status'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Golf Course Status',
+    description:
+      'Latest Silverstone Ranch golf course ownership news, redevelopment timelines, and homeowner guidance.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Golf Course Status', path },
+    ],
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    faqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+
   return (
     <main className="bg-gradient-to-br from-amber-50 to-white min-h-screen">
+      <SeoJsonLd id="golf-course-status" data={schemaData as Record<string, unknown>[]} />
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-5xl flex-col gap-16">
           <header className="space-y-6 text-center md:text-left">

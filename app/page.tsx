@@ -1,8 +1,28 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import PhotoGallery from '@/components/PhotoGallery'
 import AgentSummaryCard from '@/components/AgentSummaryCard'
 import ScrollToTop from '@/components/ScrollToTop'
 import { VirtualOpenHouseButton } from '@/components/VirtualOpenHouseButton'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+import { CONTACT_INFO } from '@/lib/contact-info'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Homes | Community Overview & Luxury Insights',
+  description:
+    'Plan your move to Silverstone Ranch in Northwest Las Vegas. Explore guard-gated enclaves, amenities, pricing data, and concierge real estate guidance from Dr. Jan Duffy.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Homes | Community Overview & Luxury Insights',
+    description:
+      'Discover Silverstone Ranch in Northwest Las Vegas—gated neighborhoods, curated amenities, and expert representation from Dr. Jan Duffy REALTOR®.',
+    url: CONTACT_INFO.website.url,
+    type: 'website',
+  },
+}
 
 const communityStats = [
   { label: 'Median Price (Nov 2025)', value: '$685K', detail: 'Up 5.2% year-over-year with strong demand for renovated homes.' },
@@ -56,8 +76,16 @@ const buyerSteps = [
 ]
 
 export default function HomePage() {
+  const pageSchema = buildWebPageSchema({
+    path: '/',
+    name: 'Silverstone Ranch Homes',
+    description:
+      'Silverstone Ranch Homes curates pricing trends, lifestyle amenities, and concierge-level real estate guidance for buyers and sellers in Northwest Las Vegas.',
+  })
+
   return (
     <main className="bg-white">
+      <SeoJsonLd id="home-schema" data={pageSchema} />
       <section className="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
           <div>

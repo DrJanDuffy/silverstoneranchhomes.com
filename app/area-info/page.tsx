@@ -1,4 +1,24 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Area Information | Neighborhood Highlights',
+  description:
+    'Navigate Silverstone Ranch commute times, nearby amenities, schools, and recreation with insights curated by Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/area-info',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Area Information',
+    description:
+      'Explore commute options, dining, recreation, and educational resources surrounding Silverstone Ranch in Centennial Hills.',
+    url: `${CONTACT_INFO.website.base}/area-info`,
+    type: 'website',
+  },
+}
 
 const travelTimes = [
   { destination: '215 Beltway Entrance', time: '6 minutes', detail: 'Direct access at N Hualapai Way for quick commutes to Summerlin or the Strip.' },
@@ -118,15 +138,47 @@ const faqs = [
   },
 ]
 
-export const metadata = {
-  title: 'Silverstone Ranch Area Information | Centennial Hills Lifestyle & Access',
-  description:
-    'Discover the Silverstone Ranch area in Centennial Hills, Las Vegas. Explore location advantages, amenities, schools, transportation, and nearby conveniences with guidance from Dr. Jan Duffy.',
-}
+const communityFaqs = [
+  {
+    question: 'How long does it take to reach the Las Vegas Strip from Silverstone Ranch?',
+    answer:
+      'Expect a 28-minute drive under normal traffic via the 215 Beltway and US-95. Ride-share and express bus routes also connect residents to the resort corridor.',
+  },
+  {
+    question: 'Which hospitals and healthcare providers are nearby?',
+    answer:
+      'Centennial Hills Hospital sits within 10 minutes, with MountainView Hospital, VA clinics, and specialty medical centers accessible across the northwest valley.',
+  },
+  {
+    question: 'What outdoor recreation options are available close to Silverstone Ranch?',
+    answer:
+      'Residents frequent Floyd Lamb Park, Gilcrease Orchard, and Mount Charleston trails for hiking, picnicking, and seasonal festivals.',
+  },
+]
 
 export default function AreaInfoPage() {
+  const path = '/area-info'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Area Information',
+    description:
+      'Commuting, amenities, and lifestyle resources surrounding Silverstone Ranch to help buyers plan daily routines.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Area Information', path },
+    ],
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    communityFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="area-info" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-700 mb-3">Centennial Hills Orientation · Updated November 2025</p>

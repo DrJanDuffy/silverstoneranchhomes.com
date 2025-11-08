@@ -1,8 +1,41 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Video Tour Library',
+  description:
+    'Watch Silverstone Ranch property tours, community highlights, and lifestyle reels curated by Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/video',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Video Tour Library',
+    description:
+      'Stream Silverstone Ranch property walkthroughs, amenity spotlights, and relocation videos produced by Dr. Jan Duffy.',
+    url: `${CONTACT_INFO.website.base}/video`,
+    type: 'website',
+  },
+}
 
 export default function VideoPage() {
+  const path = '/video'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Video Library',
+    description:
+      'Collection of Silverstone Ranch video tours, amenity spotlights, and relocation content for luxury buyers.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Video', path },
+    ],
+  })
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="video" data={pageSchema} />
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

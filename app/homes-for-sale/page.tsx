@@ -1,6 +1,25 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Homes for Sale | Curated Listings & Buyer Guide',
+  description:
+    'Browse curated Silverstone Ranch listings, market stats, and buying resources with concierge guidance from Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/homes-for-sale',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Homes for Sale',
+    description:
+      'Explore guard-gated Silverstone Ranch listings, buyer resources, and concierge support for relocation and luxury purchases.',
+    url: `${CONTACT_INFO.website.base}/homes-for-sale`,
+    type: 'website',
+  },
+}
 
 const marketSnapshot = [
   {
@@ -26,8 +45,21 @@ const marketSnapshot = [
 ]
 
 export default function HomesForSalePage() {
+  const path = '/homes-for-sale'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Homes for Sale',
+    description:
+      'Curated Silverstone Ranch listings with market stats, community insights, and concierge buyer support from Dr. Jan Duffy.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Homes for Sale', path },
+    ],
+  })
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="homes-for-sale" data={pageSchema} />
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

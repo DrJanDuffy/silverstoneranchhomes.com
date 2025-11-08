@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
 
 const coreAmenities = [
   {
@@ -189,11 +192,34 @@ export const metadata: Metadata = {
   title: 'Silverstone Ranch Amenities & Lifestyle | Parks, Trails, Clubhouse',
   description:
     'Explore Silverstone Ranch amenities: parks, trails, sports courts, clubhouse programming, HOA services, and nearby wellness resources curated for November 2025.',
+  alternates: {
+    canonical: '/amenities',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Amenities & Lifestyle',
+    description:
+      'Discover Silverstone Ranch parks, recreation, and HOA programming designed for luxury living in Centennial Hills.',
+    url: `${CONTACT_INFO.website.base}/amenities`,
+    type: 'website',
+  },
 }
 
 export default function AmenitiesPage() {
+  const path = '/amenities'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Amenities & Lifestyle',
+    description:
+      'Guide to Silverstone Ranch parks, recreation amenities, and concierge programming for residents and prospective buyers.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Amenities', path },
+    ],
+  })
+
   return (
     <main className="bg-white">
+      <SeoJsonLd id="amenities" data={pageSchema} />
       <section className="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-700 mb-3">Lifestyle Guide · Updated November 2025</p>

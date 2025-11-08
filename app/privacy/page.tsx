@@ -1,9 +1,41 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Silverstone Ranch Homes',
+  description:
+    'Review the Silverstone Ranch Homes privacy policy outlining data handling, cookies, and contact details for Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Silverstone Ranch Homes',
+    description:
+      'Understand how Silverstone Ranch Homes manages personal information, website data, and communication preferences.',
+    url: `${CONTACT_INFO.website.base}/privacy`,
+    type: 'article',
+  },
+}
 
 export default function PrivacyPage() {
+  const path = '/privacy'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Homes Privacy Policy',
+    description:
+      'Silverstone Ranch Homes privacy policy covering personal data usage, third-party services, and contact information for inquiries.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Privacy Policy', path },
+    ],
+  })
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="privacy" data={pageSchema} />
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

@@ -4,7 +4,26 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildHowToSchema, buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Request Information | Silverstone Ranch Real Estate Concierge',
+  description:
+    'Request detailed Silverstone Ranch market intelligence, relocation guides, and listing alerts from Dr. Jan Duffy and the concierge team.',
+  alternates: {
+    canonical: '/request-info',
+  },
+  openGraph: {
+    title: 'Request Silverstone Ranch Real Estate Information',
+    description:
+      'Receive Silverstone Ranch relocation kits, listing previews, and strategy sessions curated by Dr. Jan Duffy REALTOR®.',
+    url: `${CONTACT_INFO.website.base}/request-info`,
+    type: 'website',
+  },
+}
 
 const requestInfoSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -51,8 +70,46 @@ export default function RequestInfoPage() {
     }
   }
 
+  const path = '/request-info'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Request Silverstone Ranch Information',
+    description:
+      'Use the concierge request form to receive Silverstone Ranch market intel, relocation resources, and listing previews from Dr. Jan Duffy.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Request Info', path },
+    ],
+  })
+
+  const howToSchema = buildHowToSchema({
+    path,
+    name: 'How to Request Silverstone Ranch Information',
+    description:
+      'Submit the concierge request form, schedule a follow-up call, and receive curated Silverstone Ranch reports tailored to your goals.',
+    steps: [
+      {
+        title: 'Share Your Details',
+        detail: 'Complete the request form with your contact information, preferred timeline, and questions.',
+      },
+      {
+        title: 'Schedule a Strategy Session',
+        detail:
+          'Choose a call or video meeting to review goals, relocation timelines, or selling objectives with Dr. Jan Duffy.',
+      },
+      {
+        title: 'Receive Curated Market Intelligence',
+        detail:
+          'Get a customized Silverstone Ranch relocation kit, listing previews, and next-step recommendations delivered to your inbox.',
+      },
+    ],
+  })
+
+  const schemaData = [pageSchema, howToSchema].filter(Boolean)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="request-info" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

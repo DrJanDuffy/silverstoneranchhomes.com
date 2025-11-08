@@ -2,7 +2,15 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import {
+  buildLocalBusinessSchema,
+  buildOrganizationSchema,
+  buildPlaceSchema,
+  buildRealEstateAgentSchema,
+  buildWebSiteSchema,
+} from '@/lib/seo'
 import './globals.css'
 
 const inter = Inter({
@@ -11,6 +19,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(CONTACT_INFO.website.base),
   title: 'Silverstone Ranch Homes | Luxury Community in Northwest Las Vegas',
   description:
     'Explore Silverstone Ranch in Northwest Las Vegas—guard-gated enclaves, former golf course view corridors, resort amenities, and expert guidance from Dr. Jan Duffy for buying, selling, or investing in the community.',
@@ -25,6 +34,9 @@ export const metadata: Metadata = {
     'Las Vegas REALTOR',
     'luxury homes Las Vegas',
   ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Silverstone Ranch Homes | Luxury Community in Northwest Las Vegas',
     description:
@@ -54,6 +66,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
@@ -64,63 +80,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'RealEstateAgent',
-              name: 'Dr. Jan Duffy',
-              jobTitle: 'REALTOR®',
-              telephone: CONTACT_INFO.phone.display,
-              email: CONTACT_INFO.email,
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: CONTACT_INFO.address.street,
-                addressLocality: CONTACT_INFO.address.city,
-                addressRegion: CONTACT_INFO.address.state,
-                postalCode: CONTACT_INFO.address.postalCode,
-                addressCountry: CONTACT_INFO.address.country,
-              },
-              url: CONTACT_INFO.website.url,
-              sameAs: [
-                CONTACT_INFO.website.url,
-                ...CONTACT_INFO.socialProfiles.map((profile) => profile.url),
-              ],
-              areaServed: CONTACT_INFO.serviceAreas,
-              worksFor: {
-                '@type': 'RealEstateAgent',
-                name: CONTACT_INFO.businessName,
-              },
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Place',
-              name: 'Silverstone Ranch Community',
-              description:
-                'Master-planned luxury community in Northwest Las Vegas featuring guard-gated enclaves, resort-style amenities, and residences along the former Silverstone golf fairways.',
-              url: CONTACT_INFO.website.url,
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: CONTACT_INFO.address.street,
-                addressLocality: CONTACT_INFO.address.city,
-                addressRegion: CONTACT_INFO.address.state,
-                postalCode: CONTACT_INFO.address.postalCode,
-                addressCountry: CONTACT_INFO.address.country,
-              },
-              areaServed: {
-                '@type': 'AdministrativeArea',
-                name: CONTACT_INFO.serviceAreas[1],
-              },
-              image: `${CONTACT_INFO.website.url}images/property/exterior-front-elevation.jpg`,
-              telephone: CONTACT_INFO.phone.display,
-            }),
-          }}
+        <SeoJsonLd
+          id="global-schema"
+          data={[
+            buildOrganizationSchema(),
+            buildWebSiteSchema(),
+            buildRealEstateAgentSchema(),
+            buildLocalBusinessSchema(),
+            buildPlaceSchema(),
+          ]}
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>

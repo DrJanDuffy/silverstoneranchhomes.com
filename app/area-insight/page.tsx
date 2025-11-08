@@ -1,5 +1,24 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Silverstone Ranch Area Insight | Market & Lifestyle Intel',
+  description:
+    'Gain deeper insight into Silverstone Ranch market positioning, buyer demographics, and lifestyle differentiators with guidance from Dr. Jan Duffy REALTOR®.',
+  alternates: {
+    canonical: '/area-insight',
+  },
+  openGraph: {
+    title: 'Silverstone Ranch Area Insight',
+    description:
+      'Understand Silverstone Ranch buyer demand, community differentiators, and relocation draw compared to nearby neighborhoods.',
+    url: `${CONTACT_INFO.website.base}/area-insight`,
+    type: 'website',
+  },
+}
 
 const recentSales = [
   {
@@ -119,15 +138,47 @@ const faqItems = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Silverstone Ranch Market Intelligence | November 2025 Analysis',
-  description:
-    'In-depth November 2025 Silverstone Ranch market insights covering pricing tiers, buyer demand, seller strategies, investment returns, and projections curated by Dr. Jan Duffy.',
-}
+const areaFaqs = [
+  {
+    question: 'Why do buyers choose Silverstone Ranch over nearby communities?',
+    answer:
+      'Silverstone offers mature landscaping, guard-gated security, and larger lots compared to Providence or Skye Canyon, while retaining quick Beltway access.',
+  },
+  {
+    question: 'What buyer profiles are most active in Silverstone Ranch?',
+    answer:
+      'Medical professionals, hospitality executives, and remote workers drawn to guard-gated privacy and close proximity to the 215 Beltway make up a large share of relocations.',
+  },
+  {
+    question: 'How does Silverstone Ranch perform during market shifts?',
+    answer:
+      'Guard-gated inventory tends to stay undersupplied. Even during slowdowns, staged and priced-to-market homes average under 20 days on market.',
+  },
+]
 
 export default function AreaInsightPage() {
+  const path = '/area-insight'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Area Insight',
+    description:
+      'Data-backed insight on Silverstone Ranch buyer demographics, relocation demand, and neighborhood differentiators.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Area Insight', path },
+    ],
+  })
+
+  const faqSchema = buildFaqSchema(
+    path,
+    areaFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="area-insight" data={schemaData as Record<string, unknown>[]} />
       <div className="mx-auto max-w-6xl space-y-16">
         <section className="text-center md:text-left space-y-4">
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-700">Market Bulletin · Updated November 7, 2025</p>

@@ -1,9 +1,41 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildWebPageSchema } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | Silverstone Ranch Homes',
+  description:
+    'Read the Silverstone Ranch Homes terms of service covering website usage, intellectual property, disclaimers, and contact information.',
+  alternates: {
+    canonical: '/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service | Silverstone Ranch Homes',
+    description:
+      'Understand the terms governing the Silverstone Ranch Homes website, services, and contact procedures.',
+    url: `${CONTACT_INFO.website.base}/terms`,
+    type: 'article',
+  },
+}
 
 export default function TermsPage() {
+  const path = '/terms'
+  const pageSchema = buildWebPageSchema({
+    path,
+    name: 'Silverstone Ranch Homes Terms of Service',
+    description:
+      'Silverstone Ranch Homes terms of service documenting obligations, disclaimers, and communication guidelines.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Terms of Service', path },
+    ],
+  })
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="terms" data={pageSchema} />
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">

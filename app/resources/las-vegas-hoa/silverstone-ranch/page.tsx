@@ -15,6 +15,8 @@ import {
   Users,
 } from 'lucide-react'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { buildFaqSchema, buildWebPageSchema } from '@/lib/seo'
 
 const canonicalPath = '/resources/las-vegas-hoa/silverstone-ranch'
 const canonicalUrl = `${CONTACT_INFO.website.base}${canonicalPath}`
@@ -65,118 +67,25 @@ export default function SilverstoneRanchHoaPage() {
     { href: '/resources/las-vegas-hoa', label: 'Las Vegas HOA Guides' },
   ]
 
-  const structuredData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: CONTACT_INFO.website.url,
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Resources',
-          item: `${CONTACT_INFO.website.base}/resources`,
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Las Vegas HOA Guides',
-          item: `${CONTACT_INFO.website.base}/resources/las-vegas-hoa`,
-        },
-        {
-          '@type': 'ListItem',
-          position: 4,
-          name: 'Silverstone Ranch HOA',
-          item: canonicalUrl,
-        },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: 'Silverstone Ranch HOA: Fees, Amenities & Community Overview',
-      description:
-        'Comprehensive Silverstone Ranch HOA guide covering 2025 fees, amenity highlights, architectural guidelines, and management contacts curated by Las Vegas REALTOR® Dr. Jan Duffy.',
-      mainEntityOfPage: canonicalUrl,
-      url: canonicalUrl,
-      image: [
-        heroImageUrl,
-      ],
-      datePublished: '2025-11-07',
-      dateModified: '2025-11-07',
-      keywords: [
-        'Silverstone Ranch HOA',
-        'Silverstone Ranch Las Vegas',
-        'Las Vegas HOA fees',
-        'Northwest Las Vegas gated community',
-        'Summerlin area HOA',
-      ],
-      author: {
-        '@type': 'Person',
-        name: CONTACT_INFO.agentName,
-        jobTitle: 'Las Vegas REALTOR®',
-        email: `mailto:${CONTACT_INFO.email}`,
-        telephone: CONTACT_INFO.phone.international,
-        url: `${CONTACT_INFO.website.url}agent`,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Silverstone Ranch Homes',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://silverstoneranchhomes.com/images/property/exterior-front-elevation.jpg',
-        },
-      },
-      articleSection: ['HOA Fees', 'Amenities', 'Architectural Guidelines', 'Market Insights'],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'How do I set up gate access for vendors or moving trucks at Silverstone Ranch?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'Submit the vendor or move request form to the guardhouse at least 48 hours in advance with company details and service window. Dr. Jan Duffy can coordinate access for staging teams when listing your home.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Are there age restrictions or lifestyle rules in Silverstone Ranch HOA?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'Silverstone Ranch is an all-ages community. Quiet hours are enforced from 10 p.m. to 6 a.m., and architectural controls ensure cohesive curb appeal across each village.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Can homeowners keep recreational vehicles or boats at Silverstone Ranch?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'RVs and boats must be stored inside fully enclosed garages. Temporary parking up to 48 hours requires prior HOA approval and may be limited during peak community events.',
-          },
-        },
-      ],
-    },
-  ]
+  const pageSchema = buildWebPageSchema({
+    path: canonicalPath,
+    name: 'Silverstone Ranch HOA Guide',
+    description:
+      'Complete guide to Silverstone Ranch HOA fees, contacts, documents, and community amenities maintained for homeowners and buyers.',
+    breadcrumb: breadcrumbs.map((item) => ({ name: item.label, path: item.href })).concat({ name: 'Silverstone Ranch HOA', path: canonicalPath }),
+  })
+
+  const faqSchema = buildFaqSchema(
+    canonicalPath,
+    expandedFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+  )
+
+  const schemaData = [pageSchema, faqSchema].filter(Boolean)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl">
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <SeoJsonLd id="silverstone-hoa" data={schemaData as Record<string, unknown>[]} />
+      <div className="mx-auto max-w-6xl space-y-16">
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
             {breadcrumbs.map((crumb, index) => (
