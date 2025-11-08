@@ -60,6 +60,24 @@ export const metadata: Metadata = {
   },
 }
 
+const hoaFaqs = [
+  {
+    question: 'How do you keep showings efficient yet respectful of our time?',
+    answer:
+      'Dr. Duffy coordinates agent-accompanied showings with ample notice, creates digital welcome packets, and collects feedback quickly so you can adjust without disruption.',
+  },
+  {
+    question: 'What if I need to sell and buy simultaneously?',
+    answer:
+      'Bridge financing, rent-backs, and contingent timelines are mapped out early. The concierge team syncs both escrows so you never feel rushed or displaced.',
+  },
+  {
+    question: 'Can you help with estate or trust sales?',
+    answer:
+      'Yes. Expect coordination with attorneys, appraisers, and beneficiaries, plus secure document management and estate sale partners.',
+  },
+]
+
 export default function SilverstoneRanchHoaPage() {
   const breadcrumbs = [
     { href: '/', label: 'Home' },
@@ -77,7 +95,7 @@ export default function SilverstoneRanchHoaPage() {
 
   const faqSchema = buildFaqSchema(
     canonicalPath,
-    expandedFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
+    hoaFaqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
   )
 
   const schemaData = [pageSchema, faqSchema].filter(Boolean)
