@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { trackEvent } from '@/lib/analytics'
 
 const requestInfoSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -39,6 +40,11 @@ export default function RequestInfoPageClient() {
       })
 
       if (response.ok) {
+        trackEvent('form_submission', {
+          form_id: 'request-info',
+          form_name: 'Request Information Form',
+          status: 'success',
+        })
         setIsSuccess(true)
         reset()
       } else {
@@ -46,6 +52,11 @@ export default function RequestInfoPageClient() {
       }
     } catch (error) {
       console.error('Error:', error)
+      trackEvent('form_submission', {
+        form_id: 'request-info',
+        form_name: 'Request Information Form',
+        status: 'error',
+      })
       alert('Failed to submit. Please try again.')
     } finally {
       setIsSubmitting(false)

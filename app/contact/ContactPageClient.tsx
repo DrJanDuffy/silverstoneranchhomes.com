@@ -7,6 +7,7 @@ import * as z from 'zod'
 import { Phone, Mail, MessageCircle, MapPin, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { trackEvent } from '@/lib/analytics'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -40,6 +41,11 @@ export default function ContactPageClient() {
       })
 
       if (response.ok) {
+        trackEvent('form_submission', {
+          form_id: 'contact',
+          form_name: 'Contact Page Form',
+          status: 'success',
+        })
         setIsSuccess(true)
         reset()
       } else {
@@ -47,6 +53,11 @@ export default function ContactPageClient() {
       }
     } catch (error) {
       console.error('Error:', error)
+      trackEvent('form_submission', {
+        form_id: 'contact',
+        form_name: 'Contact Page Form',
+        status: 'error',
+      })
       alert('Failed to submit. Please try again.')
     } finally {
       setIsSubmitting(false)

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { trackEvent } from '@/lib/analytics'
 
 const bookTourSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -39,6 +40,11 @@ export default function BookTourPageClient() {
       })
 
       if (response.ok) {
+        trackEvent('form_submission', {
+          form_id: 'book-tour',
+          form_name: 'Book Tour Form',
+          status: 'success',
+        })
         setIsSuccess(true)
         reset()
       } else {
@@ -46,6 +52,11 @@ export default function BookTourPageClient() {
       }
     } catch (error) {
       console.error('Error:', error)
+      trackEvent('form_submission', {
+        form_id: 'book-tour',
+        form_name: 'Book Tour Form',
+        status: 'error',
+      })
       alert('Failed to submit. Please try again.')
     } finally {
       setIsSubmitting(false)
