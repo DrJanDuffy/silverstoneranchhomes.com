@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { GA_MEASUREMENT_ID } from '@/lib/analytics'
 import {
   buildLocalBusinessSchema,
   buildOrganizationSchema,
@@ -90,8 +93,25 @@ export default function RootLayout({
             buildPlaceSchema(),
           ]}
         />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="ga-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <GoogleAnalytics />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
