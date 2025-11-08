@@ -1,6 +1,7 @@
 const CANONICAL_HOST = 'www.silverstoneranchhomes.com'
 
 const nextConfig = {
+  outputFileTracingRoot: process.cwd(),
   async redirects() {
     return [
       {
