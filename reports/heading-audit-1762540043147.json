@@ -1,0 +1,256 @@
+[
+  {
+    "file": "app\\agent\\page.tsx",
+    "words": 267,
+    "h1s": 1,
+    "h2s": 4,
+    "h3s": 10,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\amenities\\page.tsx",
+    "words": 1512,
+    "h1s": 1,
+    "h2s": 20,
+    "h3s": 13,
+    "flags": []
+  },
+  {
+    "file": "app\\area-info\\page.tsx",
+    "words": 1507,
+    "h1s": 1,
+    "h2s": 19,
+    "h3s": 9,
+    "flags": []
+  },
+  {
+    "file": "app\\area-insight\\page.tsx",
+    "words": 1520,
+    "h1s": 1,
+    "h2s": 18,
+    "h3s": 15,
+    "flags": []
+  },
+  {
+    "file": "app\\book-tour\\page.tsx",
+    "words": 104,
+    "h1s": 1,
+    "h2s": 1,
+    "h3s": 0,
+    "flags": [
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\buy-with-agent\\page.tsx",
+    "words": 236,
+    "h1s": 1,
+    "h2s": 4,
+    "h3s": 4,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\buyers-checklist\\page.tsx",
+    "words": 1518,
+    "h1s": 1,
+    "h2s": 21,
+    "h3s": 9,
+    "flags": []
+  },
+  {
+    "file": "app\\contact\\page.tsx",
+    "words": 167,
+    "h1s": 1,
+    "h2s": 4,
+    "h3s": 3,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\description\\page.tsx",
+    "words": 77,
+    "h1s": 1,
+    "h2s": 5,
+    "h3s": 4,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\environmental-risk\\page.tsx",
+    "words": 1549,
+    "h1s": 1,
+    "h2s": 22,
+    "h3s": 11,
+    "flags": []
+  },
+  {
+    "file": "app\\golf-course-status\\page.tsx",
+    "words": 1455,
+    "h1s": 1,
+    "h2s": 18,
+    "h3s": 7,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\home-valuation\\page.tsx",
+    "words": 251,
+    "h1s": 1,
+    "h2s": 2,
+    "h3s": 2,
+    "flags": [
+      "H2<3",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\homes-for-sale\\page.tsx",
+    "words": 350,
+    "h1s": 1,
+    "h2s": 6,
+    "h3s": 5,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\map\\page.tsx",
+    "words": 263,
+    "h1s": 1,
+    "h2s": 4,
+    "h3s": 6,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\market-insights\\page.tsx",
+    "words": 1518,
+    "h1s": 1,
+    "h2s": 20,
+    "h3s": 9,
+    "flags": []
+  },
+  {
+    "file": "app\\not-found.tsx",
+    "words": 8,
+    "h1s": 1,
+    "h2s": 1,
+    "h3s": 1,
+    "flags": [
+      "H2<3",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\page.tsx",
+    "words": 428,
+    "h1s": 1,
+    "h2s": 5,
+    "h3s": 2,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\photos\\page.tsx",
+    "words": 172,
+    "h1s": 1,
+    "h2s": 3,
+    "h3s": 1,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\price-features\\page.tsx",
+    "words": 258,
+    "h1s": 1,
+    "h2s": 4,
+    "h3s": 3,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\privacy\\page.tsx",
+    "words": 719,
+    "h1s": 1,
+    "h2s": 11,
+    "h3s": 2,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\request-info\\page.tsx",
+    "words": 220,
+    "h1s": 1,
+    "h2s": 2,
+    "h3s": 2,
+    "flags": [
+      "H2<3",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\resources\\las-vegas-hoa\\silverstone-ranch\\page.tsx",
+    "words": 1165,
+    "h1s": 1,
+    "h2s": 9,
+    "h3s": 10,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\sell-with-agent\\page.tsx",
+    "words": 221,
+    "h1s": 1,
+    "h2s": 4,
+    "h3s": 4,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\silverstone-ranch\\page.tsx",
+    "words": 894,
+    "h1s": 1,
+    "h2s": 8,
+    "h3s": 9,
+    "flags": [
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\terms\\page.tsx",
+    "words": 728,
+    "h1s": 1,
+    "h2s": 12,
+    "h3s": 0,
+    "flags": [
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\video\\page.tsx",
+    "words": 155,
+    "h1s": 1,
+    "h2s": 3,
+    "h3s": 3,
+    "flags": [
+      "words<1500"
+    ]
+  }
+]

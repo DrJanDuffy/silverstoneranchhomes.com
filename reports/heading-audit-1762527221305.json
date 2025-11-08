@@ -1,0 +1,327 @@
+[
+  {
+    "file": "app\\agent\\page.tsx",
+    "words": 267,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\amenities\\page.tsx",
+    "words": 172,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\area-info\\page.tsx",
+    "words": 200,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\area-insight\\page.tsx",
+    "words": 358,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\book-tour\\page.tsx",
+    "words": 104,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\buy-with-agent\\page.tsx",
+    "words": 236,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\buyers-checklist\\page.tsx",
+    "words": 144,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\contact\\page.tsx",
+    "words": 167,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\description\\page.tsx",
+    "words": 77,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\environmental-risk\\page.tsx",
+    "words": 233,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\golf-course-status\\page.tsx",
+    "words": 178,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\home-valuation\\page.tsx",
+    "words": 251,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\homes-for-sale\\page.tsx",
+    "words": 350,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\map\\page.tsx",
+    "words": 263,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\market-insights\\page.tsx",
+    "words": 277,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\not-found.tsx",
+    "words": 8,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\page.tsx",
+    "words": 59,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\photos\\page.tsx",
+    "words": 172,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\price-features\\page.tsx",
+    "words": 258,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\privacy\\page.tsx",
+    "words": 719,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\request-info\\page.tsx",
+    "words": 220,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\resources\\las-vegas-hoa\\silverstone-ranch\\page.tsx",
+    "words": 1165,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\sell-with-agent\\page.tsx",
+    "words": 221,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\terms\\page.tsx",
+    "words": 728,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  },
+  {
+    "file": "app\\video\\page.tsx",
+    "words": 155,
+    "h1s": 0,
+    "h2s": 0,
+    "h3s": 0,
+    "flags": [
+      "H1!=1",
+      "H2<3",
+      "H3=0",
+      "words<1500"
+    ]
+  }
+]

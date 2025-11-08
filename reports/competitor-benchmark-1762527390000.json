@@ -1,0 +1,82 @@
+[
+  {
+    "query": "silverstone ranch homes for sale",
+    "topResults": [
+      {
+        "site": "zillow.com/silverstone-ranch-las-vegas-nv",
+        "type": "Listing aggregator",
+        "wordCount": 450,
+        "notes": "Grid of homes, minimal narrative, H1 + H2 for filters"
+      },
+      {
+        "site": "redfin.com/city/Las-Vegas/Silverstone-Ranch",
+        "type": "Listing aggregator",
+        "wordCount": 380,
+        "notes": "Dynamic pricing widgets, short market stats"
+      },
+      {
+        "site": "callingsilverstonehome.com",
+        "type": "Local realtor landing page",
+        "wordCount": 1600,
+        "notes": "Long-form overview with sections on amenities, market, HOA"
+      }
+    ]
+  },
+  {
+    "query": "silverstone ranch las vegas community",
+    "topResults": [
+      {
+        "site": "bhhsnv.com/community/silverstone-ranch",
+        "type": "Brokerage community page",
+        "wordCount": 1200,
+        "notes": "Multiple H2 sections: overview, amenities, schools, market stats"
+      },
+      {
+        "site": "realtor.com/realestateandhomes-search/Las-Vegas_NV/neighborhood/Silverstone-Ranch",
+        "type": "Listing aggregator",
+        "wordCount": 500,
+        "notes": "Search filters + small community summary"
+      },
+      {
+        "site": "expvegashomes.com/silverstone-ranch",
+        "type": "Blog-style guide",
+        "wordCount": 2000,
+        "notes": "In-depth content with CTAs and forms"
+      }
+    ]
+  },
+  {
+    "query": "silverstone ranch golf course status",
+    "topResults": [
+      {
+        "site": "reviewjournal.com/business/real-estate/silverstone-golf-course-update",
+        "type": "News article",
+        "wordCount": 900,
+        "notes": "Journalistic format, multiple subheadings"
+      },
+      {
+        "site": "ktnv.com/news/silverstone-golf-course-lawsuit",
+        "type": "Local news",
+        "wordCount": 700,
+        "notes": "Narrow focus on litigation"
+      }
+    ]
+  },
+  {
+    "query": "silverstone ranch schools",
+    "topResults": [
+      {
+        "site": "greatschools.org/nevada/las-vegas/silverstone-ranch",
+        "type": "Directory",
+        "wordCount": 600,
+        "notes": "School profiles, rating tables"
+      },
+      {
+        "site": "clarkcountyschooldistrict.net/zoning",
+        "type": "District zoning page",
+        "wordCount": 400,
+        "notes": "Interactive map, minimal copy"
+      }
+    ]
+  }
+]

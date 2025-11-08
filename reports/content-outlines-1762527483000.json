@@ -1,0 +1,362 @@
+{
+  "homepage": {
+    "url": "/",
+    "wordTarget": "900-1,000",
+    "primaryKeywords": [
+      "Silverstone Ranch homes",
+      "Silverstone Ranch Las Vegas"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Live Exceptionally in Silverstone Ranch, Las Vegas",
+        "notes": [
+          "Hero stats + CTA"
+        ]
+      },
+      {
+        "heading": "H2: Why Buyers Choose Silverstone Ranch",
+        "notes": [
+          "H3: Guard-Gated Lifestyle",
+          "H3: Resort-Caliber Amenities",
+          "H3: Prime Centennial Hills Location"
+        ]
+      },
+      {
+        "heading": "H2: Market Snapshot – November 2025",
+        "notes": [
+          "H3: Median Price & DOM",
+          "H3: Featured Listings",
+          "H3: Seller & Buyer Tips"
+        ]
+      },
+      {
+        "heading": "H2: Plan Your Private Tour with Dr. Jan Duffy",
+        "notes": [
+          "H3: Consultation & Valuation CTAs",
+          "H3: Testimonials / Trust Badges"
+        ]
+      }
+    ],
+    "ctas": [
+      "Book Your Tour",
+      "Request Community Info",
+      "Get Home Valuation"
+    ]
+  },
+  "hub": {
+    "url": "/silverstone-ranch",
+    "wordTarget": "1,600-1,800",
+    "primaryKeywords": [
+      "Silverstone Ranch community",
+      "Silverstone Ranch guide"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Silverstone Ranch Community Hub",
+        "notes": [
+          "Intro + value proposition"
+        ]
+      },
+      {
+        "heading": "H2: Quick Facts & Map",
+        "notes": [
+          "H3: Location Overview",
+          "H3: Travel Times & Transit"
+        ]
+      },
+      {
+        "heading": "H2: Lifestyle & Amenities",
+        "notes": [
+          "H3: Parks & Trails",
+          "H3: Clubhouse & Events",
+          "H3: HOA Services"
+        ]
+      },
+      {
+        "heading": "H2: Market Insights",
+        "notes": [
+          "H3: Pricing Trends",
+          "H3: Buyer Demand",
+          "H3: Seller Opportunities"
+        ]
+      },
+      {
+        "heading": "H2: Schools & Education",
+        "notes": [
+          "H3: Elementary",
+          "H3: Middle",
+          "H3: High"
+        ]
+      },
+      {
+        "heading": "H2: Environmental & Safety Snapshot",
+        "notes": [
+          "H3: Heat",
+          "H3: Flood",
+          "H3: Wind/Wildfire"
+        ]
+      },
+      {
+        "heading": "H2: Plan Your Next Step",
+        "notes": [
+          "H3: Links to detail pages",
+          "H3: Contact CTA"
+        ]
+      }
+    ]
+  },
+  "locationAmenities": {
+    "url": "/silverstone-ranch/amenities",
+    "wordTarget": "1,200-1,400",
+    "primaryKeywords": [
+      "Silverstone Ranch amenities",
+      "Silverstone Ranch lifestyle"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Silverstone Ranch Amenities & Lifestyle",
+        "notes": [
+          "Intro with key highlights"
+        ]
+      },
+      {
+        "heading": "H2: Outdoor Living",
+        "notes": [
+          "H3: Parks & Trails",
+          "H3: Desert Landscaping Guidelines"
+        ]
+      },
+      {
+        "heading": "H2: Community Facilities",
+        "notes": [
+          "H3: Clubhouse",
+          "H3: Fitness & Courts",
+          "H3: Event Programming"
+        ]
+      },
+      {
+        "heading": "H2: HOA Services & Security",
+        "notes": [
+          "H3: Guard Gates",
+          "H3: Patrol",
+          "H3: Maintenance"
+        ]
+      },
+      {
+        "heading": "H2: Nearby Conveniences",
+        "notes": [
+          "H3: Shopping & Dining",
+          "H3: Healthcare",
+          "H3: Recreation"
+        ]
+      },
+      {
+        "heading": "H2: Experience It Yourself",
+        "notes": [
+          "H3: Book a Community Tour CTA"
+        ]
+      }
+    ]
+  },
+  "golfStatus": {
+    "url": "/golf-course-status",
+    "wordTarget": "1,300-1,500",
+    "primaryKeywords": [
+      "Silverstone golf course status",
+      "Silverstone golf redevelopment"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Silverstone Ranch Golf Course Status – November 2025",
+        "notes": [
+          "Brief timeline + latest update"
+        ]
+      },
+      {
+        "heading": "H2: Historical Timeline",
+        "notes": [
+          "H3: Opening & Operations",
+          "H3: Closure Events",
+          "H3: Legal Proceedings"
+        ]
+      },
+      {
+        "heading": "H2: 2025 Auction & Ownership",
+        "notes": [
+          "H3: Auction Summary",
+          "H3: Current Owner",
+          "H3: Recorded Documents"
+        ]
+      },
+      {
+        "heading": "H2: Potential Future Scenarios",
+        "notes": [
+          "H3: Restoration",
+          "H3: Redevelopment",
+          "H3: Open Space"
+        ]
+      },
+      {
+        "heading": "H2: Impact on Homeowners & Buyers",
+        "notes": [
+          "H3: Valuation Considerations",
+          "H3: Landscaping Tips",
+          "H3: Disclosure Requirements"
+        ]
+      },
+      {
+        "heading": "H2: Stay Informed",
+        "notes": [
+          "H3: Timeline Updates",
+          "H3: CTA: Request Personalized Guidance"
+        ]
+      }
+    ]
+  },
+  "schools": {
+    "url": "/silverstone-ranch/schools",
+    "wordTarget": "900-1,000",
+    "primaryKeywords": [
+      "Silverstone Ranch schools",
+      "Centennial Hills schools"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Schools Serving Silverstone Ranch",
+        "notes": [
+          "Intro + zoning disclaimer"
+        ]
+      },
+      {
+        "heading": "H2: Elementary School – O'Roarke",
+        "notes": [
+          "H3: Academics",
+          "H3: Programs",
+          "H3: Ratings"
+        ]
+      },
+      {
+        "heading": "H2: Middle School – Cadwallader",
+        "notes": [
+          "H3: STEM & Arts",
+          "H3: Ratings"
+        ]
+      },
+      {
+        "heading": "H2: High School – Arbor View",
+        "notes": [
+          "H3: Advanced Placement & CTE",
+          "H3: Athletics"
+        ]
+      },
+      {
+        "heading": "H2: Private & Charter Options Nearby",
+        "notes": [
+          "H3: Highlight list"
+        ]
+      },
+      {
+        "heading": "H2: Enrollment & Zoning Resources",
+        "notes": [
+          "H3: Links to CCSD",
+          "H3: CTA for school tour planning"
+        ]
+      }
+    ]
+  },
+  "market": {
+    "url": "/market-insights",
+    "wordTarget": "1,200-1,400",
+    "primaryKeywords": [
+      "Silverstone Ranch market report",
+      "Silverstone Ranch home prices"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Silverstone Ranch Market Insights – November 2025",
+        "notes": [
+          "Intro + highlight stats"
+        ]
+      },
+      {
+        "heading": "H2: Key Metrics",
+        "notes": [
+          "H3: Median Price",
+          "H3: Price per Sq Ft",
+          "H3: DOM & Inventory"
+        ]
+      },
+      {
+        "heading": "H2: Buyer vs Seller Dynamics",
+        "notes": [
+          "H3: Demand Sources",
+          "H3: Negotiation Guidance"
+        ]
+      },
+      {
+        "heading": "H2: Recent Sales Spotlight",
+        "notes": [
+          "H3: Example Sales (3)"
+        ]
+      },
+      {
+        "heading": "H2: Forecast & Strategy",
+        "notes": [
+          "H3: Winter 2025/26 Outlook",
+          "H3: CTA: Schedule Strategy Session"
+        ]
+      }
+    ]
+  },
+  "environmental": {
+    "url": "/environmental-risk",
+    "wordTarget": "1,000-1,200",
+    "primaryKeywords": [
+      "Silverstone Ranch environmental risk",
+      "Las Vegas climate risk"
+    ],
+    "sections": [
+      {
+        "heading": "H1: Silverstone Ranch Environmental & Climate Risk Overview",
+        "notes": [
+          "Intro referencing 30-year outlook"
+        ]
+      },
+      {
+        "heading": "H2: Heat & Energy Considerations",
+        "notes": [
+          "H3: Projections",
+          "H3: Mitigation Tips"
+        ]
+      },
+      {
+        "heading": "H2: Flood & Monsoon Preparedness",
+        "notes": [
+          "H3: Risk Zones",
+          "H3: Insurance Guidance"
+        ]
+      },
+      {
+        "heading": "H2: Wind & Wildfire Readiness",
+        "notes": [
+          "H3: Defensible Space",
+          "H3: HOA Requirements"
+        ]
+      },
+      {
+        "heading": "H2: Sustainability & Upgrades",
+        "notes": [
+          "H3: Solar",
+          "H3: Water Smart",
+          "H3: Incentives"
+        ]
+      },
+      {
+        "heading": "H2: Work With Local Experts",
+        "notes": [
+          "H3: CTA for consult"
+        ]
+      }
+    ]
+  }
+}

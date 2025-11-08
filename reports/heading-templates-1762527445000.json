@@ -1,0 +1,95 @@
+{
+  "home": {
+    "wordTarget": "800-1,200",
+    "structure": [
+      "H1: Silverstone Ranch Luxury Living Overview",
+      "H2: Community Snapshot",
+      "H3: Key Stats (inline bullets)",
+      "H2: Why Buyers Love Silverstone Ranch",
+      "H3: Guard-Gated Lifestyle",
+      "H3: Amenities & Parks",
+      "H2: Market Highlights November 2025",
+      "H3: Median Price & DOM",
+      "H3: Featured Properties",
+      "H2: Plan Your Visit",
+      "H3: CTAs (book tour, valuation, request info)"
+    ]
+  },
+  "hub": {
+    "wordTarget": "1,500-2,000",
+    "structure": [
+      "H1: Silverstone Ranch Community Hub",
+      "TOC component",
+      "H2: Executive Summary",
+      "H2: Quick Facts & Location",
+      "H3: Map + Travel Times",
+      "H2: Community Pillars",
+      "H3: Amenities Snapshot",
+      "H3: Market Snapshot",
+      "H3: Schools Snapshot",
+      "H3: Environmental Snapshot",
+      "H2: Deep Dive Resources",
+      "H3: Links to Golf, Schools, Market, Environmental, Buying Guide",
+      "H2: Plan with Dr. Jan Duffy",
+      "H3: Contact / CTA stack"
+    ]
+  },
+  "detail": {
+    "wordTarget": "1,000-1,500",
+    "structure": [
+      "H1: Topic-Specific Title",
+      "H2: Key Takeaways",
+      "H2: Core Content Sections (3-4 per page)",
+      "H3: Supporting details, FAQs, checklists",
+      "H2: Related Resources",
+      "H3: Internal links back to hub, forms, neighborhoods",
+      "H2: Call to Action"
+    ]
+  },
+  "neighborhood": {
+    "wordTarget": "600-800",
+    "structure": [
+      "H1: Neighborhood Name Overview",
+      "H2: Quick Facts",
+      "H3: Avg Price, HOA Fees, Build Years",
+      "H2: Lifestyle & Amenities",
+      "H3: Parks/Trails",
+      "H2: Homes & Floor Plans",
+      "H3: Example specs",
+      "H2: HOA Snapshot",
+      "H3: Fees + what’s included",
+      "H2: Next Steps",
+      "H3: CTA links"
+    ]
+  },
+  "forms": {
+    "wordTarget": "500-700 support copy",
+    "structure": [
+      "H1: Conversion Intent (e.g., Request Silverstone Ranch Information)",
+      "H2: Why This Form Matters",
+      "H3: Trust indicators",
+      "H2: How It Works",
+      "H3: Step list",
+      "H2: Meet Your Guide",
+      "H3: Agent bio snippet",
+      "Form component (no heading)",
+      "H2: FAQs",
+      "H3: 2-3 question list"
+    ]
+  },
+  "legal": {
+    "wordTarget": "900-1,200",
+    "structure": [
+      "H1: Legal / Privacy Title",
+      "H2: Data Collection",
+      "H3: Personal information collected",
+      "H3: Cookies",
+      "H2: Data Usage",
+      "H3: How info is used",
+      "H2: Rights & Choices",
+      "H3: Opt-out, contact, updates",
+      "H2: Contact",
+      "H3: Company info"
+    ]
+  }
+}
