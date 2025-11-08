@@ -44,14 +44,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Silverstone Ranch Homes | Luxury Community in Northwest Las Vegas',
     description:
-    'Discover Silverstone Ranch—guard-gated living, former golf fairway corridors, and personalized guidance from Dr. Jan Duffy throughout North Las Vegas.',
+      'Discover Silverstone Ranch—guard-gated living, former golf fairway corridors, and personalized guidance from Dr. Jan Duffy throughout North Las Vegas.',
     type: 'website',
     locale: 'en_US',
     siteName: CONTACT_INFO.businessName,
     url: CONTACT_INFO.website.url,
     images: [
       {
-        url: '/images/property/exterior-front-elevation.jpg',
+        url: `${CONTACT_INFO.website.base}/images/property/exterior-front-elevation.jpg`,
         width: 1200,
         height: 630,
         alt: 'Silverstone Ranch luxury home with desert landscaping in Las Vegas',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: 'Silverstone Ranch Homes | Luxury Community Overview',
     description:
       'Tour Silverstone Ranch in North Las Vegas—honest updates on the closed golf course, gated enclaves, and expert representation from Dr. Jan Duffy.',
-    images: ['/images/property/exterior-front-elevation.jpg'],
+    images: [`${CONTACT_INFO.website.base}/images/property/exterior-front-elevation.jpg`],
     site: CONTACT_INFO.website.url,
   },
   robots: {
