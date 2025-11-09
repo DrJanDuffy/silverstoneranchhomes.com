@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import { WebVitals } from '@/components/WebVitals'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { GA_MEASUREMENT_ID } from '@/lib/analytics'
 import {
@@ -20,6 +21,7 @@ import './globals.css'
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -115,6 +117,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
+        <WebVitals />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

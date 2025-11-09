@@ -1,0 +1,21 @@
+# robots.txt for www.silverstoneranchhomes.com
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.silverstoneranchhomes.com/sitemap.xml
+
+# Disallow crawling of API routes
+Disallow: /api/
+
+# Optimize crawl rate for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
