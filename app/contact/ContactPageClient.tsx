@@ -8,6 +8,7 @@ import { Phone, Mail, MessageCircle, MapPin, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { trackEvent } from '@/lib/analytics'
+import { useToast } from '@/hooks/useToast'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -21,6 +22,7 @@ type ContactFormData = z.infer<typeof contactSchema>
 export default function ContactPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const { showToast, ToastComponent } = useToast()
 
   const {
     register,
@@ -58,15 +60,17 @@ export default function ContactPageClient() {
         form_name: 'Contact Page Form',
         status: 'error',
       })
-      alert('Failed to submit. Please try again.')
+      showToast('Failed to submit. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <div className="text-center mb-12">
+    <>
+      {ToastComponent}
+      <div className="mx-auto max-w-4xl">
+        <div className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Get in touch with Dr. Jan Duffy for questions about properties, scheduling tours, or any real estate needs in Silverstone Ranch.
@@ -276,5 +280,6 @@ export default function ContactPageClient() {
         </div>
       </div>
     </div>
+    </>
   )
 }

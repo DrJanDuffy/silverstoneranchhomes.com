@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { trackEvent } from '@/lib/analytics'
+import { useToast } from '@/hooks/useToast'
 
 const bookTourSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -20,6 +21,7 @@ type BookTourFormData = z.infer<typeof bookTourSchema>
 export default function BookTourPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const { showToast, ToastComponent } = useToast()
 
   const {
     register,
@@ -57,14 +59,16 @@ export default function BookTourPageClient() {
         form_name: 'Book Tour Form',
         status: 'error',
       })
-      alert('Failed to submit. Please try again.')
+      showToast('Failed to submit. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <>
+      {ToastComponent}
+      <div className="mx-auto max-w-2xl">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Book Your Tour</h1>
         <p className="text-lg text-gray-600">Schedule a private tour of Silverstone Ranch homes and community amenities</p>
@@ -174,5 +178,6 @@ export default function BookTourPageClient() {
         </div>
       )}
     </div>
+    </>
   )
 }

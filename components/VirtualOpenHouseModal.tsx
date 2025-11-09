@@ -5,6 +5,7 @@ import { X, Calendar, Video } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { useToast } from '@/hooks/useToast'
 
 const rsvpSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -27,6 +28,7 @@ export default function VirtualOpenHouseModal({
 }: VirtualOpenHouseModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const { showToast, ToastComponent } = useToast()
 
   const {
     register,
@@ -54,7 +56,7 @@ export default function VirtualOpenHouseModal({
       }
     } catch (error) {
       console.error('Error submitting RSVP:', error)
-      alert('Failed to submit RSVP. Please try again.')
+      showToast('Failed to submit RSVP. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
@@ -64,6 +66,7 @@ export default function VirtualOpenHouseModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 animate-fade-in">
+      {ToastComponent}
       <div className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 md:p-8 animate-slide-up max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}

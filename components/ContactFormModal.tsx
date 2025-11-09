@@ -5,6 +5,7 @@ import { X } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { useToast } from '@/hooks/useToast'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -26,6 +27,7 @@ export default function ContactFormModal({
 }: ContactFormModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const { showToast, ToastComponent } = useToast()
 
   const {
     register,
@@ -53,7 +55,7 @@ export default function ContactFormModal({
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      alert('Failed to send message. Please try again.')
+      showToast('Failed to send message. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
@@ -63,6 +65,7 @@ export default function ContactFormModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 animate-fade-in">
+      {ToastComponent}
       <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full p-6 animate-slide-up">
         <button
           onClick={onClose}

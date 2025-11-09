@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { CONTACT_INFO } from '@/lib/contact-info'
+import { useToast } from '@/hooks/useToast'
 
 const valuationSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -83,6 +84,7 @@ const sellerBenefits = [
 export default function HomeValuationPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const { showToast, ToastComponent } = useToast()
 
   const {
     register,
@@ -110,14 +112,16 @@ export default function HomeValuationPageClient() {
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Failed to submit. Please try again.')
+      showToast('Failed to submit. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <>
+      {ToastComponent}
+      <div className="mx-auto max-w-4xl">
       <div className="text-center mb-12">
         <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-6">
           Free Home Valuation
@@ -336,5 +340,6 @@ export default function HomeValuationPageClient() {
         </div>
       </section>
     </div>
+    </>
   )
 }

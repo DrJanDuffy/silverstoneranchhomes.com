@@ -85,6 +85,17 @@
   }
 }
 
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 0.3s ease-out forwards;
 }
@@ -99,6 +110,10 @@
 
 .animate-slide-in-down {
   animation: slide-in-down 0.3s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
 }
 
 :root {

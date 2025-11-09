@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { trackEvent } from '@/lib/analytics'
+import { useToast } from '@/hooks/useToast'
 
 const requestInfoSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -20,6 +21,7 @@ type RequestInfoFormData = z.infer<typeof requestInfoSchema>
 export default function RequestInfoPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const { showToast, ToastComponent } = useToast()
 
   const {
     register,
@@ -57,14 +59,16 @@ export default function RequestInfoPageClient() {
         form_name: 'Request Information Form',
         status: 'error',
       })
-      alert('Failed to submit. Please try again.')
+      showToast('Failed to submit. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <>
+      {ToastComponent}
+      <div className="mx-auto max-w-4xl">
       <div className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Request Information</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -301,5 +305,6 @@ export default function RequestInfoPageClient() {
         </div>
       </div>
     </div>
+    </>
   )
 }
