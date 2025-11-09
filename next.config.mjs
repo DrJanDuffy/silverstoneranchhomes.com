@@ -1,7 +1,3 @@
-if (!process.env.TAILWIND_DISABLE_NATIVE) {
-  process.env.TAILWIND_DISABLE_NATIVE = 'true'
-}
-
 const CANONICAL_HOST = 'www.silverstoneranchhomes.com'
 
 const nextConfig = {
