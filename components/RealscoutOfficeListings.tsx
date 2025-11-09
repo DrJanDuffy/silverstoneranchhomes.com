@@ -1,3 +1,5 @@
+import { createElement } from 'react'
+
 export function RealscoutOfficeListings() {
   return (
     <section className="bg-slate-900 py-16 px-4 sm:px-6 lg:px-8">
@@ -12,14 +14,14 @@ export function RealscoutOfficeListings() {
         </div>
         <div className="rounded-2xl border border-blue-500/40 bg-white/95 p-4 shadow-2xl shadow-blue-900/20">
           {/* RealScout Web Component */}
-          <realscout-office-listings
-            agent-encoded-id="QWdlbnQtMjI1MDUw"
-            sort-order="NEWEST"
-            listing-status="For Sale"
-            property-types=",SFR"
-            price-min="500000"
-            price-max="600000"
-          ></realscout-office-listings>
+          {createElement('realscout-office-listings', {
+            'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
+            'sort-order': 'NEWEST',
+            'listing-status': 'For Sale',
+            'property-types': ',SFR',
+            'price-min': '500000',
+            'price-max': '600000',
+          })}
         </div>
       </div>
     </section>

@@ -1,0 +1,7 @@
+{
+  "env": {
+    "TAILWIND_DISABLE_NATIVE": "true",
+    "npm_config_tailwind_disable_native": "true"
+  }
+}
+
