@@ -1,6 +1,5 @@
-if (!process.env.TAILWIND_DISABLE_NATIVE) {
-  process.env.TAILWIND_DISABLE_NATIVE = 'true'
-}
+// Force Tailwind to use JavaScript engine instead of native oxide
+process.env.TAILWIND_DISABLE_NATIVE = '1'
 
 const CANONICAL_HOST = 'www.silverstoneranchhomes.com'
 
