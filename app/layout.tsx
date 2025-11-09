@@ -15,6 +15,7 @@ import {
   buildRealEstateAgentSchema,
   buildWebSiteSchema,
 } from '@/lib/seo'
+import { RealscoutOfficeListings } from '@/components/RealscoutOfficeListings'
 import './globals.css'
 
 const inter = Inter({
@@ -110,6 +111,16 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          type="module"
+          strategy="afterInteractive"
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `realscout-office-listings { --rs-listing-divider-color: #0e64c8; width: 100%; }`,
+          }}
+        />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Suspense fallback={null}>
@@ -117,6 +128,7 @@ export default function RootLayout({
         </Suspense>
         <Header />
         <main className="min-h-screen">{children}</main>
+        <RealscoutOfficeListings />
         <Footer />
       </body>
     </html>
