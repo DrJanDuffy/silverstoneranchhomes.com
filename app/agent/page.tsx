@@ -102,7 +102,7 @@ const careerTimeline = [
   {
     year: '2024',
     milestone:
-      'Recognized in the Berkshire Hathaway Chairman’s Circle Gold and ranked among the top 1% of Las Vegas REALTORS® for closed volume.',
+      'Ranked among the top 1% of Las Vegas REALTORS® for closed volume.',
   },
 ]
 
