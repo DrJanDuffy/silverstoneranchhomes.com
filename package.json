@@ -47,6 +47,10 @@
     "tw-animate-css": "^1.3.5",
     "typescript": "^5"
   },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.0",
+    "lightningcss-linux-x64-gnu": "^1.30.0"
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true,
