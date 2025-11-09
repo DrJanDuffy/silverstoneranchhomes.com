@@ -1,9 +1,8 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = CONTACT_INFO.website.base
-  const host = new URL(baseUrl).host
 
   return {
     rules: [
@@ -22,6 +21,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host,
   }
 }
