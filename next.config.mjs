@@ -5,8 +5,7 @@ const CANONICAL_BASE = `https://${CANONICAL_HOST}`
 
 const nextConfig = {
   outputFileTracingRoot: process.cwd(),
-  // Optimize production builds
-  swcMinify: true,
+  // Optimize production builds - remove console logs in production
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
