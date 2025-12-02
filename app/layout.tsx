@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
@@ -17,13 +16,6 @@ import {
   buildWebSiteSchema,
 } from '@/lib/seo'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: true,
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(CONTACT_INFO.website.base),
@@ -94,6 +86,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* Load Inter font via CSS to avoid next/font native binding issues */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
         <SeoJsonLd
           id="global-schema"
           data={[
@@ -122,7 +119,7 @@ export default function RootLayout({
         />
         {/* Realscout script and styles are now loaded dynamically by the component when in view */}
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>

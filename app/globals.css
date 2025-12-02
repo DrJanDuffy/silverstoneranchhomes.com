@@ -178,7 +178,7 @@
     @apply bg-background text-foreground font-sans;
   }
   html {
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 
