@@ -16,8 +16,6 @@ import {
   buildWebSiteSchema,
 } from '@/lib/seo'
 import './globals.css'
-// Import react-image-gallery CSS globally (allowed in layout)
-import 'react-image-gallery/styles/css/image-gallery.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(CONTACT_INFO.website.base),

@@ -17,9 +17,14 @@ const nextConfig = {
             Array.isArray(oneOf.use) &&
             oneOf.use.some((use) => use.loader && use.loader.includes('postcss-loader'))
           ) {
-            // Add exclude for node_modules CSS files
+            // Exclude node_modules CSS files from PostCSS
+            const existingExclude = Array.isArray(oneOf.exclude)
+              ? oneOf.exclude
+              : oneOf.exclude
+              ? [oneOf.exclude]
+              : []
             oneOf.exclude = [
-              ...(Array.isArray(oneOf.exclude) ? oneOf.exclude : oneOf.exclude ? [oneOf.exclude] : []),
+              ...existingExclude,
               /node_modules/,
             ]
           }
