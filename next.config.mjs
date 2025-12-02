@@ -1,6 +1,6 @@
-if (!process.env.TAILWIND_DISABLE_NATIVE) {
-  process.env.TAILWIND_DISABLE_NATIVE = 'true'
-}
+// Ensure Tailwind native mode is disabled before any imports
+process.env.TAILWIND_DISABLE_NATIVE = 'true'
+process.env.npm_config_tailwind_disable_native = 'true'
 
 const CANONICAL_HOST = 'www.silverstoneranchhomes.com'
 const CANONICAL_BASE = `https://${CANONICAL_HOST}`

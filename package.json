@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "cross-env TAILWIND_DISABLE_NATIVE=true next build",
+    "build": "cross-env TAILWIND_DISABLE_NATIVE=true npm_config_tailwind_disable_native=true next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
