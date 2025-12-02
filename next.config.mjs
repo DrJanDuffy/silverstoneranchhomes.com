@@ -7,6 +7,27 @@ const CANONICAL_BASE = `https://${CANONICAL_HOST}`
 
 const nextConfig = {
   outputFileTracingRoot: process.cwd(),
+  webpack: (config, { isServer }) => {
+    // Exclude node_modules CSS from PostCSS processing to avoid Tailwind native binding issues
+    config.module.rules.forEach((rule) => {
+      if (rule.oneOf) {
+        rule.oneOf.forEach((oneOf) => {
+          if (
+            oneOf.use &&
+            Array.isArray(oneOf.use) &&
+            oneOf.use.some((use) => use.loader && use.loader.includes('postcss-loader'))
+          ) {
+            // Add exclude for node_modules CSS files
+            oneOf.exclude = [
+              ...(Array.isArray(oneOf.exclude) ? oneOf.exclude : oneOf.exclude ? [oneOf.exclude] : []),
+              /node_modules/,
+            ]
+          }
+        })
+      }
+    })
+    return config
+  },
   async redirects() {
     return [
       // Redirect old short URLs to new canonical paths
