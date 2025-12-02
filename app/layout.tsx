@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -15,12 +16,18 @@ import {
   buildRealEstateAgentSchema,
   buildWebSiteSchema,
 } from '@/lib/seo'
-import { RealscoutOfficeListings } from '@/components/RealscoutOfficeListings'
 import './globals.css'
+
+// Lazy load Realscout component to reduce initial bundle size
+const RealscoutOfficeListings = dynamic(() => import('@/components/RealscoutOfficeListings').then((mod) => ({ default: mod.RealscoutOfficeListings })), {
+  ssr: false,
+})
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -85,6 +92,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://em.realscout.com" />
+        <link rel="dns-prefetch" href="https://em.realscout.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <SeoJsonLd
           id="global-schema"
           data={[
@@ -97,11 +111,11 @@ export default function RootLayout({
         />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="ga-init"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -111,16 +125,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          type="module"
-          strategy="afterInteractive"
-        />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `realscout-office-listings { --rs-listing-divider-color: #0e64c8; width: 100%; }`,
-          }}
-        />
+        {/* Realscout script and styles are now loaded dynamically by the component when in view */}
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Suspense fallback={null}>
