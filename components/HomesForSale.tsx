@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function HomesForSale() {
   const snapshot = [
@@ -93,12 +94,12 @@ export default function HomesForSale() {
               closed since 2015 and, despite the May 2025 auction, future use is still undetermined. Budget for view and
               landscaping enhancements accordingly.
             </div>
-              <a
+              <Link
                 href="/#photos"
                 className="block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Explore Community Gallery
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -110,12 +111,12 @@ export default function HomesForSale() {
             <p className="text-sm text-gray-500">
               Contact Dr. Jan Duffy for additional residences across the community
             </p>
-            <a
+            <Link
               href="/#agent"
               className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Connect with the Agent
-            </a>
+            </Link>
           </div>
         </div>
       </div>

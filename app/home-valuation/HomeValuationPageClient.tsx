@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import Link from 'next/link'
 import { CONTACT_INFO } from '@/lib/contact-info'
 
 const valuationSchema = z.object({
@@ -193,9 +194,9 @@ export default function HomeValuationPageClient() {
               Submit Another Property
             </button>
             <div>
-              <a href="/" className="inline-block text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/" className="inline-block text-blue-600 hover:text-blue-700 font-medium">
                 Return to Home
-              </a>
+              </Link>
             </div>
           </div>
         </div>
