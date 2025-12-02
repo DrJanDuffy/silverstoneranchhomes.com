@@ -62,8 +62,6 @@ const nextConfig = {
       },
     ]
   },
-  // Optimize production builds
-  swcMinify: true,
 }
 
 export default nextConfig

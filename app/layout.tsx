@@ -1,12 +1,12 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import dynamic from 'next/dynamic'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SeoJsonLd } from '@/components/SeoJsonLd'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import { RealscoutOfficeListingsWrapper } from '@/components/RealscoutOfficeListingsWrapper'
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { GA_MEASUREMENT_ID } from '@/lib/analytics'
 import {
@@ -17,11 +17,6 @@ import {
   buildWebSiteSchema,
 } from '@/lib/seo'
 import './globals.css'
-
-// Lazy load Realscout component to reduce initial bundle size
-const RealscoutOfficeListings = dynamic(() => import('@/components/RealscoutOfficeListings').then((mod) => ({ default: mod.RealscoutOfficeListings })), {
-  ssr: false,
-})
 
 const inter = Inter({
   subsets: ['latin'],
@@ -133,7 +128,7 @@ export default function RootLayout({
         </Suspense>
         <Header />
         <main className="min-h-screen">{children}</main>
-        <RealscoutOfficeListings />
+        <RealscoutOfficeListingsWrapper />
         <Footer />
       </body>
     </html>
