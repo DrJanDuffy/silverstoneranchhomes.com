@@ -106,9 +106,11 @@ export default function SchoolsPage() {
 
   const faqSchema = buildFaqSchema(path, faqs)
 
+  const schemaData = [pageSchema, faqSchema].filter((schema): schema is NonNullable<typeof schema> => schema !== null)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-      <SeoJsonLd id="schools" data={[pageSchema, faqSchema].filter(Boolean)} />
+      <SeoJsonLd id="schools" data={schemaData} />
       
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-12">
