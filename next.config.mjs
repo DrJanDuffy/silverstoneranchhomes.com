@@ -1,6 +1,4 @@
-// Ensure Tailwind native mode is disabled before any imports
-process.env.TAILWIND_DISABLE_NATIVE = 'true'
-process.env.npm_config_tailwind_disable_native = 'true'
+// Tailwind CSS v3 - no native bindings required
 
 const CANONICAL_HOST = 'www.silverstoneranchhomes.com'
 const CANONICAL_BASE = `https://${CANONICAL_HOST}`
