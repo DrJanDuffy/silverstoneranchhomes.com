@@ -5,6 +5,13 @@ const CANONICAL_BASE = `https://${CANONICAL_HOST}`
 
 const nextConfig = {
   outputFileTracingRoot: process.cwd(),
+  // Optimize production builds
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
   webpack: (config, { isServer }) => {
     // Exclude node_modules CSS from PostCSS processing to avoid Tailwind native binding issues
     config.module.rules.forEach((rule) => {
