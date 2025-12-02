@@ -2,9 +2,8 @@
 
 import { useState } from 'react'
 import ImageGallery from 'react-image-gallery'
-import 'react-image-gallery/styles/css/image-gallery.css'
-
 import { propertyPhotos } from '@/lib/property-photos'
+// CSS is imported globally in app/layout.tsx
 
 export default function PhotoGallery() {
   const [showGallery, setShowGallery] = useState(false)

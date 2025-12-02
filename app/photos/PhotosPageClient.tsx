@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import ImageGallery from 'react-image-gallery'
-import 'react-image-gallery/styles/css/image-gallery.css'
 import Link from 'next/link'
+// CSS is imported globally in app/layout.tsx
 import { CONTACT_INFO } from '@/lib/contact-info'
 import { propertyPhotos } from '@/lib/property-photos'
 
